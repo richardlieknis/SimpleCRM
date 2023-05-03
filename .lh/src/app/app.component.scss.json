@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 49,
             "patches": [
                 {
                     "date": 1683129750124,
@@ -60,6 +60,150 @@
                 {
                     "date": 1683131929086,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n }\r\n \r\n .example-sidenav-content {\r\n   display: flex;\r\n-  height: 100vh;\r\n   width: 100%;\r\n   justify-content: center;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683133216762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n \r\n mat-toolbar {\r\n   display: flex;\r\n   gap: 20px;\r\n+  height: 100px;\r\n }\r\n \r\n mat-icon {\r\n   filter: invert(1);\r\n"
+                },
+                {
+                    "date": 1683133224378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \r\n mat-toolbar {\r\n   display: flex;\r\n   gap: 20px;\r\n-  height: 100px;\r\n+  height: 64px;\r\n }\r\n \r\n mat-icon {\r\n   filter: invert(1);\r\n"
+                },
+                {
+                    "date": 1683133260015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,13 @@\n mat-icon {\r\n   filter: invert(1);\r\n }\r\n \r\n+.logo-container {\r\n+  height: 64px;\r\n+  border-bottom: 1px solid #111;\r\n+}\r\n+\r\n .example-container {\r\n   width: 100%;\r\n   height: 100vh;\r\n   border: 1px solid rgba(0, 0, 0, 0.5);\r\n"
+                },
+                {
+                    "date": 1683133308630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,6 +40,6 @@\n   justify-content: center;\r\n }\r\n \r\n .example-sidenav {\r\n-  padding: 20px;\r\n+  // padding: 20px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133317702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n }\r\n \r\n .logo-container {\r\n   height: 64px;\r\n-  border-bottom: 1px solid #111;\r\n+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683133327574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n }\r\n \r\n .logo-container {\r\n   height: 64px;\r\n-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);\r\n+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683133402293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,15 +24,15 @@\n }\r\n \r\n .logo-container {\r\n   height: 64px;\r\n-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\r\n+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n   height: 100vh;\r\n-  border: 1px solid rgba(0, 0, 0, 0.5);\r\n+  // border: 1px solid rgba(0, 0, 0, 0.5);\r\n }\r\n \r\n .example-sidenav-content {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1683133411221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n \r\n .example-container {\r\n   width: 100%;\r\n   height: 100vh;\r\n-  // border: 1px solid rgba(0, 0, 0, 0.5);\r\n }\r\n \r\n .example-sidenav-content {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1683133419230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n }\r\n \r\n .logo-container {\r\n   height: 64px;\r\n-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\r\n+  border-bottom: 1px solid #fff1\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683133440164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n   filter: invert(1);\r\n }\r\n \r\n .logo-container {\r\n-  height: 64px;\r\n-  border-bottom: 1px solid #fff1\r\n+  height: 62px;\r\n+  border-bottom: 1px solid #fff2\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683133446707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n   filter: invert(1);\r\n }\r\n \r\n .logo-container {\r\n-  height: 62px;\r\n+  height: 64px;\r\n   border-bottom: 1px solid #fff2\r\n }\r\n \r\n .example-container {\r\n"
+                },
+                {
+                    "date": 1683133477819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,7 +38,7 @@\n   width: 100%;\r\n   justify-content: center;\r\n }\r\n \r\n-.example-sidenav {\r\n-  // padding: 20px;\r\n+.menu-links {\r\n+  padding: 20px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133503154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,12 @@\n }\r\n \r\n .logo-container {\r\n   height: 64px;\r\n-  border-bottom: 1px solid #fff2\r\n+  border-bottom: 1px solid #fff2;\r\n+  display: flex;\r\n+  align-items: center;\r\n+  justify-content: center;\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683133523113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,5 +43,8 @@\n }\r\n \r\n .menu-links {\r\n   padding: 20px;\r\n+  li {\r\n+    list-style: none;\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133532316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,7 +44,8 @@\n \r\n .menu-links {\r\n   padding: 20px;\r\n   li {\r\n+    background-color: aqua;\r\n     list-style: none;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133553388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,13 +38,11 @@\n \r\n .example-sidenav-content {\r\n   display: flex;\r\n   width: 100%;\r\n-  justify-content: center;\r\n }\r\n \r\n .menu-links {\r\n-  padding: 20px;\r\n   li {\r\n     background-color: aqua;\r\n     list-style: none;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683133625478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,13 +36,13 @@\n   height: 100vh;\r\n }\r\n \r\n .example-sidenav-content {\r\n-  display: flex;\r\n   width: 100%;\r\n }\r\n \r\n .menu-links {\r\n+  padding-left: unset;\r\n   li {\r\n     background-color: aqua;\r\n     list-style: none;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683133635589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,12 @@\n   width: 100%;\r\n }\r\n \r\n .menu-links {\r\n-  padding-left: unset;\r\n+  ul {\r\n+    padding-left: unset;\r\n+\r\n+  }\r\n   li {\r\n     background-color: aqua;\r\n     list-style: none;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683133651230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,9 @@\n }\r\n \r\n .menu-links {\r\n   ul {\r\n-    padding-left: unset;\r\n-\r\n+    padding: 20px;\r\n   }\r\n   li {\r\n     background-color: aqua;\r\n     list-style: none;\r\n"
+                },
+                {
+                    "date": 1683133658211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n }\r\n \r\n .menu-links {\r\n   ul {\r\n-    padding: 20px;\r\n+    padding: 10px 20px;\r\n   }\r\n   li {\r\n     background-color: aqua;\r\n     list-style: none;\r\n"
+                },
+                {
+                    "date": 1683133672424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,10 @@\n }\r\n \r\n .menu-links {\r\n   ul {\r\n-    padding: 10px 20px;\r\n+    padding: unset;\r\n   }\r\n   li {\r\n-    background-color: aqua;\r\n     list-style: none;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133680573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,7 +44,8 @@\n   ul {\r\n     padding: unset;\r\n   }\r\n   li {\r\n+    background-color: antiquewhite;\r\n     list-style: none;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133691287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,7 +45,8 @@\n     padding: unset;\r\n   }\r\n   li {\r\n     background-color: antiquewhite;\r\n+    padding: 5px 20px;\r\n     list-style: none;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133701945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,6 +47,8 @@\n   li {\r\n     background-color: antiquewhite;\r\n     padding: 5px 20px;\r\n     list-style: none;\r\n+    display: flex;\r\n+    align-items: center;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133707980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,6 +49,7 @@\n     padding: 5px 20px;\r\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n+    gap: 10px;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133723103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n   ul {\r\n     padding: unset;\r\n   }\r\n   li {\r\n-    background-color: antiquewhite;\r\n     padding: 5px 20px;\r\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n"
+                },
+                {
+                    "date": 1683133773026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,5 +50,8 @@\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n   }\r\n+  mat-icon {\r\n+    filter: invert(0);\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683133791680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,12 @@\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n+    &:hover {\r\n+      cursor: pointer;\r\n+      background-color: #555;\r\n+    }\r\n   }\r\n   mat-icon {\r\n     filter: invert(0);\r\n   }\r\n"
+                },
+                {
+                    "date": 1683133817472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,9 @@\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n+    transition: background-color 225ms ease-in-out;\r\n     &:hover {\r\n       cursor: pointer;\r\n       background-color: #555;\r\n     }\r\n"
+                },
+                {
+                    "date": 1683133822806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n-    transition: background-color 225ms ease-in-out;\r\n+    transition: background-color 125ms ease-in-out;\r\n     &:hover {\r\n       cursor: pointer;\r\n       background-color: #555;\r\n     }\r\n"
+                },
+                {
+                    "date": 1683133876875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   height: 100vh;\r\n }\r\n \r\n .example-sidenav-content {\r\n-  width: 100%;\r\n+  width: 100px;\r\n }\r\n \r\n .menu-links {\r\n   ul {\r\n@@ -49,9 +49,9 @@\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n-    transition: background-color 125ms ease-in-out;\r\n+    transition: background-color 175ms ease-in-out;\r\n     &:hover {\r\n       cursor: pointer;\r\n       background-color: #555;\r\n     }\r\n"
+                },
+                {
+                    "date": 1683133886119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   height: 100vh;\r\n }\r\n \r\n .example-sidenav-content {\r\n-  width: 100px;\r\n+  width: 100%;\r\n }\r\n \r\n .menu-links {\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683133921256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,12 @@\n .example-sidenav-content {\r\n   width: 100%;\r\n }\r\n \r\n+.example-sidenav {\r\n+  width: 100px;\r\n+}\r\n+\r\n .menu-links {\r\n   ul {\r\n     padding: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683133927730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n   width: 100%;\r\n }\r\n \r\n .example-sidenav {\r\n-  width: 100px;\r\n+  width: 250px;\r\n }\r\n \r\n .menu-links {\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683133940910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   ul {\r\n     padding: unset;\r\n   }\r\n   li {\r\n-    padding: 5px 20px;\r\n+    padding: 10px 20px;\r\n     list-style: none;\r\n     display: flex;\r\n     align-items: center;\r\n     gap: 10px;\r\n"
+                },
+                {
+                    "date": 1683133976736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n \r\n .menu-links {\r\n   ul {\r\n     padding: unset;\r\n+    margin-top: unset;\r\n   }\r\n   li {\r\n     padding: 10px 20px;\r\n     list-style: none;\r\n"
                 }
             ],
             "date": 1683129750124,

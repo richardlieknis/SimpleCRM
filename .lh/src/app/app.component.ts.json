@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1683131692731,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683132536523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,5 @@\n   styleUrls: ['./app.component.scss']\n })\n export class AppComponent {\n   title = 'SimpleCRM';\n-  showFiller = false;\n }\n"
                 }
             ],
             "date": 1683131692731,
