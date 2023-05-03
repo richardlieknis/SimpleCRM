@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/app.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1683129542127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683129716470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { NgModule } from '@angular/core';\n import { BrowserModule } from '@angular/platform-browser';\n-import {MatToolbarModule} from '@angular/material/toolbar';\n+import { MatToolbarModule } from '@angular/material/toolbar';\n+import { MatIconModule } from '@angular/material/icon';\n import { AppRoutingModule } from './app-routing.module';\n import { AppComponent } from './app.component';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n \n@@ -12,9 +13,10 @@\n   imports: [\n     BrowserModule,\n     AppRoutingModule,\n     BrowserAnimationsModule,\n-    MatToolbarModule\n+    MatToolbarModule,\n+    MatIconModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683131632682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { NgModule } from '@angular/core';\n import { BrowserModule } from '@angular/platform-browser';\n import { MatToolbarModule } from '@angular/material/toolbar';\n import { MatIconModule } from '@angular/material/icon';\n+import {MatSidenavModule} from '@angular/material/sidenav'; \n import { AppRoutingModule } from './app-routing.module';\n import { AppComponent } from './app.component';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n \n"
+                },
+                {
+                    "date": 1683131639147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n     BrowserModule,\n     AppRoutingModule,\n     BrowserAnimationsModule,\n     MatToolbarModule,\n-    MatIconModule\n+    MatIconModule,\n+    MatSidenavModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                }
+            ],
+            "date": 1683129542126,
+            "name": "Commit-0",
+            "content": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport {MatToolbarModule} from '@angular/material/toolbar';\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule,\n    MatToolbarModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n"
+        }
+    ]
+}
