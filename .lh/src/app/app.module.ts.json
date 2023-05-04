@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1683129542127,
@@ -68,6 +68,10 @@
                 {
                     "date": 1683217079847,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n import { MatFormFieldModule } from '@angular/material/form-field';\n import { MatInputModule } from '@angular/material/input';\n import { MatDatepickerModule } from '@angular/material/datepicker';\n+import { FormsModule } from '@angular/forms';\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -35,9 +36,10 @@\n     MatDialogModule,\n     MatFormFieldModule,\n     MatInputModule,\n     MatDatepickerModule,\n-    MatNativeDateModule\n+    MatNativeDateModule,\n+    FormsModule\n     \n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n"
+                },
+                {
+                    "date": 1683223714811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,15 @@\n import { MatFormFieldModule } from '@angular/material/form-field';\n import { MatInputModule } from '@angular/material/input';\n import { MatDatepickerModule } from '@angular/material/datepicker';\n import { FormsModule } from '@angular/forms';\n+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';\n+import { environment } from '../environments/environment';\n+import { provideAuth,getAuth } from '@angular/fire/auth';\n+import { provideDatabase,getDatabase } from '@angular/fire/database';\n+import { provideFirestore, getFirestore } from '@angular/fire/firestore';\n+import { MatProgressBarModule } from '@angular/material/progress-bar';\n+\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -37,9 +44,14 @@\n     MatFormFieldModule,\n     MatInputModule,\n     MatDatepickerModule,\n     MatNativeDateModule,\n-    FormsModule\n+    FormsModule,\n+    MatProgressBarModule,\n+    provideFirebaseApp(() => initializeApp(environment.firebase)),\n+    provideAuth(() => getAuth()),\n+    provideDatabase(() => getDatabase()),\n+    provideFirestore(() => getFirestore())\n     \n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n"
                 }
             ],
             "date": 1683129542126,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1683215514323,
@@ -24,6 +24,14 @@
                 {
                     "date": 1683215928648,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,14 @@\n   birthDate!: number;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n+\r\n+  constructor(obj?: any) {\r\n+    this.firstName = obj ? obj.firstName: '';\r\n+    this.lastName = obj ? obj.lastName: '';\r\n+    this.birthDate = obj ? obj.birthDate: '';\r\n+    this.street = obj ? obj.street: '';\r\n+    this.city = obj ? obj.city: '';\r\n+    this.zipCode = obj ? obj.zipCode: '';\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683223141207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,17 @@\n     this.street = obj ? obj.street: '';\r\n     this.city = obj ? obj.city: '';\r\n     this.zipCode = obj ? obj.zipCode: '';\r\n   }\r\n+\r\n+\r\n+  toJSON() {\r\n+    return {\r\n+      firstName: this.firstName,\r\n+      lastName: this.lastName,\r\n+      birthDate: this.birthDate,\r\n+      street: this.street,\r\n+      city: this.city,\r\n+      zipCode: this.zipCode\r\n+    }\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683223180000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     this.zipCode = obj ? obj.zipCode: '';\r\n   }\r\n \r\n \r\n-  toJSON() {\r\n+  public toJSON() {\r\n     return {\r\n       firstName: this.firstName,\r\n       lastName: this.lastName,\r\n       birthDate: this.birthDate,\r\n"
                 }
             ],
             "date": 1683215514323,

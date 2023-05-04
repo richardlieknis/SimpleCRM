@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1683138141869,
@@ -48,6 +48,30 @@
                 {
                     "date": 1683218339759,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,8 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n-    this.user.birthDate = this.birthDate.getTime() ? this.user.birthDate: 0;\n+    this.user.birthDate = this.birthDate.getTime();\n     console.log(\"USER: \" +  this.user);\n   }\n }\n"
+                },
+                {
+                    "date": 1683221718798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import { Component } from '@angular/core';\n+import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n+import { collection } from '@firebase/firestore';\n import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-dialog-add-user',\n@@ -8,9 +10,14 @@\n })\n export class DialogAddUserComponent {\n   user = new User();\n   birthDate!: Date;\n+  private userCollection: CollectionReference<DocumentData>;\n \n+  constructor(private firestore: Firestore) {\n+    this.userCollection = collection(this.firestore, 'users');\n+  }\n+\n   cancelDialog(): void{ }\n   \n \n   save() {\n"
+                },
+                {
+                    "date": 1683222731198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Component } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n-import { collection } from '@firebase/firestore';\n+import { addDoc, collection } from '@firebase/firestore';\n import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-dialog-add-user',\n@@ -21,7 +21,8 @@\n   \n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n-    console.log(\"USER: \" +  this.user);\n+\n+    addDoc((this.userCollection), this.user);\n   }\n }\n"
+                },
+                {
+                    "date": 1683222909120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,11 @@\n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user);\n+    addDoc((this.userCollection), this.user)\n+      .then((result: any) => {\n+        console.log(result);\n+      }\n+      );\n   }\n }\n"
+                },
+                {
+                    "date": 1683222916704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,7 @@\n \n     addDoc((this.userCollection), this.user)\n       .then((result: any) => {\n         console.log(result);\n-      }\n-      );\n+      });\n   }\n }\n"
+                },
+                {
+                    "date": 1683223201292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user)\n+    addDoc((this.userCollection), this.user.toJSON())\n       .then((result: any) => {\n         console.log(result);\n       });\n   }\n"
+                },
+                {
+                    "date": 1683223460324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,7 @@\n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user.toJSON())\n-      .then((result: any) => {\n-        console.log(result);\n-      });\n+    addDoc((this.userCollection), this.user.toJSON());\n   }\n }\n"
                 }
             ],
             "date": 1683138141869,

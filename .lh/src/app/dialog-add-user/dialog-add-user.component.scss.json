@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1683138768359,
@@ -84,6 +84,10 @@
                 {
                     "date": 1683215046657,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n   justify-content: center;\r\n   // gap: 10px;\r\n }\r\n \r\n-.name-inputs {\r\n+.double-input {\r\n   display: flex;\r\n   gap: 16px;\r\n }\r\n \r\n-.date-input {\r\n+.full-width-input {\r\n   width: 100%;\r\n   mat-form-field {\r\n     width: 100%;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683223802074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,9 @@\n   width: 100%;\r\n   mat-form-field {\r\n     width: 100%;\r\n   }\r\n+}\r\n+\r\n+mat-progress-bar {\r\n+  margin-top: 16px;\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1683138768359,
