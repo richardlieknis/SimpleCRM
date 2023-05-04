@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/dialog-add-user/dialog-add-user.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1683138141869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1683138141869,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-dialog-add-user',\n  templateUrl: './dialog-add-user.component.html',\n  styleUrls: ['./dialog-add-user.component.scss']\n})\nexport class DialogAddUserComponent {\ncancelDialog(){}\n}\n"
+        }
+    ]
+}

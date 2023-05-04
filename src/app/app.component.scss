@@ -2,13 +2,11 @@
   flex: 1 1 auto;
 }
 
-.example-icon {
-  background-color: #0000;
-  border: unset;
-  border-radius: 50%;
-  padding: 10px;
+.menu-icon {
+  filter: invert(1);
+  transition: background-color 125ms ease;
   &:hover {
-    background-color: #555;
+    background-color: #ccc;
     cursor: pointer;
   }
 }
@@ -42,6 +40,10 @@ mat-icon {
 
 .example-sidenav {
   width: 250px;
+}
+
+.router-container {
+  padding: 16px 56px;
 }
 
 .menu-links {

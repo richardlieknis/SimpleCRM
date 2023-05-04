@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/users/users.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1683136251662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683136329256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n import { Component } from '@angular/core';\n import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\n-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';\n+import { MatDialog } from '@angular/material/dialog';\n+\n @Component({\n   selector: 'app-users',\n   templateUrl: './users.component.html',\n   styleUrls: ['./users.component.scss']\n })\n export class UsersComponent {\n-  username: string =\"\";\n+  username: string = \"\";\n \n   constructor(public dialog: MatDialog) {\n     \n   }\n"
+                },
+                {
+                    "date": 1683138109920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,7 @@\n     dialogRef.afterClosed().subscribe(result => {\n       console.log(result);\n     });\n   }\n+\n+  cancelDialog(){}\n }\n"
+                },
+                {
+                    "date": 1683138130444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,6 @@\n       console.log(result);\n     });\n   }\n \n-  cancelDialog(){}\n+  \n }\n"
+                }
+            ],
+            "date": 1683136251662,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\nimport {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';\n@Component({\n  selector: 'app-users',\n  templateUrl: './users.component.html',\n  styleUrls: ['./users.component.scss']\n})\nexport class UsersComponent {\n  username: string =\"\";\n\n  constructor(public dialog: MatDialog) {\n    \n  }\n\n  openDialog(): void {\n    const dialogRef = this.dialog.open(DialogAddUserComponent, {\n      data: {name: this.username},\n    });\n\n    dialogRef.afterClosed().subscribe(result => {\n      console.log(result);\n    });\n  }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/app/dialog-add-user/dialog-add-user.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1683138039438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683138067208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n   Nutzer hinzufügen\n   </mat-form-field>\n </div>\n <div mat-dialog-actions>\n-  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n-  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n+  <button mat-button (click)=\"\">Cancel</button>\n+  <button mat-button [mat-dialog-close]=\"\" cdkFocusInitial>Save</button>\n </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683138093032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <h1 mat-dialog-title>Add User</h1>\n <div mat-dialog-content>\n   Nutzer hinzufügen\n-  </mat-form-field>\n </div>\n <div mat-dialog-actions>\n-  <button mat-button (click)=\"\">Cancel</button>\n+  <button mat-button (click)=\"cancel()\">Cancel</button>\n   <button mat-button [mat-dialog-close]=\"\" cdkFocusInitial>Save</button>\n </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683138101276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <h1 mat-dialog-title>Add User</h1>\n <div mat-dialog-content>Nutzer hinzufügen</div>\n <div mat-dialog-actions>\n-  <button mat-button (click)=\"cancel()\">Cancel</button>\n+  <button mat-button (click)=\"cancelDialog()\">Cancel</button>\n   <button mat-button [mat-dialog-close]=\"\" cdkFocusInitial>Save</button>\n </div>\n"
+                },
+                {
+                    "date": 1683138629800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,13 @@\n <h1 mat-dialog-title>Add User</h1>\n-<div mat-dialog-content>Nutzer hinzufügen</div>\n+<div mat-dialog-content>\n+  <mat-form-field appearance=\"outline\">\n+    <mat-label>Outline form field</mat-label>\n+    <input matInput placeholder=\"Placeholder\">\n+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n+    <mat-hint>Hint</mat-hint>\n+  </mat-form-field>\n+</div>\n <div mat-dialog-actions>\n   <button mat-button (click)=\"cancelDialog()\">Cancel</button>\n   <button mat-button [mat-dialog-close]=\"\" cdkFocusInitial>Save</button>\n </div>\n"
+                }
+            ],
+            "date": 1683138039438,
+            "name": "Commit-0",
+            "content": "<h1 mat-dialog-title>Add User</h1>\n<div mat-dialog-content>\n  Nutzer hinzufügen\n  </mat-form-field>\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div>"
+        }
+    ]
+}

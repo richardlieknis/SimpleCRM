@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 49,
+            "activePatchIndex": 58,
             "patches": [
                 {
                     "date": 1683129750124,
@@ -204,6 +204,42 @@
                 {
                     "date": 1683133976736,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n \r\n .menu-links {\r\n   ul {\r\n     padding: unset;\r\n+    margin-top: unset;\r\n   }\r\n   li {\r\n     padding: 10px 20px;\r\n     list-style: none;\r\n"
+                },
+                {
+                    "date": 1683134611748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,12 @@\n .example-sidenav {\r\n   width: 250px;\r\n }\r\n \r\n+.router-container {\r\n+  padding: 16px 56px;\r\n+}\r\n+\r\n .menu-links {\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n"
+                },
+                {
+                    "date": 1683135418302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .example-spacer {\r\n   flex: 1 1 auto;\r\n }\r\n \r\n-.example-icon {\r\n+.menu-icon {\r\n   background-color: #0000;\r\n   border: unset;\r\n   border-radius: 50%;\r\n   padding: 10px;\r\n"
+                },
+                {
+                    "date": 1683135442791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   background-color: #0000;\r\n   border: unset;\r\n   border-radius: 50%;\r\n   padding: 10px;\r\n+  filter: invert(1);\r\n   &:hover {\r\n     background-color: #555;\r\n     cursor: pointer;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683135455564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,10 @@\n   flex: 1 1 auto;\r\n }\r\n \r\n .menu-icon {\r\n-  background-color: #0000;\r\n-  border: unset;\r\n-  border-radius: 50%;\r\n-  padding: 10px;\r\n   filter: invert(1);\r\n   &:hover {\r\n-    background-color: #555;\r\n     cursor: pointer;\r\n   }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683135460818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \r\n .menu-icon {\r\n   filter: invert(1);\r\n   &:hover {\r\n+    background-color: #555;\r\n     cursor: pointer;\r\n   }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683135493412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n }\r\n \r\n .menu-icon {\r\n   filter: invert(1);\r\n+  transition: background-color 125ms ease;\r\n   &:hover {\r\n     background-color: #555;\r\n     cursor: pointer;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683135500097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n .menu-icon {\r\n   filter: invert(1);\r\n   transition: background-color 125ms ease;\r\n   &:hover {\r\n-    background-color: #555;\r\n+    background-color: #111;\r\n     cursor: pointer;\r\n   }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683135506741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n .menu-icon {\r\n   filter: invert(1);\r\n   transition: background-color 125ms ease;\r\n   &:hover {\r\n-    background-color: #111;\r\n+    // background-color: #111;\r\n     cursor: pointer;\r\n   }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683135522773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n .menu-icon {\r\n   filter: invert(1);\r\n   transition: background-color 125ms ease;\r\n   &:hover {\r\n-    // background-color: #111;\r\n+    background-color: #ccc;\r\n     cursor: pointer;\r\n   }\r\n }\r\n \r\n"
                 }
             ],
             "date": 1683129750124,

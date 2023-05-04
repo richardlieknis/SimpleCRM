@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/users/users.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1683135231609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1683135231609,
+            "name": "Commit-0",
+            "content": ".add-user-btn {\r\n  position: absolute;\r\n  bottom: 56px;\r\n  right: 56px;\r\n}"
+        }
+    ]
+}

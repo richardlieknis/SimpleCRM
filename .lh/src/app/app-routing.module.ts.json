@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -12,6 +12,26 @@
                 {
                     "date": 1683131687607,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n   imports: [RouterModule.forRoot(routes)],\n   exports: [RouterModule]\n })\n export class AppRoutingModule {\n-  showFiller = false;\n+  \n  }\n"
+                },
+                {
+                    "date": 1683134342448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,13 @@\n import { NgModule } from '@angular/core';\n import { RouterModule, Routes } from '@angular/router';\n+import { DashboardComponent } from './dashboard/dashboard.component';\n+import { UsersComponent } from './users/users.component';\n \n-const routes: Routes = [];\n+const routes: Routes = [\n+  {path: '/', component: DashboardComponent},\n+  {path: '/', component: UsersComponent}\n+];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n   exports: [RouterModule]\n"
+                },
+                {
+                    "date": 1683134465615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n \n const routes: Routes = [\n-  {path: '/', component: DashboardComponent},\n-  {path: '/', component: UsersComponent}\n+  {path: '', component: DashboardComponent},\n+  {path: '', component: UsersComponent}\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683134480776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { UsersComponent } from './users/users.component';\n \n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n-  {path: '', component: UsersComponent}\n+  {path: '/user', component: UsersComponent}\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683134487427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { UsersComponent } from './users/users.component';\n \n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n-  {path: '/user', component: UsersComponent}\n+  {path: 'user', component: UsersComponent}\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683134509515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import { UsersComponent } from './users/users.component';\n \n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n+  {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent}\n ];\n \n @NgModule({\n"
                 }
             ],
             "date": 1683131675966,

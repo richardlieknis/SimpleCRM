@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1683129542127,
@@ -20,6 +20,50 @@
                 {
                     "date": 1683131639147,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n     BrowserModule,\n     AppRoutingModule,\n     BrowserAnimationsModule,\n     MatToolbarModule,\n-    MatIconModule\n+    MatIconModule,\n+    MatSidenavModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683135253470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,20 +5,26 @@\n import {MatSidenavModule} from '@angular/material/sidenav'; \n import { AppRoutingModule } from './app-routing.module';\n import { AppComponent } from './app.component';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n+import { DashboardComponent } from './dashboard/dashboard.component';\n+import { UsersComponent } from './users/users.component';\n+import {MatButtonModule} from '@angular/material/button';\n \n @NgModule({\n   declarations: [\n-    AppComponent\n+    AppComponent,\n+    DashboardComponent,\n+    UsersComponent\n   ],\n   imports: [\n     BrowserModule,\n     AppRoutingModule,\n     BrowserAnimationsModule,\n     MatToolbarModule,\n     MatIconModule,\n-    MatSidenavModule\n+    MatSidenavModule,\n+    MatButtonModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683135286379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     BrowserAnimationsModule,\n     MatToolbarModule,\n     MatIconModule,\n     MatSidenavModule,\n-    MatButtonModule\n+    // MatButtonModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683135556635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n import { AppComponent } from './app.component';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n-import {MatButtonModule} from '@angular/material/button';\n+import { MatButtonModule } from '@angular/material/button';\n+import {MatTooltipModule} from '@angular/material/tooltip';\n \n @NgModule({\n   declarations: [\n     AppComponent,\n@@ -22,9 +23,9 @@\n     BrowserAnimationsModule,\n     MatToolbarModule,\n     MatIconModule,\n     MatSidenavModule,\n-    // MatButtonModule\n+    MatButtonModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683135564701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n     BrowserAnimationsModule,\n     MatToolbarModule,\n     MatIconModule,\n     MatSidenavModule,\n-    MatButtonModule\n+    MatButtonModule,\n+    MatTooltipModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683136274307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,15 +8,18 @@\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n import { MatButtonModule } from '@angular/material/button';\n-import {MatTooltipModule} from '@angular/material/tooltip';\n+import { MatTooltipModule } from '@angular/material/tooltip';\n+import { MatDialogModule } from '@angular/material/dialog';\n+import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n \n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n-    UsersComponent\n+    UsersComponent,\n+    DialogAddUserComponent\n   ],\n   imports: [\n     BrowserModule,\n     AppRoutingModule,\n"
+                },
+                {
+                    "date": 1683136279676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n     MatToolbarModule,\n     MatIconModule,\n     MatSidenavModule,\n     MatButtonModule,\n-    MatTooltipModule\n+    MatTooltipModule,\n+    MatDialogModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683138586877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n import { MatButtonModule } from '@angular/material/button';\n import { MatTooltipModule } from '@angular/material/tooltip';\n import { MatDialogModule } from '@angular/material/dialog';\n import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n+import { MatFormFieldModule } from '@angular/material/form-field';\n \n+\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -28,9 +30,10 @@\n     MatIconModule,\n     MatSidenavModule,\n     MatButtonModule,\n     MatTooltipModule,\n-    MatDialogModule\n+    MatDialogModule,\n+    MatFormFieldModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683138703299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,12 @@\n import { MatTooltipModule } from '@angular/material/tooltip';\n import { MatDialogModule } from '@angular/material/dialog';\n import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n import { MatFormFieldModule } from '@angular/material/form-field';\n+import { MatInputModule } from '@angular/material/input';\n \n \n+\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -31,9 +33,10 @@\n     MatSidenavModule,\n     MatButtonModule,\n     MatTooltipModule,\n     MatDialogModule,\n-    MatFormFieldModule\n+    MatFormFieldModule,\n+    MatInputModule\n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683139695407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,9 @@\n import { MatDialogModule } from '@angular/material/dialog';\n import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n import { MatFormFieldModule } from '@angular/material/form-field';\n import { MatInputModule } from '@angular/material/input';\n-\n-\n-\n+import { MatDatepickerModule } from '@angular/material/datepicker';\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -34,9 +32,11 @@\n     MatButtonModule,\n     MatTooltipModule,\n     MatDialogModule,\n     MatFormFieldModule,\n-    MatInputModule\n+    MatInputModule,\n+    MatDatepickerModule\n+    \n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n })\n"
+                },
+                {
+                    "date": 1683140254675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,10 @@\n     MatTooltipModule,\n     MatDialogModule,\n     MatFormFieldModule,\n     MatInputModule,\n-    MatDatepickerModule\n+    MatDatepickerModule,\n+    MatNativeDateModule\n     \n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n"
+                },
+                {
+                    "date": 1683140297101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { NgModule } from '@angular/core';\n import { BrowserModule } from '@angular/platform-browser';\n+import { MatNativeDateModule } from '@angular/material/core'\n import { MatToolbarModule } from '@angular/material/toolbar';\n import { MatIconModule } from '@angular/material/icon';\n import {MatSidenavModule} from '@angular/material/sidenav'; \n import { AppRoutingModule } from './app-routing.module';\n"
                 }
             ],
             "date": 1683129542126,
