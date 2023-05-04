@@ -11,6 +11,7 @@ import { User } from 'src/models/user.class';
 export class DialogAddUserComponent {
   user = new User();
   birthDate!: Date;
+  isLoading: boolean = false;
   private userCollection: CollectionReference<DocumentData>;
 
   constructor(private firestore: Firestore) {
@@ -21,8 +22,12 @@ export class DialogAddUserComponent {
   
 
   save() {
+    this.isLoading = true;
     this.user.birthDate = this.birthDate.getTime();
 
-    addDoc((this.userCollection), this.user.toJSON());
+    addDoc((this.userCollection), this.user.toJSON())
+      .then((result: any) => {
+        this.isLoading = false;
+      });
   }
 }

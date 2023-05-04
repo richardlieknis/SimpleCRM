@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1683138141869,
@@ -72,6 +72,22 @@
                 {
                     "date": 1683223460324,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,7 @@\n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user.toJSON())\n-      .then((result: any) => {\n-        console.log(result);\n-      });\n+    addDoc((this.userCollection), this.user.toJSON());\n   }\n }\n"
+                },
+                {
+                    "date": 1683224104265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n })\n export class DialogAddUserComponent {\n   user = new User();\n   birthDate!: Date;\n+  isLoading: boolean = false;\n   private userCollection: CollectionReference<DocumentData>;\n \n   constructor(private firestore: Firestore) {\n     this.userCollection = collection(this.firestore, 'users');\n"
+                },
+                {
+                    "date": 1683224179499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n })\n export class DialogAddUserComponent {\n   user = new User();\n   birthDate!: Date;\n-  isLoading: boolean = false;\n+  isLoading: boolean = true;\n   private userCollection: CollectionReference<DocumentData>;\n \n   constructor(private firestore: Firestore) {\n     this.userCollection = collection(this.firestore, 'users');\n"
+                },
+                {
+                    "date": 1683224204619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n })\n export class DialogAddUserComponent {\n   user = new User();\n   birthDate!: Date;\n-  isLoading: boolean = true;\n+  isLoading: boolean = false;\n   private userCollection: CollectionReference<DocumentData>;\n \n   constructor(private firestore: Firestore) {\n     this.userCollection = collection(this.firestore, 'users');\n"
+                },
+                {
+                    "date": 1683224424591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,13 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n+    this.isLoading = true;\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user.toJSON());\n+    addDoc((this.userCollection), this.user.toJSON())\n+      .then((result: any) => {\n+        this.isLoading = false;\n+      });\n   }\n }\n"
                 }
             ],
             "date": 1683138141869,

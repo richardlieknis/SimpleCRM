@@ -17,13 +17,7 @@ export class UsersComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddUserComponent, {
-      data: {name: this.user.firstName},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      
-    });
+      this.dialog.open(DialogAddUserComponent, {});
   }
 
   
