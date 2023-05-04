@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1683136251662,
@@ -20,6 +20,22 @@
                 {
                     "date": 1683138130444,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,6 @@\n       console.log(result);\n     });\n   }\n \n-  cancelDialog(){}\n+  \n }\n"
+                },
+                {
+                    "date": 1683216041918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,17 @@\n import { Component } from '@angular/core';\n import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\n import { MatDialog } from '@angular/material/dialog';\n+import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-users',\n   templateUrl: './users.component.html',\n   styleUrls: ['./users.component.scss']\n })\n export class UsersComponent {\n   username: string = \"\";\n+  user = new User();\n \n   constructor(public dialog: MatDialog) {\n     \n   }\n"
+                },
+                {
+                    "date": 1683217013290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,13 @@\n   }\n \n   openDialog(): void {\n     const dialogRef = this.dialog.open(DialogAddUserComponent, {\n-      data: {name: this.username},\n+      data: {name: this.user.firstName},\n     });\n \n     dialogRef.afterClosed().subscribe(result => {\n-      console.log(result);\n+      console.log(this.user.firstName);\n     });\n   }\n \n   \n"
+                },
+                {
+                    "date": 1683217536539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n       data: {name: this.user.firstName},\n     });\n \n     dialogRef.afterClosed().subscribe(result => {\n-      console.log(this.user.firstName);\n+      console.log(this.user.birthDate);\n     });\n   }\n \n   \n"
+                },
+                {
+                    "date": 1683218239595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n       data: {name: this.user.firstName},\n     });\n \n     dialogRef.afterClosed().subscribe(result => {\n-      console.log(this.user.birthDate);\n+      \n     });\n   }\n \n   \n"
                 }
             ],
             "date": 1683136251662,

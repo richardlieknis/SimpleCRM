@@ -4,17 +4,17 @@
   <div class="double-input">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
-      <input matInput />
+      <input [(ngModel)]="user.firstName" matInput />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Surname</mat-label>
-      <input matInput />
+      <input [(ngModel)]="user.lastName" matInput />
     </mat-form-field>
   </div>
   <div class="full-width-input">
     <mat-form-field appearance="outline" class="example-form-field">
       <mat-label>Your Birth Date</mat-label>
-      <input matInput [matDatepicker]="datepicker" />
+      <input [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" />
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
         matIconSuffix
@@ -33,17 +33,17 @@
   <div class="full-width-input" style="margin-top: 12px">
     <mat-form-field appearance="outline">
       <mat-label>Streetname & Nr</mat-label>
-      <input matInput />
+      <input [(ngModel)]="user.street" matInput />
     </mat-form-field>
   </div>
   <div class="double-input">
     <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
-      <input matInput />
+      <input [(ngModel)]="user.city" matInput />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Zip-Code</mat-label>
-      <input matInput />
+      <input [(ngModel)]="user.zipCode" matInput />
     </mat-form-field>
   </div>
   <!-- DIALOG CONTENT END-->
@@ -51,5 +51,7 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="cancelDialog()">Cancel</button>
-  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Save</button>
+  <button mat-button [mat-dialog-close]="" (click)="save()" cdkFocusInitial>
+    Save
+  </button>
 </div>

@@ -3,11 +3,51 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1683138141869,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683216128597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import { Component } from '@angular/core';\n+import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-dialog-add-user',\n   templateUrl: './dialog-add-user.component.html',\n   styleUrls: ['./dialog-add-user.component.scss']\n })\n export class DialogAddUserComponent {\n+  user = new User();\n cancelDialog(){}\n }\n"
+                },
+                {
+                    "date": 1683216137070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n   styleUrls: ['./dialog-add-user.component.scss']\n })\n export class DialogAddUserComponent {\n   user = new User();\n-cancelDialog(){}\n+  cancelDialog(): void{}\n }\n"
+                },
+                {
+                    "date": 1683216966781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,11 @@\n   styleUrls: ['./dialog-add-user.component.scss']\n })\n export class DialogAddUserComponent {\n   user = new User();\n-  cancelDialog(): void{}\n+  cancelDialog(): void{ }\n+  \n+\n+  save() {\n+    console.log(\"USER: \" +  this.user.firstName);\n+  }\n }\n"
+                },
+                {
+                    "date": 1683217166266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n-    console.log(\"USER: \" +  this.user.firstName);\n+    console.log(\"USER: \" +  this.user);\n   }\n }\n"
+                },
+                {
+                    "date": 1683217551270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n-    console.log(\"USER: \" +  this.user);\n+    console.log(\"USER: \" +  this.user.birthDate);\n   }\n }\n"
+                },
+                {
+                    "date": 1683217895887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,14 @@\n   styleUrls: ['./dialog-add-user.component.scss']\n })\n export class DialogAddUserComponent {\n   user = new User();\n+  birthDate!: Date;\n+  \n   cancelDialog(): void{ }\n   \n \n   save() {\n+    this.user.birthDate = this.birthDate.getTime();\n     console.log(\"USER: \" +  this.user.birthDate);\n   }\n }\n"
+                },
+                {
+                    "date": 1683217946034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n })\n export class DialogAddUserComponent {\n   user = new User();\n   birthDate!: Date;\n-  \n+\n   cancelDialog(): void{ }\n   \n \n   save() {\n"
+                },
+                {
+                    "date": 1683218247734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n   \n \n   save() {\n     this.user.birthDate = this.birthDate.getTime();\n-    console.log(\"USER: \" +  this.user.birthDate);\n+    console.log(\"USER: \" +  this.user);\n   }\n }\n"
+                },
+                {
+                    "date": 1683218325136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,8 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n-    this.user.birthDate = this.birthDate.getTime();\n+    this.user.birthDate = this.birthDate.getTime() ? this.user.birthDate: 0;\n     console.log(\"USER: \" +  this.user);\n   }\n }\n"
+                },
+                {
+                    "date": 1683218339759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,8 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n-    this.user.birthDate = this.birthDate.getTime() ? this.user.birthDate: 0;\n+    this.user.birthDate = this.birthDate.getTime();\n     console.log(\"USER: \" +  this.user);\n   }\n }\n"
                 }
             ],
             "date": 1683138141869,

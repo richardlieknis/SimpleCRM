@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1683129542127,
@@ -64,6 +64,10 @@
                 {
                     "date": 1683140297101,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { NgModule } from '@angular/core';\n import { BrowserModule } from '@angular/platform-browser';\n+import { MatNativeDateModule } from '@angular/material/core'\n import { MatToolbarModule } from '@angular/material/toolbar';\n import { MatIconModule } from '@angular/material/icon';\n import {MatSidenavModule} from '@angular/material/sidenav'; \n import { AppRoutingModule } from './app-routing.module';\n"
+                },
+                {
+                    "date": 1683217079847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';\n import { MatFormFieldModule } from '@angular/material/form-field';\n import { MatInputModule } from '@angular/material/input';\n import { MatDatepickerModule } from '@angular/material/datepicker';\n+import { FormsModule } from '@angular/forms';\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n@@ -35,9 +36,10 @@\n     MatDialogModule,\n     MatFormFieldModule,\n     MatInputModule,\n     MatDatepickerModule,\n-    MatNativeDateModule\n+    MatNativeDateModule,\n+    FormsModule\n     \n   ],\n   providers: [],\n   bootstrap: [AppComponent]\n"
                 }
             ],
             "date": 1683129542126,
