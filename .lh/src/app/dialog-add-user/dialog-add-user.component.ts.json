@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1683138141869,
@@ -88,6 +88,18 @@
                 {
                     "date": 1683224424591,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,13 @@\n   cancelDialog(): void{ }\n   \n \n   save() {\n+    this.isLoading = true;\n     this.user.birthDate = this.birthDate.getTime();\n \n-    addDoc((this.userCollection), this.user.toJSON());\n+    addDoc((this.userCollection), this.user.toJSON())\n+      .then((result: any) => {\n+        this.isLoading = false;\n+      });\n   }\n }\n"
+                },
+                {
+                    "date": 1683296034297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { Component } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n+import { MatDialogRef } from '@angular/material/dialog';\n import { addDoc, collection } from '@firebase/firestore';\n import { User } from 'src/models/user.class';\n \n @Component({\n@@ -13,13 +14,15 @@\n   birthDate!: Date;\n   isLoading: boolean = false;\n   private userCollection: CollectionReference<DocumentData>;\n \n-  constructor(private firestore: Firestore) {\n+  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) {\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n-  cancelDialog(): void{ }\n+  cancelDialog(): void{\n+    this.dialogRef.close();\n+   }\n   \n \n   save() {\n     this.isLoading = true;\n"
+                },
+                {
+                    "date": 1683296051062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n   cancelDialog(): void{\n-    this.dialogRef.close();\n+    // this.dialogRef.close();\n    }\n   \n \n   save() {\n"
+                },
+                {
+                    "date": 1683296063184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n   cancelDialog(): void{\n-    // this.dialogRef.close();\n+    this.dialogRef.close();\n    }\n   \n \n   save() {\n@@ -30,7 +30,8 @@\n \n     addDoc((this.userCollection), this.user.toJSON())\n       .then((result: any) => {\n         this.isLoading = false;\n+        this.cancelDialog();\n       });\n   }\n }\n"
                 }
             ],
             "date": 1683138141869,

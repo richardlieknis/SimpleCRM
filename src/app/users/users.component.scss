@@ -3,3 +3,12 @@
   bottom: 56px;
   right: 56px;
 }
+
+.users-table {
+  width: 100%;
+  tr {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+  }
+}

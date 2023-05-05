@@ -3,11 +3,35 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1683135231609,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683300325630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n .add-user-btn {\r\n   position: absolute;\r\n   bottom: 56px;\r\n   right: 56px;\r\n+}\r\n+\r\n+.users-table {\r\n+  width: 100%;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683300434418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,8 @@\n }\r\n \r\n .users-table {\r\n   width: 100%;\r\n+  tr {\r\n+    text-align: center;\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683300446085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n }\r\n \r\n .users-table {\r\n   width: 100%;\r\n+  display: flex;\r\n   tr {\r\n     text-align: center;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683300469313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n }\r\n \r\n .users-table {\r\n   width: 100%;\r\n-  display: flex;\r\n   tr {\r\n     text-align: center;\r\n+    display: flex;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683300483408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,7 @@\n   width: 100%;\r\n   tr {\r\n     text-align: center;\r\n     display: flex;\r\n+    justify-content: space-evenly;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683300489235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n   width: 100%;\r\n   tr {\r\n     text-align: center;\r\n     display: flex;\r\n-    justify-content: space-evenly;\r\n+    justify-content: space-around;\r\n   }\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1683135231609,
