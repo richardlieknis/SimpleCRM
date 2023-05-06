@@ -14,15 +14,18 @@
     <table class="users-table">
       <tr>
         <th>Name</th>
-        <th>Surname</th>
         <th>E-Mail</th>
+        <th>Street</th>
         <th>City</th>
       </tr>
-      <tr>
-        <td>Name</td>
-        <td>Surname</td>
-        <td>E-Mail</td>
-        <td>City</td>
+      <tr
+        *ngFor="let user of allUsers; let i = index"
+        [routerLink]="['/user/' + allIds[i]]"
+      >
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.zipCode }}</td>
+        <td>{{ user.city }}</td>
       </tr>
     </table>
   </mat-card-content>

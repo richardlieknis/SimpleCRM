@@ -12,6 +12,17 @@
     </mat-form-field>
   </div>
   <div class="full-width-input">
+    <mat-form-field appearance="outline">
+      <mat-label>eMail</mat-label>
+      <input
+        type="email"
+        [disabled]="isLoading"
+        [(ngModel)]="user.email"
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <div class="full-width-input">
     <mat-form-field appearance="outline" class="example-form-field">
       <mat-label>Your Birth Date</mat-label>
       <input
@@ -38,7 +49,7 @@
   </div>
   <div class="full-width-input" style="margin-top: 12px">
     <mat-form-field appearance="outline">
-      <mat-label>Streetname & Nr</mat-label>
+      <mat-label>Street & House No.</mat-label>
       <input [disabled]="isLoading" [(ngModel)]="user.street" matInput />
     </mat-form-field>
   </div>

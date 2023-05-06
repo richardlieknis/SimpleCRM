@@ -1,21 +1,37 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CollectionReference, DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   username: string = "";
   user = new User();
+  allUsers: any = [];
+  allIds: any = [];
 
-  constructor(public dialog: MatDialog) {
+  private userCollection: CollectionReference<DocumentData>;
+
+  constructor(public dialog: MatDialog, private firestore: Firestore) {
+    this.userCollection = collection(this.firestore, 'users');
+  }
+
+  ngOnInit(): void {
+    collectionData(this.userCollection, { idField: 'id' })
+      .subscribe((data: any) => {
+        data.forEach((user: any) => {
+          this.allUsers.push(user)
+          this.allIds.push(user['id']);          
+        });
+    })
   }
 
   openDialog(): void {

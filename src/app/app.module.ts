@@ -26,6 +26,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatTableModule } from '@angular/material/table'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UserDetailComponent } from './user-detail/user-detail.component';
  
  
 
@@ -34,7 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppComponent,
     DashboardComponent,
     UsersComponent,
-    DialogAddUserComponent
+    DialogAddUserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

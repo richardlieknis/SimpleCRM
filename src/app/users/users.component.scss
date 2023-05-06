@@ -4,11 +4,31 @@
   right: 56px;
 }
 
+mat-card-content {
+  padding: unset !important;
+  
+}
+
 .users-table {
   width: 100%;
   tr {
     text-align: center;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #fff2;
+    padding: 20px 0;
+    cursor: pointer;
+    &:last-child {
+      border-bottom: unset;
+    }
+    &:first-child {
+      cursor: unset;
+      &:hover {
+        background-color: unset;
+      }
+    }
+    &:hover {
+      background-color: #0001;
+    }
   }
 }
