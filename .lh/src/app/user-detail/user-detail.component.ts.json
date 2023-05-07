@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/app/user-detail/user-detail.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1683454687921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683454816066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,8 @@\n   }\n \n   ngOnInit(): void {\n     this.route.paramMap.subscribe(paramMap => {\n-      this.userId = paramMap.get('id');\n+      this.userId = paramMap.get('id') as string;\n       })\n   }\n }\n"
+                },
+                {
+                    "date": 1683458463404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,8 @@\n \n   ngOnInit(): void {\n     this.route.paramMap.subscribe(paramMap => {\n       this.userId = paramMap.get('id') as string;\n+      console.log(this.userId);\n       })\n   }\n }\n"
+                },
+                {
+                    "date": 1683459591042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Component, OnInit } from '@angular/core';\n+import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';\n import { ActivatedRoute } from '@angular/router';\n \n @Component({\n   selector: 'app-user-detail',\n@@ -7,16 +8,26 @@\n   styleUrls: ['./user-detail.component.scss']\n })\n export class UserDetailComponent implements OnInit{\n   userId: string = '';\n+  userInfos: [] = [];\n+  private userCollection: CollectionReference<DocumentData>;\n \n-  constructor(private route: ActivatedRoute) {\n-    \n+  constructor(private route: ActivatedRoute, private firestore: Firestore) {\n+    this.userCollection = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n     this.route.paramMap.subscribe(paramMap => {\n       this.userId = paramMap.get('id') as string;\n-      console.log(this.userId);\n+      this.setUserData(this.userId);\n       })\n   }\n+\n+  setUserData(userId: string) {\n+    const docRef = doc(this.userCollection, userId);\n+    const userData = docData(docRef);\n+    userData.subscribe((user: any) => {\n+      console.log(user.firstName);\n+    })\n+  }\n }\n"
+                },
+                {
+                    "date": 1683459666019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n import { Component, OnInit } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';\n import { ActivatedRoute } from '@angular/router';\n+import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-user-detail',\n   templateUrl: './user-detail.component.html',\n   styleUrls: ['./user-detail.component.scss']\n })\n export class UserDetailComponent implements OnInit{\n   userId: string = '';\n-  userInfos: [] = [];\n+  user = new User();\n   private userCollection: CollectionReference<DocumentData>;\n \n   constructor(private route: ActivatedRoute, private firestore: Firestore) {\n     this.userCollection = collection(this.firestore, 'users');\n@@ -26,8 +27,8 @@\n   setUserData(userId: string) {\n     const docRef = doc(this.userCollection, userId);\n     const userData = docData(docRef);\n     userData.subscribe((user: any) => {\n-      console.log(user.firstName);\n+      this.user.firstName = user.firstName;\n     })\n   }\n }\n"
+                },
+                {
+                    "date": 1683459762501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,7 +28,8 @@\n     const docRef = doc(this.userCollection, userId);\n     const userData = docData(docRef);\n     userData.subscribe((user: any) => {\n       this.user.firstName = user.firstName;\n+      this.user.lastName = user.lastName;\n     })\n   }\n }\n"
+                },
+                {
+                    "date": 1683468131305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,13 @@\n   ngOnInit(): void {\n     this.route.paramMap.subscribe(paramMap => {\n       this.userId = paramMap.get('id') as string;\n       this.setUserData(this.userId);\n-      })\n+    })\n+    \n+    this.route.params.subscribe((params) => {\n+      console.log(\"PARA: \"+params);\n+    })\n   }\n \n   setUserData(userId: string) {\n     const docRef = doc(this.userCollection, userId);\n"
+                },
+                {
+                    "date": 1683468144484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n       this.setUserData(this.userId);\n     })\n     \n     this.route.params.subscribe((params) => {\n-      console.log(\"PARA: \"+params);\n+      console.log(\"PARA: \"+params['id']);\n     })\n   }\n \n   setUserData(userId: string) {\n"
+                },
+                {
+                    "date": 1683468196824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,16 +17,12 @@\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n-    this.route.paramMap.subscribe(paramMap => {\n-      this.userId = paramMap.get('id') as string;\n+    this.route.params.subscribe((params) => {\n+      this.userId = params['id'];\n       this.setUserData(this.userId);\n     })\n-    \n-    this.route.params.subscribe((params) => {\n-      console.log(\"PARA: \"+params['id']);\n-    })\n   }\n \n   setUserData(userId: string) {\n     const docRef = doc(this.userCollection, userId);\n"
+                },
+                {
+                    "date": 1683469249506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,13 @@\n     const userData = docData(docRef);\n     userData.subscribe((user: any) => {\n       this.user.firstName = user.firstName;\n       this.user.lastName = user.lastName;\n+      this.user.email = user.email;\n+      this.user.birthDate = user.birthDate;\n+      this.user.street = user.street;\n+      this.user.city = user.city;\n+      this.user.zipCode = user.zipCode;\n+      this.user.id = user.id;\n     })\n   }\n }\n"
+                },
+                {
+                    "date": 1683470674922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,13 @@\n       this.user.zipCode = user.zipCode;\n       this.user.id = user.id;\n     })\n   }\n+\n+  // openDialog() {\n+  //   const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});\n+\n+  //   // Manually restore focus to the menu trigger since the element that\n+  //   // opens the dialog won't be in the DOM any more when the dialog closes.\n+  //   dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n+  // }\n }\n"
+                }
+            ],
+            "date": 1683454687921,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute } from '@angular/router';\n\n@Component({\n  selector: 'app-user-detail',\n  templateUrl: './user-detail.component.html',\n  styleUrls: ['./user-detail.component.scss']\n})\nexport class UserDetailComponent implements OnInit{\n  userId: string = '';\n\n  constructor(private route: ActivatedRoute) {\n    \n  }\n\n  ngOnInit(): void {\n    this.route.paramMap.subscribe(paramMap => {\n      this.userId = paramMap.get('id');\n      })\n  }\n}\n"
+        }
+    ]
+}

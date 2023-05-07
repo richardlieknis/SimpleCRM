@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1683215514323,
@@ -40,6 +40,10 @@
                 {
                     "date": 1683407182036,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n   birthDate!: number;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n+  id!: number;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName: '';\r\n     this.lastName = obj ? obj.lastName: '';\r\n@@ -14,8 +15,9 @@\n     this.birthDate = obj ? obj.birthDate: '';\r\n     this.street = obj ? obj.street: '';\r\n     this.city = obj ? obj.city: '';\r\n     this.zipCode = obj ? obj.zipCode: '';\r\n+    this.id = obj ? obj.id: '';\r\n   }\r\n \r\n \r\n   public toJSON() {\r\n@@ -25,8 +27,9 @@\n       email: this.email,\r\n       birthDate: this.birthDate,\r\n       street: this.street,\r\n       city: this.city,\r\n-      zipCode: this.zipCode\r\n+      zipCode: this.zipCode,\r\n+      id: this.id\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683471035765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n export class User {\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n-  birthDate!: number;\r\n+  birthDate!: string;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n   id!: number;\r\n"
                 }
             ],
             "date": 1683215514323,

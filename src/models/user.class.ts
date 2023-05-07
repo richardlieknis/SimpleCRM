@@ -2,7 +2,7 @@ export class User {
   firstName!: string;
   lastName!: string;
   email!: string;
-  birthDate!: number;
+  birthDate!: string;
   street!: string;
   city!: string;
   zipCode!: number;

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/user-detail/user-detail.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1683411348626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683411378506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,6 @@\n-<mat-card> </mat-card>\n+<mat-card>\n+  <mat-card-header>\n+    User\n+  </mat-card-header>\n+  \n+</mat-card>\n"
+                },
+                {
+                    "date": 1683411394299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n <mat-card>\n   <mat-card-header> User </mat-card-header>\n+  <mat-card-content> Content </mat-card-content>\n </mat-card>\n"
+                }
+            ],
+            "date": 1683411348626,
+            "name": "Commit-0",
+            "content": "<mat-card>\n</mat-card>"
+        }
+    ]
+}

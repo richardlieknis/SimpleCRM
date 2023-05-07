@@ -26,7 +26,10 @@ export class DialogAddUserComponent {
 
   save() {
     this.isLoading = true;
-    this.user.birthDate = this.birthDate.getTime();
+    let dateInMilliseconds = this.birthDate.getTime();
+    const formattedDate = new Date(dateInMilliseconds).toLocaleDateString("de-DE");
+
+    this.user.birthDate = formattedDate;
 
     addDoc((this.userCollection), this.user.toJSON())
       .then((result: any) => {
