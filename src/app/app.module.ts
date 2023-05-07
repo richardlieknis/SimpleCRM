@@ -27,8 +27,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserDetailComponent } from './user-detail/user-detail.component';
- 
- 
+import { MatMenuModule } from '@angular/material/menu';
+import DialogEditUserComponent from './dialog-edit-user/dialog-edit-user.component'; 
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     DashboardComponent,
     UsersComponent,
     DialogAddUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    DialogEditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
+    MatMenuModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

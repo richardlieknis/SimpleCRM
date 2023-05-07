@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 29,
             "patches": [
                 {
                     "date": 1683454687921,
@@ -60,6 +60,70 @@
                 {
                     "date": 1683478855234,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n   ngOnInit(): void {\n     this.route.params.subscribe((params) => {\n       this.userId = params['id'];\n-      // this.setUserData(this.userId);\n+      this.setUserData(this.userId);\n     })\n   }\n \n   setUserData(userId: string) {\n"
+                },
+                {
+                    "date": 1683479672119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,12 +37,12 @@\n       this.user.zipCode = user.zipCode;\n     })\n   }\n \n-  // openDialog() {\n-  //   const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});\n+  openDialog() {\n+    const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});\n \n-  //   // Manually restore focus to the menu trigger since the element that\n-  //   // opens the dialog won't be in the DOM any more when the dialog closes.\n-  //   dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n-  // }\n+    // Manually restore focus to the menu trigger since the element that\n+    // opens the dialog won't be in the DOM any more when the dialog closes.\n+    dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n+  }\n }\n"
+                },
+                {
+                    "date": 1683479750800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n import { Component, OnInit } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';\n import { ActivatedRoute } from '@angular/router';\n import { User } from 'src/models/user.class';\n+import { MatDialog } from '@angular/material/dialog';\n \n+\n @Component({\n   selector: 'app-user-detail',\n   templateUrl: './user-detail.component.html',\n   styleUrls: ['./user-detail.component.scss']\n@@ -12,9 +14,13 @@\n   userId: string = '';\n   user = new User();\n   private userCollection: CollectionReference<DocumentData>;\n \n-  constructor(private route: ActivatedRoute, private firestore: Firestore) {\n+  constructor(\n+    private route: ActivatedRoute,\n+    private firestore: Firestore,\n+    public dialog: MatDialog\n+    ) {\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n"
+                },
+                {
+                    "date": 1683479836024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,14 @@\n-import { Component, OnInit } from '@angular/core';\n+import { Component, OnInit, ViewChild } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';\n import { ActivatedRoute } from '@angular/router';\n import { User } from 'src/models/user.class';\n import { MatDialog } from '@angular/material/dialog';\n+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\n+import { MatMenuTrigger } from '@angular/material/menu';\n \n \n+\n @Component({\n   selector: 'app-user-detail',\n   templateUrl: './user-detail.component.html',\n   styleUrls: ['./user-detail.component.scss']\n@@ -13,8 +16,9 @@\n export class UserDetailComponent implements OnInit{\n   userId: string = '';\n   user = new User();\n   private userCollection: CollectionReference<DocumentData>;\n+  @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;\n \n   constructor(\n     private route: ActivatedRoute,\n     private firestore: Firestore,\n@@ -44,9 +48,9 @@\n     })\n   }\n \n   openDialog() {\n-    const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});\n+    const dialogRef = this.dialog.open(DialogAddUserComponent, {restoreFocus: false});\n \n     // Manually restore focus to the menu trigger since the element that\n     // opens the dialog won't be in the DOM any more when the dialog closes.\n     dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n"
+                },
+                {
+                    "date": 1683479862446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n export class UserDetailComponent implements OnInit{\n   userId: string = '';\n   user = new User();\n   private userCollection: CollectionReference<DocumentData>;\n-  @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;\n+  @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;\n \n   constructor(\n     private route: ActivatedRoute,\n     private firestore: Firestore,\n"
+                },
+                {
+                    "date": 1683480314688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,13 +46,5 @@\n       this.user.city = user.city;\n       this.user.zipCode = user.zipCode;\n     })\n   }\n-\n-  openDialog() {\n-    const dialogRef = this.dialog.open(DialogAddUserComponent, {restoreFocus: false});\n-\n-    // Manually restore focus to the menu trigger since the element that\n-    // opens the dialog won't be in the DOM any more when the dialog closes.\n-    dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n-  }\n }\n"
+                },
+                {
+                    "date": 1683480324544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n export class UserDetailComponent implements OnInit{\n   userId: string = '';\n   user = new User();\n   private userCollection: CollectionReference<DocumentData>;\n-  @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;\n \n   constructor(\n     private route: ActivatedRoute,\n     private firestore: Firestore,\n"
+                },
+                {
+                    "date": 1683480985104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,5 +45,9 @@\n       this.user.city = user.city;\n       this.user.zipCode = user.zipCode;\n     })\n   }\n+\n+  editMenu() {\n+    \n+  }\n }\n"
+                },
+                {
+                    "date": 1683481069627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,8 @@\n       this.user.zipCode = user.zipCode;\n     })\n   }\n \n-  editMenu() {\n+  editUser() {\n     \n   }\n }\n"
+                },
+                {
+                    "date": 1683481105883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,7 +47,7 @@\n     })\n   }\n \n   editUser() {\n-    \n+    console.log(this.userId);\n   }\n }\n"
+                },
+                {
+                    "date": 1683481326574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,7 +47,8 @@\n     })\n   }\n \n   editUser() {\n-    console.log(this.userId);\n+    const docRef = doc(this.userCollection, this.userId);\n+    console.log(docRef);\n   }\n }\n"
+                },
+                {
+                    "date": 1683481354813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,7 +48,8 @@\n   }\n \n   editUser() {\n     const docRef = doc(this.userCollection, this.userId);\n-    console.log(docRef);\n+    const userData = docData(docRef);\n+    console.log(userData);\n   }\n }\n"
+                },
+                {
+                    "date": 1683481741770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Component, OnInit, ViewChild } from '@angular/core';\n-import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';\n+import { CollectionReference, DocumentData, Firestore, collection, doc, docData, setDoc } from '@angular/fire/firestore';\n import { ActivatedRoute } from '@angular/router';\n import { User } from 'src/models/user.class';\n import { MatDialog } from '@angular/material/dialog';\n import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\n@@ -48,8 +48,8 @@\n   }\n \n   editUser() {\n     const docRef = doc(this.userCollection, this.userId);\n-    const userData = docData(docRef);\n-    console.log(userData);\n+    setDoc(docRef, this.user.toJSON());\n+    \n   }\n }\n"
+                },
+                {
+                    "date": 1683481896937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n     })\n   }\n \n   editUser() {\n+    this.user.firstName = 'GEORG';\n     const docRef = doc(this.userCollection, this.userId);\n     setDoc(docRef, this.user.toJSON());\n     \n   }\n"
+                },
+                {
+                    "date": 1683481936025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     })\n   }\n \n   editUser() {\n-    this.user.firstName = 'GEORG';\n+    this.user.firstName = 'Scooby';\n     const docRef = doc(this.userCollection, this.userId);\n     setDoc(docRef, this.user.toJSON());\n     \n   }\n"
+                },
+                {
+                    "date": 1683482003946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,10 +47,13 @@\n     })\n   }\n \n   editUser() {\n-    this.user.firstName = 'Scooby';\n+    \n+    \n+  }\n+\n+  setNewUserData() {\n     const docRef = doc(this.userCollection, this.userId);\n     setDoc(docRef, this.user.toJSON());\n-    \n   }\n }\n"
+                },
+                {
+                    "date": 1683482173164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import { User } from 'src/models/user.class';\n import { MatDialog } from '@angular/material/dialog';\n import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\n import { MatMenuTrigger } from '@angular/material/menu';\n+import DialogEditUserComponent from '../dialog-edit-user/dialog-edit-user.component';\n \n \n \n @Component({\n@@ -47,10 +48,10 @@\n     })\n   }\n \n   editUser() {\n+    this.dialog.open(DialogEditUserComponent, {});\n     \n-    \n   }\n \n   setNewUserData() {\n     const docRef = doc(this.userCollection, this.userId);\n"
                 }
             ],
             "date": 1683454687921,

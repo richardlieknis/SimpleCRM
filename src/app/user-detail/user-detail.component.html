@@ -1,9 +1,23 @@
 <mat-card>
   <mat-card-header>
     <div class="menu">
-      <!-- <button (click)="openDialog()" mat-icon-button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
-      </button> -->
+      </button>
+      <mat-menu #menu="matMenu">
+        <button (click)="editUser()" mat-menu-item>
+          <mat-icon>edit_note</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>call</mat-icon>
+          <span>Call</span>
+        </button>
+        <button mat-menu-item disabled="">
+          <mat-icon>mail</mat-icon>
+          <span>Message</span>
+        </button>
+      </mat-menu>
     </div>
     <div class="profile-img">
       <img src="assets/img/profile/1.jpg" />

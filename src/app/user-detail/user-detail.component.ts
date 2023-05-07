@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData, setDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { MatMenuTrigger } from '@angular/material/menu';
+import DialogEditUserComponent from '../dialog-edit-user/dialog-edit-user.component';
+
+
 
 @Component({
   selector: 'app-user-detail',
@@ -13,7 +19,11 @@ export class UserDetailComponent implements OnInit{
   user = new User();
   private userCollection: CollectionReference<DocumentData>;
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore) {
+  constructor(
+    private route: ActivatedRoute,
+    private firestore: Firestore,
+    public dialog: MatDialog
+    ) {
     this.userCollection = collection(this.firestore, 'users');
   }
 
@@ -38,11 +48,13 @@ export class UserDetailComponent implements OnInit{
     })
   }
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});
+  editUser() {
+    this.dialog.open(DialogEditUserComponent, {});
+    
+  }
 
-  //   // Manually restore focus to the menu trigger since the element that
-  //   // opens the dialog won't be in the DOM any more when the dialog closes.
-  //   dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
-  // }
+  setNewUserData() {
+    const docRef = doc(this.userCollection, this.userId);
+    setDoc(docRef, this.user.toJSON());
+  }
 }

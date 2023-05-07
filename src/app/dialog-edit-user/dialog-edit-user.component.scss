@@ -1,0 +1,26 @@
+.dia-content {
+  padding-top: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // gap: 10px;
+}
+
+.double-input {
+  display: flex;
+  gap: 16px;
+}
+
+.full-width-input {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+mat-progress-bar {
+  margin-top: 16px;
+}

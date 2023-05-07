@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/dialog-edit-user/dialog-edit-user.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1683482076122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683482091068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   selector: 'app-dialog-edit-user',\n   templateUrl: './dialog-edit-user.component.html',\n   styleUrls: ['./dialog-edit-user.component.scss']\n })\n-export class DialogEditUserComponent {\n+export default class DialogEditUserComponent {\n  user = new User();\n   birthDate!: Date;\n   isLoading: boolean = false;\n   private userCollection: CollectionReference<DocumentData>;\n"
+                },
+                {
+                    "date": 1683482112384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   birthDate!: Date;\n   isLoading: boolean = false;\n   private userCollection: CollectionReference<DocumentData>;\n \n-  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) {\n+  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogEditUserComponent>) {\n     this.userCollection = collection(this.firestore, 'users');\n   }\n \n   closeDialog(): void{\n"
+                }
+            ],
+            "date": 1683482076122,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\nimport { MatDialogRef } from '@angular/material/dialog';\nimport { addDoc, collection } from '@firebase/firestore';\nimport { User } from 'src/models/user.class';\n\n@Component({\n  selector: 'app-dialog-edit-user',\n  templateUrl: './dialog-edit-user.component.html',\n  styleUrls: ['./dialog-edit-user.component.scss']\n})\nexport class DialogEditUserComponent {\n user = new User();\n  birthDate!: Date;\n  isLoading: boolean = false;\n  private userCollection: CollectionReference<DocumentData>;\n\n  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) {\n    this.userCollection = collection(this.firestore, 'users');\n  }\n\n  closeDialog(): void{\n    this.dialogRef.close();\n   }\n  \n\n  save() {\n    this.isLoading = true;\n    let dateInMilliseconds = this.birthDate.getTime();\n    const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n\n    this.user.birthDate = formattedDate;\n\n    addDoc((this.userCollection), this.user.toJSON())\n      .then((result: any) => {\n        this.isLoading = false;\n        this.closeDialog();\n      });\n  }\n}\n"
+        }
+    ]
+}
