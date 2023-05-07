@@ -49,7 +49,10 @@ export class UserDetailComponent implements OnInit{
   }
 
   editUser() {
-    this.dialog.open(DialogEditUserComponent, {});
+    // console.log(this.userId);
+    this.dialog.open(DialogEditUserComponent, {
+      data: this.userId
+    });
     
   }
 
