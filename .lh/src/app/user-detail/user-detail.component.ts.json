@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1683454687921,
@@ -48,6 +48,18 @@
                 {
                     "date": 1683470674922,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,13 @@\n       this.user.zipCode = user.zipCode;\n       this.user.id = user.id;\n     })\n   }\n+\n+  // openDialog() {\n+  //   const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});\n+\n+  //   // Manually restore focus to the menu trigger since the element that\n+  //   // opens the dialog won't be in the DOM any more when the dialog closes.\n+  //   dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());\n+  // }\n }\n"
+                },
+                {
+                    "date": 1683478752148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,8 @@\n       this.user.birthDate = user.birthDate;\n       this.user.street = user.street;\n       this.user.city = user.city;\n       this.user.zipCode = user.zipCode;\n-      this.user.id = user.id;\n     })\n   }\n \n   // openDialog() {\n"
+                },
+                {
+                    "date": 1683478831769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n   ngOnInit(): void {\n     this.route.params.subscribe((params) => {\n       this.userId = params['id'];\n-      this.setUserData(this.userId);\n+      // this.setUserData(this.userId);\n     })\n   }\n \n   setUserData(userId: string) {\n"
+                },
+                {
+                    "date": 1683478855234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \n   ngOnInit(): void {\n     this.route.params.subscribe((params) => {\n       this.userId = params['id'];\n-      // this.setUserData(this.userId);\n+      this.setUserData(this.userId);\n     })\n   }\n \n   setUserData(userId: string) {\n"
                 }
             ],
             "date": 1683454687921,

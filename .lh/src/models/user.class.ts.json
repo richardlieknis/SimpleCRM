@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1683215514323,
@@ -44,6 +44,18 @@
                 {
                     "date": 1683471035765,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n export class User {\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n-  birthDate!: number;\r\n+  birthDate!: string;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n   id!: number;\r\n"
+                },
+                {
+                    "date": 1683478575618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n export class User {\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n-  birthDate!: string;\r\n+  birthDate!: number;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n   id!: number;\r\n"
+                },
+                {
+                    "date": 1683478719467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n   birthDate!: number;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n-  id!: number;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName: '';\r\n     this.lastName = obj ? obj.lastName: '';\r\n@@ -15,9 +14,8 @@\n     this.birthDate = obj ? obj.birthDate: '';\r\n     this.street = obj ? obj.street: '';\r\n     this.city = obj ? obj.city: '';\r\n     this.zipCode = obj ? obj.zipCode: '';\r\n-    this.id = obj ? obj.id: '';\r\n   }\r\n \r\n \r\n   public toJSON() {\r\n@@ -28,8 +26,7 @@\n       birthDate: this.birthDate,\r\n       street: this.street,\r\n       city: this.city,\r\n       zipCode: this.zipCode,\r\n-      id: this.id\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1683479290533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n export class User {\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n-  birthDate!: number;\r\n+  birthDate!: string;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n \r\n"
                 }
             ],
             "date": 1683215514323,

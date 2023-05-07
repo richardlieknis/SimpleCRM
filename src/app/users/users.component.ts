@@ -27,6 +27,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     collectionData(this.userCollection, { idField: 'id' })
       .subscribe((data: any) => {
+        this.allUsers = [];
         data.forEach((user: any) => {
           this.allUsers.push(user)
           this.allIds.push(user['id']);          

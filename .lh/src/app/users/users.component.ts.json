@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 34,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1683136251662,
@@ -144,6 +144,26 @@
                 {
                     "date": 1683410896250,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,9 @@\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n         data.forEach((user: any) => {\n           this.allUsers.push(user)\n-          this.allIds.push(user['id']);\n-          \n+          this.allIds.push(user['id']);          \n         });\n     })\n   }\n \n"
+                },
+                {
+                    "date": 1683478998343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,12 +26,13 @@\n \n   ngOnInit(): void {\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n-        data.forEach((user: any) => {\n-          this.allUsers.push(user)\n-          this.allIds.push(user['id']);          \n-        });\n+        this.allUsers = data;\n+        // data.forEach((user: any) => {\n+        //   this.allUsers.push(user)\n+        //   this.allIds.push(user['id']);          \n+        // });\n     })\n   }\n \n   openDialog(): void {\n"
+                },
+                {
+                    "date": 1683479037879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,13 +26,14 @@\n \n   ngOnInit(): void {\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n+        this.allUsers = \"\";\n         this.allUsers = data;\n-        // data.forEach((user: any) => {\n-        //   this.allUsers.push(user)\n-        //   this.allIds.push(user['id']);          \n-        // });\n+        data.forEach((user: any) => {\n+          this.allUsers.push(user)\n+          this.allIds.push(user['id']);          \n+        });\n     })\n   }\n \n   openDialog(): void {\n"
+                },
+                {
+                    "date": 1683479049274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,13 @@\n \n   ngOnInit(): void {\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n-        this.allUsers = \"\";\n-        this.allUsers = data;\n         data.forEach((user: any) => {\n           this.allUsers.push(user)\n           this.allIds.push(user['id']);          \n         });\n+        this.allUsers = \"\";\n     })\n   }\n \n   openDialog(): void {\n"
+                },
+                {
+                    "date": 1683479059053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,13 +26,13 @@\n \n   ngOnInit(): void {\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n+        this.allUsers = \"\";\n         data.forEach((user: any) => {\n           this.allUsers.push(user)\n           this.allIds.push(user['id']);          \n         });\n-        this.allUsers = \"\";\n     })\n   }\n \n   openDialog(): void {\n"
+                },
+                {
+                    "date": 1683479066194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n   ngOnInit(): void {\n     collectionData(this.userCollection, { idField: 'id' })\n       .subscribe((data: any) => {\n-        this.allUsers = \"\";\n+        this.allUsers = [];\n         data.forEach((user: any) => {\n           this.allUsers.push(user)\n           this.allIds.push(user['id']);          \n         });\n"
                 }
             ],
             "date": 1683136251662,

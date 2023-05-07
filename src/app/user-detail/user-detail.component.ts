@@ -35,7 +35,6 @@ export class UserDetailComponent implements OnInit{
       this.user.street = user.street;
       this.user.city = user.city;
       this.user.zipCode = user.zipCode;
-      this.user.id = user.id;
     })
   }
 

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -36,6 +36,14 @@
                 {
                     "date": 1683410979911,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import { NgModule } from '@angular/core';\n import { RouterModule, Routes } from '@angular/router';\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n+import { UserDetailComponent } from './user-detail/user-detail.component';\n \n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n-  {path: 'user', component: UsersComponent}\n+  {path: 'user', component: UsersComponent},\n+  {path: 'user/:id', component: UserDetailComponent},\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683478908332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n-  {path: 'user/:id', component: UserDetailComponent},\n+  // {path: 'user/:id', component: UserDetailComponent},\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683478924348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n-  // {path: 'user/:id', component: UserDetailComponent},\n+  {path: 'user/:id', component: UserDetailComponent},\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
                 }
             ],
             "date": 1683131675966,
