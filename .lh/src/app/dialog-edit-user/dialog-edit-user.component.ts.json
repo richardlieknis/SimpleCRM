@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1683482076122,
@@ -52,6 +52,18 @@
                 {
                     "date": 1683485705596,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n       this.user.birthDate = user.birthDate;\n       this.user.street = user.street;\n       this.user.city = user.city;\n       this.user.zipCode = user.zipCode;\n-      console.log(user.birthDate);\n     })\n   }\n   \n \n"
+                },
+                {
+                    "date": 1683487825863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n \n   save() {\n     this.isLoading = true;\n     let dateInMilliseconds = this.birthDate.getTime();\n+    console.log(dateInMilliseconds);\n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n \n"
+                },
+                {
+                    "date": 1683488004268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,10 +50,15 @@\n   \n \n   save() {\n     this.isLoading = true;\n-    let dateInMilliseconds = this.birthDate.getTime();\n-    console.log(dateInMilliseconds);\n+    let dateInMilliseconds = 0;\n+    try {\n+      dateInMilliseconds = this.birthDate.getTime();\n+    } catch {\n+      console.log(\"FEHLER\");\n+    }\n+\n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n \n"
+                },
+                {
+                    "date": 1683488142895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,13 +51,9 @@\n \n   save() {\n     this.isLoading = true;\n     let dateInMilliseconds = 0;\n-    try {\n-      dateInMilliseconds = this.birthDate.getTime();\n-    } catch {\n-      console.log(\"FEHLER\");\n-    }\n+    try {dateInMilliseconds = this.birthDate.getTime();} catch {}\n \n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n"
                 }
             ],
             "date": 1683482076122,

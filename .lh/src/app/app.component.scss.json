@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 71,
+            "activePatchIndex": 74,
             "patches": [
                 {
                     "date": 1683129750124,
@@ -292,6 +292,18 @@
                 {
                     "date": 1683401191585,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,13 +43,10 @@\n   width: 250px;\r\n }\r\n \r\n .router-container {\r\n-  width: 100%;\r\n   padding: 16px 56px;\r\n   overflow-y: auto;\r\n-  display: flex;\r\n-  justify-content: center;\r\n }\r\n \r\n .menu-links {\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683488908636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,11 @@\n   border-bottom: 1px solid #fff2;\r\n   display: flex;\r\n   align-items: center;\r\n   justify-content: center;\r\n+  img {\r\n+    height: 64px;\r\n+  }\r\n }\r\n \r\n .example-container {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1683488916303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   display: flex;\r\n   align-items: center;\r\n   justify-content: center;\r\n   img {\r\n-    height: 64px;\r\n+    height: 54px;\r\n   }\r\n }\r\n \r\n .example-container {\r\n"
+                },
+                {
+                    "date": 1683489349728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   display: flex;\r\n   align-items: center;\r\n   justify-content: center;\r\n   img {\r\n-    height: 54px;\r\n+    height: 44px;\r\n   }\r\n }\r\n \r\n .example-container {\r\n"
                 }
             ],
             "date": 1683129750124,

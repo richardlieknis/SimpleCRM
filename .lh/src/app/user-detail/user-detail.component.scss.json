@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 68,
+            "activePatchIndex": 75,
             "patches": [
                 {
                     "date": 1683411434931,
@@ -280,6 +280,34 @@
                 {
                     "date": 1683470054218,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,10 @@\n     }\r\n   }\r\n   .menu {\r\n     position: absolute;\r\n-    top: 10px;\r\n-    right: 10px;\r\n+    top: 5px;\r\n+    right: 5px;\r\n   }\r\n }\r\n \r\n mat-card-content {\r\n"
+                },
+                {
+                    "date": 1683488201643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n+      filter: invert(1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488229794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(1);\r\n+      filter: invert(1) grayscale(1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488235285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(1) grayscale(1);\r\n+      filter: invert(0) grayscale(1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488243131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(0) grayscale(1);\r\n+      filter: invert(0.8) grayscale(1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488251858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(0.8) grayscale(1);\r\n+      filter: invert(1) grayscale(1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488258201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(1) grayscale(1);\r\n+      filter: invert(1) grayscale(0.1);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
+                },
+                {
+                    "date": 1683488265231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     bottom: -20px;\r\n     img {\r\n       border-radius: 20%;\r\n       width: 80px;\r\n-      filter: invert(1) grayscale(0.1);\r\n+      filter: invert(1) grayscale(0.3);\r\n     }\r\n   }\r\n   .profile-desc {\r\n     padding-left: 100px;\r\n"
                 }
             ],
             "date": 1683411434931,

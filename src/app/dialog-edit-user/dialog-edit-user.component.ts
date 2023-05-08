@@ -51,7 +51,9 @@ export default class DialogEditUserComponent {
 
   save() {
     this.isLoading = true;
-    let dateInMilliseconds = this.birthDate.getTime();
+    let dateInMilliseconds = 0;
+    try {dateInMilliseconds = this.birthDate.getTime();} catch {}
+
     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString("de-DE");
 
     this.user.birthDate = formattedDate;

@@ -55,9 +55,4 @@ export class UserDetailComponent implements OnInit{
     });
     
   }
-
-  setNewUserData() {
-    const docRef = doc(this.userCollection, this.userId);
-    setDoc(docRef, this.user.toJSON());
-  }
 }

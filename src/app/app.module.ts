@@ -28,7 +28,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
-import DialogEditUserComponent from './dialog-edit-user/dialog-edit-user.component'; 
+import DialogEditUserComponent from './dialog-edit-user/dialog-edit-user.component';
+import { SignInComponent } from './login/sign-in/sign-in.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './login/verify-email/verify-email.component'; 
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import DialogEditUserComponent from './dialog-edit-user/dialog-edit-user.compone
     UsersComponent,
     DialogAddUserComponent,
     UserDetailComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
