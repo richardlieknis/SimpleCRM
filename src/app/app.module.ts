@@ -16,7 +16,7 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -33,6 +33,12 @@ import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component'; 
+import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+ 
 
 @NgModule({
   declarations: [
@@ -67,13 +73,20 @@ import { VerifyEmailComponent } from './login/verify-email/verify-email.componen
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
+    AngularFireAuthModule,
+    AngularFireModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
     
   ],
-  providers: [],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

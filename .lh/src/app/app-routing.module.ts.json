@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -44,6 +44,14 @@
                 {
                     "date": 1683478924348,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n-  // {path: 'user/:id', component: UserDetailComponent},\n+  {path: 'user/:id', component: UserDetailComponent},\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683565334277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,22 @@\n import { RouterModule, Routes } from '@angular/router';\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n import { UserDetailComponent } from './user-detail/user-detail.component';\n+import { SignInComponent } from './login/sign-in/sign-in.component';\n+import { SignUpComponent } from './login/sign-up/sign-up.component';\n+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n+import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n \n const routes: Routes = [\n   {path: '', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n+  { path: 'sign-in', component: SignInComponent },\n+  { path: 'register-user', component: SignUpComponent },\n+  { path: 'forgot-password', component: ForgotPasswordComponent },\n+  { path: 'verify-email-address', component: VerifyEmailComponent },\n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683733961377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,13 +8,13 @@\n import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n \n const routes: Routes = [\n-  {path: '', component: DashboardComponent},\n+  {path: 'home', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n-  { path: 'sign-in', component: SignInComponent },\n+  { path: 'signin', component: SignInComponent },\n   { path: 'register-user', component: SignUpComponent },\n   { path: 'forgot-password', component: ForgotPasswordComponent },\n   { path: 'verify-email-address', component: VerifyEmailComponent },\n ];\n"
                 }
             ],
             "date": 1683131675966,

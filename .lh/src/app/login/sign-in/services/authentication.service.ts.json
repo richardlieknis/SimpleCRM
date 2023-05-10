@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/app/login/sign-in/services/authentication.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1683733216724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683735633527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     if (code === \"auth/user-not-found\") {\r\n       return \"User not found.\";\r\n     }\r\n     if (code === \"auth/wrong-password\") {\r\n-      return \"User not found.\";\r\n+      return \"Wrong password.\";\r\n     }\r\n     return message;\r\n   }\r\n \r\n"
+                }
+            ],
+            "date": 1683733216724,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport { AngularFireAuth } from '@angular/fire/compat/auth';\r\nimport { catchError, from, Observable, of, throwError } from 'rxjs';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthenticationService {\r\n\r\n  constructor(\r\n    private auth: AngularFireAuth\r\n  ) { }\r\n\r\n  signIn(params: SignIn): Observable<any> {\r\n    return from(this.auth.signInWithEmailAndPassword(\r\n      params.email, params.password\r\n    )).pipe(\r\n      catchError((error: FirebaseError) => \r\n        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n      )\r\n    );\r\n  }\r\n\r\n  recoverPassword(email: string): Observable<void> {\r\n    return from(this.auth.sendPasswordResetEmail(email)).pipe(\r\n      catchError((error: FirebaseError) => \r\n        throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n      )\r\n    );\r\n  }\r\n\r\n  private translateFirebaseErrorMessage({code, message}: FirebaseError) {\r\n    if (code === \"auth/user-not-found\") {\r\n      return \"User not found.\";\r\n    }\r\n    if (code === \"auth/wrong-password\") {\r\n      return \"User not found.\";\r\n    }\r\n    return message;\r\n  }\r\n\r\n}\r\n\r\ntype SignIn = {\r\n  email: string;\r\n  password: string;\r\n}\r\n\r\ntype FirebaseError = {\r\n  code: string;\r\n  message: string\r\n};"
+        }
+    ]
+}

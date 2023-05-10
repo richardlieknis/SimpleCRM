@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/login/sign-in/sign-in.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1683733150549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1683733150549,
+            "name": "Commit-0",
+            "content": "main {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n\r\n  height: 100vh;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n\r\n  button,\r\n  mat-form-field {\r\n    width: -webkit-fill-available;\r\n  }\r\n\r\n  mat-form-field {\r\n    margin-bottom: 10px;\r\n  }\r\n\r\n  button {\r\n    margin: 5px 0;\r\n\r\n    &[mat-button] {\r\n      width: auto;\r\n    }\r\n  }\r\n\r\n  .aligned-to-right {\r\n    display: flex;\r\n    justify-content: end;\r\n    align-items: end;\r\n    width: 100%;\r\n  }\r\n}\r\n\r\n.button-loader {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 8px 0;\r\n}\r\n\r\n.recover-password {\r\n  padding-left: 62px;\r\n  padding-right: 62px;\r\n}"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 74,
+            "activePatchIndex": 96,
             "patches": [
                 {
                     "date": 1683129750124,
@@ -304,6 +304,94 @@
                 {
                     "date": 1683489349728,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   display: flex;\r\n   align-items: center;\r\n   justify-content: center;\r\n   img {\r\n-    height: 54px;\r\n+    height: 44px;\r\n   }\r\n }\r\n \r\n .example-container {\r\n"
+                },
+                {
+                    "date": 1683569570527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n+  display: flex;\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569577111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n }\r\n \r\n .menu-links {\r\n   display: flex;\r\n+  flex-direction: column;\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569586196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,9 @@\n \r\n .menu-links {\r\n   display: flex;\r\n   flex-direction: column;\r\n+  justify-content: space-between;\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569594386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n+  height: 100%;\r\n   display: flex;\r\n   flex-direction: column;\r\n   justify-content: space-between;\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683569601461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n-  height: 100%;\r\n+  height: 80%;\r\n   display: flex;\r\n   flex-direction: column;\r\n   justify-content: space-between;\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683569607973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n-  height: 80%;\r\n+  height: 95%;\r\n   display: flex;\r\n   flex-direction: column;\r\n   justify-content: space-between;\r\n   ul {\r\n"
+                },
+                {
+                    "date": 1683569632649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,12 +51,9 @@\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n-  height: 95%;\r\n-  display: flex;\r\n-  flex-direction: column;\r\n-  justify-content: space-between;\r\n+  position: relative;\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569672360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,12 @@\n }\r\n \r\n .menu-links {\r\n   position: relative;\r\n+  .login {\r\n+    position: absolute;\r\n+    bottom: 0;\r\n+  }\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569693289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,21 +43,22 @@\n }\r\n \r\n .example-sidenav {\r\n   width: 250px;\r\n+  position: relative;\r\n+  \r\n+    .login {\r\n+      position: absolute;\r\n+      bottom: 0;\r\n+    }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n   overflow-y: auto;\r\n }\r\n \r\n .menu-links {\r\n-  position: relative;\r\n-  .login {\r\n-    position: absolute;\r\n-    bottom: 0;\r\n-  }\r\n   ul {\r\n     padding: unset;\r\n     margin-top: unset;\r\n   }\r\n"
+                },
+                {
+                    "date": 1683569698377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,14 +43,8 @@\n }\r\n \r\n .example-sidenav {\r\n   width: 250px;\r\n-  position: relative;\r\n-  \r\n-    .login {\r\n-      position: absolute;\r\n-      bottom: 0;\r\n-    }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569706366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n }\r\n \r\n .example-sidenav {\r\n   width: 250px;\r\n+  height: 100%;\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569713196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n \r\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n+  background-color: #f00;\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569719423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n \r\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n-  background-color: #f00;\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569755687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,14 @@\n \r\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n+  position: relative;\r\n+  \r\n+    .login {\r\n+      position: absolute;\r\n+      bottom: 0;\r\n+    }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569778094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,21 @@\n     .login {\r\n       position: absolute;\r\n       bottom: 0;\r\n     }\r\n+        li {\r\n+          padding: 10px 20px;\r\n+          list-style: none;\r\n+          display: flex;\r\n+          align-items: center;\r\n+          gap: 10px;\r\n+          transition: background-color 175ms ease-in-out;\r\n+    \r\n+          &:hover {\r\n+            cursor: pointer;\r\n+            background-color: #555;\r\n+          }\r\n+        }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569796956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,8 +63,11 @@\n             cursor: pointer;\r\n             background-color: #555;\r\n           }\r\n         }\r\n+                 mat-icon {\r\n+                   filter: invert(0);\r\n+                 }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569804100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   position: relative;\r\n   \r\n     .login {\r\n       position: absolute;\r\n-      bottom: 0;\r\n+      bottom: 10px;\r\n     }\r\n         li {\r\n           padding: 10px 20px;\r\n           list-style: none;\r\n"
+                },
+                {
+                    "date": 1683569827602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,24 +50,24 @@\n     .login {\r\n       position: absolute;\r\n       bottom: 10px;\r\n     }\r\n-        li {\r\n-          padding: 10px 20px;\r\n-          list-style: none;\r\n-          display: flex;\r\n-          align-items: center;\r\n-          gap: 10px;\r\n-          transition: background-color 175ms ease-in-out;\r\n+    li {\r\n+      padding: 10px 20px;\r\n+      list-style: none;\r\n+      display: flex;\r\n+      align-items: center;\r\n+      gap: 10px;\r\n+      transition: background-color 175ms ease-in-out;\r\n     \r\n-          &:hover {\r\n-            cursor: pointer;\r\n-            background-color: #555;\r\n-          }\r\n-        }\r\n-                 mat-icon {\r\n-                   filter: invert(0);\r\n-                 }\r\n+      &:hover {\r\n+        cursor: pointer;\r\n+        background-color: #555;\r\n+      }\r\n+    }\r\n+    mat-icon {\r\n+      filter: invert(0);\r\n+    }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569843921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,21 +45,17 @@\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n   position: relative;\r\n-  \r\n-    .login {\r\n+    li {\r\n       position: absolute;\r\n-      bottom: 10px;\r\n-    }\r\n-    li {\r\n+        bottom: 10px;\r\n       padding: 10px 20px;\r\n       list-style: none;\r\n       display: flex;\r\n       align-items: center;\r\n       gap: 10px;\r\n       transition: background-color 175ms ease-in-out;\r\n-    \r\n       &:hover {\r\n         cursor: pointer;\r\n         background-color: #555;\r\n       }\r\n"
+                },
+                {
+                    "date": 1683569850565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,11 +45,14 @@\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n   position: relative;\r\n+  \r\n+    .login {\r\n+      position: absolute;\r\n+      bottom: 10px;\r\n+    }\r\n     li {\r\n-      position: absolute;\r\n-        bottom: 10px;\r\n       padding: 10px 20px;\r\n       list-style: none;\r\n       display: flex;\r\n       align-items: center;\r\n"
+                },
+                {
+                    "date": 1683569870960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,28 +45,27 @@\n .example-sidenav {\r\n   width: 250px;\r\n   height: 100%;\r\n   position: relative;\r\n-  \r\n-    .login {\r\n-      position: absolute;\r\n-      bottom: 10px;\r\n+  .login {\r\n+    position: absolute;\r\n+    bottom: 10px;\r\n+  }\r\n+  li {\r\n+    padding: 10px 20px;\r\n+    list-style: none;\r\n+    display: flex;\r\n+    align-items: center;\r\n+    gap: 10px;\r\n+    transition: background-color 175ms ease-in-out;\r\n+    &:hover {\r\n+      cursor: pointer;\r\n+      background-color: #555;\r\n     }\r\n-    li {\r\n-      padding: 10px 20px;\r\n-      list-style: none;\r\n-      display: flex;\r\n-      align-items: center;\r\n-      gap: 10px;\r\n-      transition: background-color 175ms ease-in-out;\r\n-      &:hover {\r\n-        cursor: pointer;\r\n-        background-color: #555;\r\n-      }\r\n-    }\r\n-    mat-icon {\r\n-      filter: invert(0);\r\n-    }\r\n+  }\r\n+  mat-icon {\r\n+    filter: invert(0);\r\n+  }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683569897752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,29 +43,8 @@\n }\r\n \r\n .example-sidenav {\r\n   width: 250px;\r\n-  height: 100%;\r\n-  position: relative;\r\n-  .login {\r\n-    position: absolute;\r\n-    bottom: 10px;\r\n-  }\r\n-  li {\r\n-    padding: 10px 20px;\r\n-    list-style: none;\r\n-    display: flex;\r\n-    align-items: center;\r\n-    gap: 10px;\r\n-    transition: background-color 175ms ease-in-out;\r\n-    &:hover {\r\n-      cursor: pointer;\r\n-      background-color: #555;\r\n-    }\r\n-  }\r\n-  mat-icon {\r\n-    filter: invert(0);\r\n-  }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
                 }
             ],
             "date": 1683129750124,
