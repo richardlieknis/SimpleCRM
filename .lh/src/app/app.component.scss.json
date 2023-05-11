@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 96,
+            "activePatchIndex": 97,
             "patches": [
                 {
                     "date": 1683129750124,
@@ -392,6 +392,10 @@
                 {
                     "date": 1683569897752,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,29 +43,8 @@\n }\r\n \r\n .example-sidenav {\r\n   width: 250px;\r\n-  height: 100%;\r\n-  position: relative;\r\n-  .login {\r\n-    position: absolute;\r\n-    bottom: 10px;\r\n-  }\r\n-  li {\r\n-    padding: 10px 20px;\r\n-    list-style: none;\r\n-    display: flex;\r\n-    align-items: center;\r\n-    gap: 10px;\r\n-    transition: background-color 175ms ease-in-out;\r\n-    &:hover {\r\n-      cursor: pointer;\r\n-      background-color: #555;\r\n-    }\r\n-  }\r\n-  mat-icon {\r\n-    filter: invert(0);\r\n-  }\r\n }\r\n \r\n .router-container {\r\n   padding: 16px 56px;\r\n"
+                },
+                {
+                    "date": 1683830848436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,74 +0,0 @@\n-.example-spacer {\r\n-  flex: 1 1 auto;\r\n-}\r\n-\r\n-.menu-icon {\r\n-  filter: invert(1);\r\n-  transition: background-color 125ms ease;\r\n-  &:hover {\r\n-    background-color: #ccc;\r\n-    cursor: pointer;\r\n-  }\r\n-}\r\n-\r\n-mat-toolbar {\r\n-  display: flex;\r\n-  gap: 20px;\r\n-  height: 64px;\r\n-}\r\n-\r\n-mat-icon {\r\n-  filter: invert(1);\r\n-}\r\n-\r\n-.logo-container {\r\n-  height: 64px;\r\n-  border-bottom: 1px solid #fff2;\r\n-  display: flex;\r\n-  align-items: center;\r\n-  justify-content: center;\r\n-  img {\r\n-    height: 44px;\r\n-  }\r\n-}\r\n-\r\n-.example-container {\r\n-  width: 100%;\r\n-  height: 100vh;\r\n-}\r\n-\r\n-.example-sidenav-content {\r\n-  width: 100%;\r\n-  \r\n-}\r\n-\r\n-.example-sidenav {\r\n-  width: 250px;\r\n-}\r\n-\r\n-.router-container {\r\n-  padding: 16px 56px;\r\n-  overflow-y: auto;\r\n-}\r\n-\r\n-.menu-links {\r\n-  ul {\r\n-    padding: unset;\r\n-    margin-top: unset;\r\n-  }\r\n-  li {\r\n-    padding: 10px 20px;\r\n-    list-style: none;\r\n-    display: flex;\r\n-    align-items: center;\r\n-    gap: 10px;\r\n-    transition: background-color 175ms ease-in-out;\r\n-    &:hover {\r\n-      cursor: pointer;\r\n-      background-color: #555;\r\n-    }\r\n-  }\r\n-  mat-icon {\r\n-    filter: invert(0);\r\n-  }\r\n-}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1683129750124,

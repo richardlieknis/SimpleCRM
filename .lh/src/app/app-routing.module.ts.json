@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 38,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -52,6 +52,114 @@
                 {
                     "date": 1683733961377,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,13 +8,13 @@\n import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n \n const routes: Routes = [\n-  {path: '', component: DashboardComponent},\n+  {path: 'home', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n-  { path: 'sign-in', component: SignInComponent },\n+  { path: 'signin', component: SignInComponent },\n   { path: 'register-user', component: SignUpComponent },\n   { path: 'forgot-password', component: ForgotPasswordComponent },\n   { path: 'verify-email-address', component: VerifyEmailComponent },\n ];\n"
+                },
+                {
+                    "date": 1683831006012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,12 @@\n import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n \n const routes: Routes = [\n+  {\n+    path: '',\n+    component: SignInComponent\n+  }\n   {path: 'home', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n"
+                },
+                {
+                    "date": 1683831207134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,11 @@\n \n const routes: Routes = [\n   {\n     path: '',\n-    component: SignInComponent\n-  }\n+    component: SignInComponent,\n+    redirectTo: 'signin'\n+  },\n   {path: 'home', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n"
+                },
+                {
+                    "date": 1683831228648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n const routes: Routes = [\n   {\n     path: '',\n     component: SignInComponent,\n-    redirectTo: 'signin'\n   },\n   {path: 'home', component: DashboardComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n"
+                },
+                {
+                    "date": 1683831244124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,16 @@\n import { SignInComponent } from './login/sign-in/sign-in.component';\n import { SignUpComponent } from './login/sign-up/sign-up.component';\n import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n+import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n   {\n     path: '',\n     component: SignInComponent,\n   },\n-  {path: 'home', component: DashboardComponent},\n+  {path: 'home', component: MainPageComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n   { path: 'signin', component: SignInComponent },\n"
+                },
+                {
+                    "date": 1683831275903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   {\n     path: '',\n     component: SignInComponent,\n   },\n-  {path: 'home', component: MainPageComponent},\n+  {path: '', component: MainPageComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n   { path: 'signin', component: SignInComponent },\n"
+                },
+                {
+                    "date": 1683831284268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   {\n     path: '',\n     component: SignInComponent,\n   },\n-  {path: '', component: MainPageComponent},\n+  {path: 'home', component: MainPageComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n   { path: 'signin', component: SignInComponent },\n"
+                },
+                {
+                    "date": 1683831298171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,11 @@\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n   {\n-    path: '',\n+    path: 'signin',\n     component: SignInComponent,\n+    redirectTo: ''\n   },\n   {path: 'home', component: MainPageComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n"
+                },
+                {
+                    "date": 1683831303651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n const routes: Routes = [\n   {\n     path: 'signin',\n     component: SignInComponent,\n-    redirectTo: ''\n   },\n   {path: 'home', component: MainPageComponent},\n   {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n"
+                },
+                {
+                    "date": 1683831355133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,19 +10,25 @@\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n   {\n-    path: 'signin',\n+    path: '',\n     component: SignInComponent,\n   },\n-  {path: 'home', component: MainPageComponent},\n-  {path: 'dashboard', component: DashboardComponent},\n+  {\n+    path: 'home',\n+    component: MainPageComponent,\n+    children: [\n+      {path: 'dashboard', component: DashboardComponent},\n   {path: 'user', component: UsersComponent},\n   {path: 'user/:id', component: UserDetailComponent},\n   { path: 'signin', component: SignInComponent },\n   { path: 'register-user', component: SignUpComponent },\n   { path: 'forgot-password', component: ForgotPasswordComponent },\n   { path: 'verify-email-address', component: VerifyEmailComponent },\n+    ]\n+  },\n+  \n ];\n \n @NgModule({\n   imports: [RouterModule.forRoot(routes)],\n"
+                },
+                {
+                    "date": 1683831366054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,14 +18,14 @@\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n       {path: 'dashboard', component: DashboardComponent},\n-  {path: 'user', component: UsersComponent},\n-  {path: 'user/:id', component: UserDetailComponent},\n-  { path: 'signin', component: SignInComponent },\n-  { path: 'register-user', component: SignUpComponent },\n-  { path: 'forgot-password', component: ForgotPasswordComponent },\n-  { path: 'verify-email-address', component: VerifyEmailComponent },\n+      { path: 'user', component: UsersComponent},\n+      { path: 'user/:id', component: UserDetailComponent},\n+      { path: 'signin', component: SignInComponent },\n+      { path: 'register-user', component: SignUpComponent },\n+      { path: 'forgot-password', component: ForgotPasswordComponent },\n+      { path: 'verify-email-address', component: VerifyEmailComponent },\n     ]\n   },\n   \n ];\n"
+                },
+                {
+                    "date": 1683831406270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,15 +17,15 @@\n   {\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n-      {path: 'dashboard', component: DashboardComponent},\n-      { path: 'user', component: UsersComponent},\n-      { path: 'user/:id', component: UserDetailComponent},\n-      { path: 'signin', component: SignInComponent },\n+      {path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n+      { path: 'user', component: UsersComponent, outlet: 'main-router'},\n+      { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n+      { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n-      { path: 'forgot-password', component: ForgotPasswordComponent },\n-      { path: 'verify-email-address', component: VerifyEmailComponent },\n+      { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n+      { path: 'verify-email-address', component: VerifyEmailComponent, outlet: 'main-router' },\n     ]\n   },\n   \n ];\n"
+                },
+                {
+                    "date": 1683831439533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   {\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n-      {path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n+      { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n       { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n"
+                },
+                {
+                    "date": 1683831493442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n-      { path: 'user', component: UsersComponent, outlet: 'main-router'},\n+      { path: 'home/user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n       { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n       { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n"
+                },
+                {
+                    "date": 1683831610208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n-      { path: 'home/user', component: UsersComponent, outlet: 'main-router'},\n+      { path: '', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n       { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n       { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n"
+                },
+                {
+                    "date": 1683831670285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n-      { path: '', component: UsersComponent, outlet: 'main-router'},\n+      { path: 'user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n       { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n       { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n"
+                },
+                {
+                    "date": 1683831790750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,13 @@\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n   {\n-    path: '',\n+    path: 'signin',\n     component: SignInComponent,\n   },\n   {\n-    path: 'home',\n+    path: '',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683831897924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n const routes: Routes = [\n   {\n     path: 'signin',\n     component: SignInComponent,\n+    outlet: 'start'\n   },\n   {\n     path: '',\n     component: MainPageComponent,\n"
+                },
+                {
+                    "date": 1683831906338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n   {\n-    path: 'signin',\n+    path: '',\n     component: SignInComponent,\n     outlet: 'start'\n   },\n   {\n"
+                },
+                {
+                    "date": 1683831913150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     component: SignInComponent,\n     outlet: 'start'\n   },\n   {\n-    path: '',\n+    path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683831990261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     component: SignInComponent,\n     outlet: 'start'\n   },\n   {\n-    path: 'home',\n+    path: 'w',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683832041612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n-      { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n+      // { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n       { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n       { path: 'verify-email-address', component: VerifyEmailComponent, outlet: 'main-router' },\n     ]\n"
+                },
+                {
+                    "date": 1683832086259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n const routes: Routes = [\n   {\n     path: '',\n     component: SignInComponent,\n-    outlet: 'start'\n+    // outlet: 'start'\n   },\n   {\n     path: 'w',\n     component: MainPageComponent,\n"
+                },
+                {
+                    "date": 1683832094765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     component: SignInComponent,\n     // outlet: 'start'\n   },\n   {\n-    path: 'w',\n+    path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683832129067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n+    outlet: 'start',\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683832171008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n const routes: Routes = [\n   {\n     path: '',\n     component: SignInComponent,\n-    // outlet: 'start'\n+    outlet: 'start'\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n"
+                },
+                {
+                    "date": 1683832193100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n-    outlet: 'start',\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n       { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683832258669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,9 @@\n \n const routes: Routes = [\n   {\n     path: '',\n-    component: SignInComponent,\n-    outlet: 'start'\n+    component: SignInComponent\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n"
                 }
             ],
             "date": 1683131675966,

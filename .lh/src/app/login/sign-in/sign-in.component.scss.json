@@ -3,11 +3,35 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1683733150549,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1683739764607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n \r\n-  height: 100vh;\r\n+  height: auto;\r\n }\r\n \r\n form {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1683739775527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n \r\n-  height: auto;\r\n+  height: 80vh;\r\n }\r\n \r\n form {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1683831115440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n+  background-color: #111;\r\n \r\n   height: 80vh;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683831134131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   align-items: center;\r\n   flex-direction: column;\r\n   background-color: #111;\r\n \r\n-  height: 80vh;\r\n+  height: 100vh;\r\n }\r\n \r\n form {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1683832281086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background-color: #111;\r\n+  background-color: #303030;\r\n \r\n   height: 100vh;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1683832290461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n   background-color: #303030;\r\n-\r\n+  color: aliceblue;\r\n   height: 100vh;\r\n }\r\n \r\n form {\r\n"
                 }
             ],
             "date": 1683733150549,

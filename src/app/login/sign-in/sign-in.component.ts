@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit {
       email: this.form.value.email,
       password: this.form.value.password
     }).subscribe({
-      next: () => this.router.navigate(['home']),
+      next: () => this.router.navigate(['dashboard']),
       error: error => {
         this.isLoggingIn = false;
         this.snackBar.open(error.message, "OK", {

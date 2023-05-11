@@ -7,16 +7,27 @@ import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
-  {path: 'home', component: DashboardComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'user', component: UsersComponent},
-  {path: 'user/:id', component: UserDetailComponent},
-  { path: 'signin', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
+  {
+    path: '',
+    component: SignInComponent
+  },
+  {
+    path: 'home',
+    component: MainPageComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},
+      { path: 'user', component: UsersComponent, outlet: 'main-router'},
+      { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},
+      // { path: 'signin', component: SignInComponent, outlet: 'main-router' },
+      { path: 'register-user', component: SignUpComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },
+      { path: 'verify-email-address', component: VerifyEmailComponent, outlet: 'main-router' },
+    ]
+  },
+  
 ];
 
 @NgModule({

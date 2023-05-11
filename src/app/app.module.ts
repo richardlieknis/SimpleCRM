@@ -37,6 +37,7 @@ import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MainPageComponent } from './main-page/main-page.component';
 
  
 
@@ -51,7 +52,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
