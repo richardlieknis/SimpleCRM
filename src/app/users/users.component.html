@@ -20,7 +20,7 @@
       </tr>
       <tr
         *ngFor="let user of allUsers; let i = index"
-        [routerLink]="['/user/' + allIds[i]]"
+        [routerLink]="['/home/user/' + allIds[i]]"
       >
         <td>{{ user.firstName }} {{ user.lastName }}</td>
         <td>{{ user.email }}</td>

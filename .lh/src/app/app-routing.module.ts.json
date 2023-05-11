@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 38,
+            "activePatchIndex": 42,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -160,6 +160,22 @@
                 {
                     "date": 1683832258669,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,9 @@\n \n const routes: Routes = [\n   {\n     path: '',\n-    component: SignInComponent,\n-    outlet: 'start'\n+    component: SignInComponent\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n"
+                },
+                {
+                    "date": 1683832662613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n+  // {\n+  //   path: '',\n+  //   component: SignInComponent\n+  // },\n   {\n     path: '',\n-    component: SignInComponent\n-  },\n-  {\n-    path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n       { path: 'user', component: UsersComponent, outlet: 'main-router'},\n"
+                },
+                {
+                    "date": 1683833361762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,23 +9,23 @@\n import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n import { MainPageComponent } from './main-page/main-page.component';\n \n const routes: Routes = [\n-  // {\n-  //   path: '',\n-  //   component: SignInComponent\n-  // },\n   {\n     path: '',\n+    component: SignInComponent\n+  },\n+  {\n+    path: '',\n     component: MainPageComponent,\n     children: [\n-      { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},\n-      { path: 'user', component: UsersComponent, outlet: 'main-router'},\n-      { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},\n+      { path: 'dashboard', component: DashboardComponent,},\n+      { path: 'user', component: UsersComponent,},\n+      { path: 'user/:id', component: UserDetailComponent,},\n       // { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n       { path: 'register-user', component: SignUpComponent },\n-      { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },\n-      { path: 'verify-email-address', component: VerifyEmailComponent, outlet: 'main-router' },\n+      { path: 'forgot-password', component: ForgotPasswordComponent, },\n+      { path: 'verify-email-address', component: VerifyEmailComponent, },\n     ]\n   },\n   \n ];\n"
+                },
+                {
+                    "date": 1683833424167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     path: '',\n     component: SignInComponent\n   },\n   {\n-    path: '',\n+    path: 'home',\n     component: MainPageComponent,\n     children: [\n       { path: 'dashboard', component: DashboardComponent,},\n       { path: 'user', component: UsersComponent,},\n"
+                },
+                {
+                    "date": 1683833490701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     children: [\n       { path: 'dashboard', component: DashboardComponent,},\n       { path: 'user', component: UsersComponent,},\n       { path: 'user/:id', component: UserDetailComponent,},\n-      // { path: 'signin', component: SignInComponent, outlet: 'main-router' },\n+      { path: 'signin', component: SignInComponent},\n       { path: 'register-user', component: SignUpComponent },\n       { path: 'forgot-password', component: ForgotPasswordComponent, },\n       { path: 'verify-email-address', component: VerifyEmailComponent, },\n     ]\n"
                 }
             ],
             "date": 1683131675966,

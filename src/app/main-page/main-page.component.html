@@ -5,9 +5,11 @@
     </div>
     <div class="menu-links">
       <ul>
-        <li routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</li>
+        <li routerLink="/home/dashboard">
+          <mat-icon>dashboard</mat-icon>Dashboard
+        </li>
         <li routerLink="/home/user"><mat-icon>account_circle</mat-icon>User</li>
-        <li routerLink="/signin" class="login">
+        <li routerLink="/home/signin" class="login">
           <mat-icon>login</mat-icon>Login Test
         </li>
       </ul>
@@ -23,6 +25,6 @@
     </mat-toolbar>
   </div>
   <div class="router-container">
-    <router-outlet name="main-router"></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

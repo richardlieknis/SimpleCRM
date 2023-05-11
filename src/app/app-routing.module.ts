@@ -18,13 +18,13 @@ const routes: Routes = [
     path: 'home',
     component: MainPageComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent, outlet: 'main-router'},
-      { path: 'user', component: UsersComponent, outlet: 'main-router'},
-      { path: 'user/:id', component: UserDetailComponent, outlet: 'main-router'},
-      // { path: 'signin', component: SignInComponent, outlet: 'main-router' },
+      { path: 'dashboard', component: DashboardComponent,},
+      { path: 'user', component: UsersComponent,},
+      { path: 'user/:id', component: UserDetailComponent,},
+      { path: 'signin', component: SignInComponent},
       { path: 'register-user', component: SignUpComponent },
-      { path: 'forgot-password', component: ForgotPasswordComponent, outlet: 'main-router' },
-      { path: 'verify-email-address', component: VerifyEmailComponent, outlet: 'main-router' },
+      { path: 'forgot-password', component: ForgotPasswordComponent, },
+      { path: 'verify-email-address', component: VerifyEmailComponent, },
     ]
   },
   
