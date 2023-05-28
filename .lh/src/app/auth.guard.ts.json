@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1685296924291,
@@ -16,6 +16,10 @@
                 {
                     "date": 1685306870452,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       return true;\n     } else {\n       this.router.navigateByUrl('');\n       return false;\n+      \n     }\n+  }  \n   }\n-    \n-  }\n \n"
+                },
+                {
+                    "date": 1685306897228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n })\n export class AuthGuard implements CanActivate {\n   constructor(private authService: AuthenticationService, private router: Router) {}\n   canActivate(): boolean {\n-    if (this.authService.isLoggedIn()) {\n-      return true;\n-    } else {\n-      this.router.navigateByUrl('');\n-      return false;\n-      \n-    }\n-  }  \n+      if (this.authService.isLoggedIn()) {\n+        return true;\n+      } else {\n+        this.router.navigateByUrl('');\n+        return false;\n+        \n+      }\n+    }  \n   }\n \n"
                 }
             ],
             "date": 1685296924291,

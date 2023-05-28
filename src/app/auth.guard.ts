@@ -8,13 +8,13 @@ import { AuthenticationService } from './login/sign-in/services/authentication.s
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) {}
   canActivate(): boolean {
-    if (this.authService.isLoggedIn()) {
-      return true;
-    } else {
-      this.router.navigateByUrl('');
-      return false;
-      
-    }
-  }  
+      if (this.authService.isLoggedIn()) {
+        return true;
+      } else {
+        this.router.navigateByUrl('');
+        return false;
+        
+      }
+    }  
   }
 
