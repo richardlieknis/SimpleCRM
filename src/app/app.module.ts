@@ -30,9 +30,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import DialogEditUserComponent from './dialog-edit-user/dialog-edit-user.component';
 import { SignInComponent } from './login/sign-in/sign-in.component';
-import { SignUpComponent } from './login/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './login/verify-email/verify-email.component'; 
 import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
@@ -50,9 +47,6 @@ import { MainPageComponent } from './main-page/main-page.component';
     UserDetailComponent,
     DialogEditUserComponent,
     SignInComponent,
-    SignUpComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
     MainPageComponent
   ],
   imports: [

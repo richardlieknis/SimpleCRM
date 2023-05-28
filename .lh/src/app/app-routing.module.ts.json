@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 45,
+            "activePatchIndex": 46,
             "patches": [
                 {
                     "date": 1683131675966,
@@ -188,6 +188,10 @@
                 {
                     "date": 1685306313652,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n   },\n   {\n     path: 'home',\n     component: MainPageComponent,\n+    canActivate: [AuthGuard],\n     children: [\n       { path: 'dashboard', component: DashboardComponent},\n       { path: 'user', component: UsersComponent},\n       { path: 'user/:id', component: UserDetailComponent},\n"
+                },
+                {
+                    "date": 1685307057775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,8 @@\n import { DashboardComponent } from './dashboard/dashboard.component';\n import { UsersComponent } from './users/users.component';\n import { UserDetailComponent } from './user-detail/user-detail.component';\n import { SignInComponent } from './login/sign-in/sign-in.component';\n-import { SignUpComponent } from './login/sign-up/sign-up.component';\n-import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';\n-import { VerifyEmailComponent } from './login/verify-email/verify-email.component';\n import { MainPageComponent } from './main-page/main-page.component';\n import { AuthGuard } from './auth.guard';\n \n const routes: Routes = [\n@@ -23,11 +20,8 @@\n       { path: 'dashboard', component: DashboardComponent},\n       { path: 'user', component: UsersComponent},\n       { path: 'user/:id', component: UserDetailComponent},\n       { path: 'signin', component: SignInComponent},\n-      { path: 'register-user', component: SignUpComponent },\n-      { path: 'forgot-password', component: ForgotPasswordComponent },\n-      { path: 'verify-email-address', component: VerifyEmailComponent },\n     ]\n   },\n   \n ];\n"
                 }
             ],
             "date": 1683131675966,
