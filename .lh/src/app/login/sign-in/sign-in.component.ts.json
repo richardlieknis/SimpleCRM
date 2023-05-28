@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1683569307969,
@@ -28,6 +28,38 @@
                 {
                     "date": 1683820400391,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     this.authenticationService.signIn({\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n-      next: () => this.router.navigate(['home']),\n+      next: () => this.router.navigate(['dashboard']),\n       error: error => {\n         this.isLoggingIn = false;\n         this.snackBar.open(error.message, \"OK\", {\n           duration: 5000\n"
+                },
+                {
+                    "date": 1683903867457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     this.authenticationService.signIn({\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n-      next: () => this.router.navigate(['dashboard']),\n+      next: () => this.router.navigate(['home/dashboard']),\n       error: error => {\n         this.isLoggingIn = false;\n         this.snackBar.open(error.message, \"OK\", {\n           duration: 5000\n"
+                },
+                {
+                    "date": 1685267867314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n     });\n   }\n \n   login() {\n+    console.log(this.form.value.email);\n     this.isLoggingIn = true;\n \n     this.authenticationService.signIn({\n       email: this.form.value.email,\n"
+                },
+                {
+                    "date": 1685267892001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     });\n   }\n \n   login() {\n-    console.log(this.form.value.email);\n+    console.log(this.form.value);\n     this.isLoggingIn = true;\n \n     this.authenticationService.signIn({\n       email: this.form.value.email,\n"
+                },
+                {
+                    "date": 1685267978209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n     });\n   }\n \n   login() {\n-    console.log(this.form.value);\n     this.isLoggingIn = true;\n \n     this.authenticationService.signIn({\n       email: this.form.value.email,\n"
+                },
+                {
+                    "date": 1685292065270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,8 @@\n   }\n \n   recoverPassword() {\n     this.isRecoveringPassword = true;\n-\n     this.authenticationService.recoverPassword(\n       this.form.value.email\n     ).subscribe({\n       next: () => {\n@@ -65,6 +64,5 @@\n         });\n       }\n     })\n   }\n-\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685296851244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   templateUrl: './sign-in.component.html',\n   styleUrls: ['./sign-in.component.scss']\n })\n export class SignInComponent implements OnInit {\n-\n+  tokenName = 'token';\n   form!: FormGroup;\n   isLoggingIn = false;\n   isRecoveringPassword = false;\n \n@@ -35,9 +35,12 @@\n     this.authenticationService.signIn({\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n-      next: () => this.router.navigate(['home/dashboard']),\n+      next: () => {\n+        localStorage.setItem(this.tokenName, 'token');\n+        this.router.navigate(['home/dashboard'])\n+      },\n       error: error => {\n         this.isLoggingIn = false;\n         this.snackBar.open(error.message, \"OK\", {\n           duration: 5000\n"
+                },
+                {
+                    "date": 1685305967825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,13 @@\n       }\n     });\n   }\n \n+  guestLogin() {\n+    localStorage.setItem(this.tokenName, 'guest-token');\n+    this.router.navigate(['home/dashboard']);\n+  }\n+\n   recoverPassword() {\n     this.isRecoveringPassword = true;\n     this.authenticationService.recoverPassword(\n       this.form.value.email\n"
+                },
+                {
+                    "date": 1685306757889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,12 @@\n     localStorage.setItem(this.tokenName, 'guest-token');\n     this.router.navigate(['home/dashboard']);\n   }\n \n+  signInWithGoogle() {\n+    this.authenticationService.signInWithGoogle();\n+  }\n+\n   recoverPassword() {\n     this.isRecoveringPassword = true;\n     this.authenticationService.recoverPassword(\n       this.form.value.email\n"
                 }
             ],
             "date": 1683569307969,

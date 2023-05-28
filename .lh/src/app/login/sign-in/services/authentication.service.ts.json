@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1683733216724,
@@ -12,6 +12,18 @@
                 {
                     "date": 1683735633527,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     if (code === \"auth/user-not-found\") {\r\n       return \"User not found.\";\r\n     }\r\n     if (code === \"auth/wrong-password\") {\r\n-      return \"User not found.\";\r\n+      return \"Wrong password.\";\r\n     }\r\n     return message;\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1685293934432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,15 @@\n import { Injectable } from '@angular/core';\r\n+import { GoogleAuthProvider, getAuth, signInWithPopup } from '@angular/fire/auth';\r\n import { AngularFireAuth } from '@angular/fire/compat/auth';\r\n import { catchError, from, Observable, of, throwError } from 'rxjs';\r\n \r\n @Injectable({\r\n   providedIn: 'root'\r\n })\r\n export class AuthenticationService {\r\n+  provider = new GoogleAuthProvider();\r\n+  public tokenName: string = 'token';\r\n \r\n   constructor(\r\n     private auth: AngularFireAuth\r\n   ) { }\r\n@@ -28,8 +31,29 @@\n       )\r\n     );\r\n   }\r\n \r\n+  signInWithGoogle() {\r\n+    const auth = getAuth();\r\n+    signInWithPopup(auth, this.provider)\r\n+      .then((result) => {\r\n+        const credential = GoogleAuthProvider.credentialFromResult(result);\r\n+        const token = credential?.accessToken;\r\n+        const user = result.user;\r\n+        localStorage.setItem(this.tokenName, 'token');\r\n+        console.log(\"TOKEN: \" + token, \"USER: \" + user.toJSON);\r\n+    })\r\n+  }\r\n+\r\n+  isLoggedIn() {\r\n+    console.log(\"test\");\r\n+    return localStorage.getItem(this.tokenName) != null;\r\n+  }\r\n+\r\n+  logout() {\r\n+    localStorage.removeItem(this.tokenName);\r\n+  }\r\n+\r\n   private translateFirebaseErrorMessage({code, message}: FirebaseError) {\r\n     if (code === \"auth/user-not-found\") {\r\n       return \"User not found.\";\r\n     }\r\n"
+                },
+                {
+                    "date": 1685296768017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n     })\r\n   }\r\n \r\n   isLoggedIn() {\r\n-    console.log(\"test\");\r\n     return localStorage.getItem(this.tokenName) != null;\r\n   }\r\n \r\n   logout() {\r\n"
+                },
+                {
+                    "date": 1685305853527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Injectable } from '@angular/core';\r\n import { GoogleAuthProvider, getAuth, signInWithPopup } from '@angular/fire/auth';\r\n import { AngularFireAuth } from '@angular/fire/compat/auth';\r\n+import { Router } from '@angular/router';\r\n import { catchError, from, Observable, of, throwError } from 'rxjs';\r\n \r\n @Injectable({\r\n   providedIn: 'root'\r\n@@ -10,9 +11,10 @@\n   provider = new GoogleAuthProvider();\r\n   public tokenName: string = 'token';\r\n \r\n   constructor(\r\n-    private auth: AngularFireAuth\r\n+    private auth: AngularFireAuth,\r\n+    private router: Router\r\n   ) { }\r\n \r\n   signIn(params: SignIn): Observable<any> {\r\n     return from(this.auth.signInWithEmailAndPassword(\r\n@@ -35,8 +37,9 @@\n   signInWithGoogle() {\r\n     const auth = getAuth();\r\n     signInWithPopup(auth, this.provider)\r\n       .then((result) => {\r\n+        this.router.navigateByUrl('home/dashboard');\r\n         const credential = GoogleAuthProvider.credentialFromResult(result);\r\n         const token = credential?.accessToken;\r\n         const user = result.user;\r\n         localStorage.setItem(this.tokenName, 'token');\r\n"
                 }
             ],
             "date": 1683733216724,

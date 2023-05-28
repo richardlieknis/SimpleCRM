@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1683733150549,
@@ -32,6 +32,58 @@
                 {
                     "date": 1683832290461,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n   background-color: #303030;\r\n-\r\n+  color: aliceblue;\r\n   height: 100vh;\r\n }\r\n \r\n form {\r\n"
+                },
+                {
+                    "date": 1685262782332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,11 @@\n   flex-direction: column;\r\n   background-color: #303030;\r\n   color: aliceblue;\r\n   height: 100vh;\r\n+  h1 {\r\n+    text-align: center;\r\n+  }\r\n }\r\n \r\n form {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1685264247046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,5 +51,9 @@\n \r\n .recover-password {\r\n   padding-left: 62px;\r\n   padding-right: 62px;\r\n+}\r\n+\r\n+.guest-login {\r\n+  width: 100%;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685264258936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,5 +55,8 @@\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n+  button {\r\n+    height: 10px;\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685264266474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,7 +56,7 @@\n \r\n .guest-login {\r\n   width: 100%;\r\n   button {\r\n-    height: 10px;\r\n+    height: 25px;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685264280786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,7 +56,7 @@\n \r\n .guest-login {\r\n   width: 100%;\r\n   button {\r\n-    height: 25px;\r\n+    opacity: 0.5;\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685264306506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,7 +56,10 @@\n \r\n .guest-login {\r\n   width: 100%;\r\n   button {\r\n-    opacity: 0.5;\r\n+    opacity: 0.8;\r\n+    &:hover {\r\n+      opacity: 1;\r\n+    }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685306575143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background-color: #303030;\r\n+  background-color: #222222;\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306612623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background-color: #222222;\r\n+  background: linear-gradient(90deg, #222, #000)\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306620469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(90deg, #222, #000)\r\n+  background: linear-gradient(0deg, #222, #000);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306637059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(0deg, #222, #000);\r\n+  background: linear-gradient(0deg, #222, #222, #000);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306649883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(0deg, #222, #222, #000);\r\n+  background: linear-gradient(0deg, #222, #111, #111);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306656778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(0deg, #222, #111, #111);\r\n+  background: linear-gradient(0deg, #111, #111, #111);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685306662695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(0deg, #111, #111, #111);\r\n+  background: linear-gradient(0deg, #111, #111, #000);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
                 }
             ],
             "date": 1683733150549,

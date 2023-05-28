@@ -28,6 +28,26 @@
         Password is required
       </mat-error>
     </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!form.valid"
+      (click)="login()"
+      *ngIf="!isLoggingIn"
+      test-id="login-button"
+    >
+      LOGIN
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="button-loader"
+      *ngIf="isLoggingIn"
+      test-id="login-loader"
+    >
+      <mat-spinner color="accent" diameter="20"></mat-spinner>
+    </button>
+    <button mat-stroked-button color="primary">REGISTER</button>
     <div class="aligned-to-right">
       <button
         mat-button
@@ -49,25 +69,18 @@
         <mat-spinner color="primary" diameter="20"></mat-spinner>
       </button>
     </div>
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="!form.valid"
-      (click)="login()"
-      *ngIf="!isLoggingIn"
-      test-id="login-button"
-    >
-      LOGIN
-    </button>
-    <button
-      mat-raised-button
-      color="primary"
-      class="button-loader"
-      *ngIf="isLoggingIn"
-      test-id="login-loader"
-    >
-      <mat-spinner color="accent" diameter="20"></mat-spinner>
-    </button>
-    <button mat-stroked-button color="primary">REGISTER</button>
+    <div class="guest-login">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="guestLogin()"
+        test-id="guest-login-button"
+      >
+        GUEST LOGIN
+      </button>
+      <button mat-stroked-button color="secondary" (click)="signInWithGoogle()">
+        SignIn with Google
+      </button>
+    </div>
   </form>
 </main>

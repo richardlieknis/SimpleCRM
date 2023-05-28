@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1683824197124,
@@ -24,6 +24,14 @@
                 {
                     "date": 1683833457730,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n       <img src=\"assets/img/logo.png\" />\n     </div>\n     <div class=\"menu-links\">\n       <ul>\n-        <li routerLink=\"/dashboard\"><mat-icon>dashboard</mat-icon>Dashboard</li>\n+        <li routerLink=\"/home/dashboard\"><mat-icon>dashboard</mat-icon>Dashboard</li>\n         <li routerLink=\"/home/user\"><mat-icon>account_circle</mat-icon>User</li>\n-        <li routerLink=\"/signin\" class=\"login\">\n+        <li routerLink=\"/home/signin\" class=\"login\">\n           <mat-icon>login</mat-icon>Login Test\n         </li>\n       </ul>\n     </div>\n"
+                },
+                {
+                    "date": 1685297214816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n           <mat-icon>dashboard</mat-icon>Dashboard\n         </li>\n         <li routerLink=\"/home/user\"><mat-icon>account_circle</mat-icon>User</li>\n         <li routerLink=\"/home/signin\" class=\"login\">\n-          <mat-icon>login</mat-icon>Login Test\n+          <mat-icon>logout</mat-icon>Logout\n         </li>\n       </ul>\n     </div>\n   </mat-drawer>\n"
+                },
+                {
+                    "date": 1685297323275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <li routerLink=\"/home/dashboard\">\n           <mat-icon>dashboard</mat-icon>Dashboard\n         </li>\n         <li routerLink=\"/home/user\"><mat-icon>account_circle</mat-icon>User</li>\n-        <li routerLink=\"/home/signin\" class=\"login\">\n+        <li (click)=\"logout()\" class=\"login\">\n           <mat-icon>logout</mat-icon>Logout\n         </li>\n       </ul>\n     </div>\n"
                 }
             ],
             "date": 1683824197124,

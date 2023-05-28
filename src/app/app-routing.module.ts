@@ -8,6 +8,7 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -17,14 +18,15 @@ const routes: Routes = [
   {
     path: 'home',
     component: MainPageComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent,},
-      { path: 'user', component: UsersComponent,},
-      { path: 'user/:id', component: UserDetailComponent,},
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'user', component: UsersComponent},
+      { path: 'user/:id', component: UserDetailComponent},
       { path: 'signin', component: SignInComponent},
       { path: 'register-user', component: SignUpComponent },
-      { path: 'forgot-password', component: ForgotPasswordComponent, },
-      { path: 'verify-email-address', component: VerifyEmailComponent, },
+      { path: 'forgot-password', component: ForgotPasswordComponent },
+      { path: 'verify-email-address', component: VerifyEmailComponent },
     ]
   },
   

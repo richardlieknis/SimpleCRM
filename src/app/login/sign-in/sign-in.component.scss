@@ -3,9 +3,12 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #303030;
+  background: linear-gradient(0deg, #111, #111, #000);
   color: aliceblue;
   height: 100vh;
+  h1 {
+    text-align: center;
+  }
 }
 
 form {
@@ -49,4 +52,14 @@ form {
 .recover-password {
   padding-left: 62px;
   padding-right: 62px;
+}
+
+.guest-login {
+  width: 100%;
+  button {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

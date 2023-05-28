@@ -9,8 +9,8 @@
           <mat-icon>dashboard</mat-icon>Dashboard
         </li>
         <li routerLink="/home/user"><mat-icon>account_circle</mat-icon>User</li>
-        <li routerLink="/home/signin" class="login">
-          <mat-icon>login</mat-icon>Login Test
+        <li (click)="logout()" routerLink="" class="login">
+          <mat-icon>logout</mat-icon>Logout
         </li>
       </ul>
     </div>

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/main-page/main-page.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1685297308196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1685297308196,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { AuthenticationService } from '../login/sign-in/services/authentication.service';\n\n@Component({\n  selector: 'app-main-page',\n  templateUrl: './main-page.component.html',\n  styleUrls: ['./main-page.component.scss']\n})\nexport class MainPageComponent {\n\n  constructor(private authService: AuthenticationService) {  }\n\n  logout() {\n    this.authService.logout();\n  }\n}\n"
+        }
+    ]
+}

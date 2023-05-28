@@ -10,7 +10,7 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-
+  tokenName = 'token';
   form!: FormGroup;
   isLoggingIn = false;
   isRecoveringPassword = false;
@@ -36,7 +36,10 @@ export class SignInComponent implements OnInit {
       email: this.form.value.email,
       password: this.form.value.password
     }).subscribe({
-      next: () => this.router.navigate(['dashboard']),
+      next: () => {
+        localStorage.setItem(this.tokenName, 'token');
+        this.router.navigate(['home/dashboard'])
+      },
       error: error => {
         this.isLoggingIn = false;
         this.snackBar.open(error.message, "OK", {
@@ -46,9 +49,17 @@ export class SignInComponent implements OnInit {
     });
   }
 
+  guestLogin() {
+    localStorage.setItem(this.tokenName, 'guest-token');
+    this.router.navigate(['home/dashboard']);
+  }
+
+  signInWithGoogle() {
+    this.authenticationService.signInWithGoogle();
+  }
+
   recoverPassword() {
     this.isRecoveringPassword = true;
-
     this.authenticationService.recoverPassword(
       this.form.value.email
     ).subscribe({
@@ -66,5 +77,4 @@ export class SignInComponent implements OnInit {
       }
     })
   }
-
 }

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1683733153482,
@@ -12,6 +12,10 @@
                 {
                     "date": 1683735710827,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n       <mat-label>Email</mat-label>\n       <input\n         type=\"email\"\n         matInput\n-        placeholder=\"Ex: pat@example.com\"\n+        placeholder=\"your-name@example.com\"\n         formControlName=\"email\"\n       />\n       <mat-error *ngIf=\"form.get('email')!.hasError('required')\">\n         Email is required\n"
+                },
+                {
+                    "date": 1683904487261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,47 +27,47 @@\n       <mat-error *ngIf=\"form.get('password')!.hasError('required')\">\n         Password is required\n       </mat-error>\n     </mat-form-field>\n-    <div class=\"aligned-to-right\">\n-      <button\n-        mat-button\n-        color=\"primary\"\n-        [disabled]=\"!form.get('email')!.valid\"\n-        (click)=\"recoverPassword()\"\n-        *ngIf=\"!isRecoveringPassword\"\n-        test-id=\"recover-password-button\"\n-      >\n-        Recover password\n-      </button>\n-      <button\n-        mat-button\n-        color=\"primary\"\n-        class=\"button-loader recover-password\"\n-        *ngIf=\"isRecoveringPassword\"\n-        test-id=\"recover-password-loader\"\n-      >\n-        <mat-spinner color=\"primary\" diameter=\"20\"></mat-spinner>\n-      </button>\n-    </div>\n     <button\n-      mat-raised-button\n-      color=\"primary\"\n-      [disabled]=\"!form.valid\"\n-      (click)=\"login()\"\n-      *ngIf=\"!isLoggingIn\"\n-      test-id=\"login-button\"\n+    mat-raised-button\n+    color=\"primary\"\n+    [disabled]=\"!form.valid\"\n+    (click)=\"login()\"\n+    *ngIf=\"!isLoggingIn\"\n+    test-id=\"login-button\"\n     >\n-      LOGIN\n-    </button>\n-    <button\n-      mat-raised-button\n-      color=\"primary\"\n-      class=\"button-loader\"\n-      *ngIf=\"isLoggingIn\"\n-      test-id=\"login-loader\"\n-    >\n-      <mat-spinner color=\"accent\" diameter=\"20\"></mat-spinner>\n-    </button>\n-    <button mat-stroked-button color=\"primary\">REGISTER</button>\n+    LOGIN\n+  </button>\n+  <button\n+  mat-raised-button\n+  color=\"primary\"\n+  class=\"button-loader\"\n+  *ngIf=\"isLoggingIn\"\n+  test-id=\"login-loader\"\n+  >\n+  <mat-spinner color=\"accent\" diameter=\"20\"></mat-spinner>\n+</button>\n+<button mat-stroked-button color=\"primary\">REGISTER</button>\n+<div class=\"aligned-to-right\">\n+  <button\n+    mat-button\n+    color=\"primary\"\n+    [disabled]=\"!form.get('email')!.valid\"\n+    (click)=\"recoverPassword()\"\n+    *ngIf=\"!isRecoveringPassword\"\n+    test-id=\"recover-password-button\"\n+  >\n+    Recover password\n+  </button>\n+  <button\n+    mat-button\n+    color=\"primary\"\n+    class=\"button-loader recover-password\"\n+    *ngIf=\"isRecoveringPassword\"\n+    test-id=\"recover-password-loader\"\n+  >\n+    <mat-spinner color=\"primary\" diameter=\"20\"></mat-spinner>\n+  </button>\n+</div>\n   </form>\n </main>\n"
                 }
             ],
             "date": 1683733153482,
