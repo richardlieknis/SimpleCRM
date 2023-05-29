@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1683569307969,
@@ -60,6 +60,30 @@
                 {
                     "date": 1685306757889,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,12 @@\n     localStorage.setItem(this.tokenName, 'guest-token');\n     this.router.navigate(['home/dashboard']);\n   }\n \n+  signInWithGoogle() {\n+    this.authenticationService.signInWithGoogle();\n+  }\n+\n   recoverPassword() {\n     this.isRecoveringPassword = true;\n     this.authenticationService.recoverPassword(\n       this.form.value.email\n"
+                },
+                {
+                    "date": 1685308189040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n import { MatSnackBar } from '@angular/material/snack-bar';\n import { Router } from '@angular/router';\n import { AuthenticationService } from './services/authentication.service';\n+import { CollectionReference, DocumentData, Firestore, addDoc, collection } from '@angular/fire/firestore';\n+import { User } from 'src/models/user.class';\n \n @Component({\n   selector: 'app-sign-in',\n   templateUrl: './sign-in.component.html',\n@@ -13,15 +15,20 @@\n   tokenName = 'token';\n   form!: FormGroup;\n   isLoggingIn = false;\n   isRecoveringPassword = false;\n+  user = new User();\n+  private userCollection: CollectionReference<DocumentData>;\n \n   constructor(\n     private authenticationService: AuthenticationService,\n     private formBuilder: FormBuilder,\n     private router: Router,\n-    private snackBar: MatSnackBar\n-  ) { }\n+    private snackBar: MatSnackBar,\n+    private firestore: Firestore,\n+  ) {\n+    this.userCollection = collection(this.firestore, 'users');\n+  }\n \n   ngOnInit(): void {\n     this.form = this.formBuilder.group({\n       email: ['', [Validators.required, Validators.email]],\n@@ -76,5 +83,9 @@\n         });\n       }\n     })\n   }\n+\n+  addNewRegisteredUser() {\n+    addDoc((this.userCollection), this.user.toJSON());\n+  }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685308628359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,9 +83,5 @@\n         });\n       }\n     })\n   }\n-\n-  addNewRegisteredUser() {\n-    addDoc((this.userCollection), this.user.toJSON());\n-  }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1685352312349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,24 @@\n       }\n     });\n   }\n \n+  register() {\n+    this.authenticationService.signUp({\n+      email: this.form.value.email,\n+      password: this.form.value.password\n+    }).subscribe({\n+      next: () => {\n+        this.router.navigate(['']);\n+      },\n+      error: error => {\n+        this.snackBar.open(error.message, \"OK\", {\n+          duration: 5000\n+        })\n+      }\n+    })\n+  }\n+\n   guestLogin() {\n     localStorage.setItem(this.tokenName, 'guest-token');\n     this.router.navigate(['home/dashboard']);\n   }\n"
+                },
+                {
+                    "date": 1685352635738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,9 +61,9 @@\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n       next: () => {\n-        this.router.navigate(['']);\n+        this.router.navigate(['home/dashboard']);\n       },\n       error: error => {\n         this.snackBar.open(error.message, \"OK\", {\n           duration: 5000\n"
+                },
+                {
+                    "date": 1685352727872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,8 +61,9 @@\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n       next: () => {\n+        localStorage.setItem(this.tokenName, 'token');\n         this.router.navigate(['home/dashboard']);\n       },\n       error: error => {\n         this.snackBar.open(error.message, \"OK\", {\n"
+                },
+                {
+                    "date": 1685352825722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,10 +61,11 @@\n       email: this.form.value.email,\n       password: this.form.value.password\n     }).subscribe({\n       next: () => {\n-        localStorage.setItem(this.tokenName, 'token');\n-        this.router.navigate(['home/dashboard']);\n+        this.snackBar.open(\"Account created. You can log in now.\", \"OK\", {\n+          duration: 5000\n+        })\n       },\n       error: error => {\n         this.snackBar.open(error.message, \"OK\", {\n           duration: 5000\n"
                 }
             ],
             "date": 1683569307969,

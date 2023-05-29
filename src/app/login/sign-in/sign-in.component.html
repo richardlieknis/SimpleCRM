@@ -47,7 +47,14 @@
     >
       <mat-spinner color="accent" diameter="20"></mat-spinner>
     </button>
-    <button mat-stroked-button color="primary">REGISTER</button>
+    <button
+      mat-stroked-button
+      color="primary"
+      [disabled]="!form.valid"
+      (click)="register()"
+    >
+      REGISTER
+    </button>
     <div class="aligned-to-right">
       <button
         mat-button

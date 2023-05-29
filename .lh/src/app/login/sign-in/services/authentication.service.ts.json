@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1683733216724,
@@ -24,6 +24,18 @@
                 {
                     "date": 1685305853527,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Injectable } from '@angular/core';\r\n import { GoogleAuthProvider, getAuth, signInWithPopup } from '@angular/fire/auth';\r\n import { AngularFireAuth } from '@angular/fire/compat/auth';\r\n+import { Router } from '@angular/router';\r\n import { catchError, from, Observable, of, throwError } from 'rxjs';\r\n \r\n @Injectable({\r\n   providedIn: 'root'\r\n@@ -10,9 +11,10 @@\n   provider = new GoogleAuthProvider();\r\n   public tokenName: string = 'token';\r\n \r\n   constructor(\r\n-    private auth: AngularFireAuth\r\n+    private auth: AngularFireAuth,\r\n+    private router: Router\r\n   ) { }\r\n \r\n   signIn(params: SignIn): Observable<any> {\r\n     return from(this.auth.signInWithEmailAndPassword(\r\n@@ -35,8 +37,9 @@\n   signInWithGoogle() {\r\n     const auth = getAuth();\r\n     signInWithPopup(auth, this.provider)\r\n       .then((result) => {\r\n+        this.router.navigateByUrl('home/dashboard');\r\n         const credential = GoogleAuthProvider.credentialFromResult(result);\r\n         const token = credential?.accessToken;\r\n         const user = result.user;\r\n         localStorage.setItem(this.tokenName, 'token');\r\n"
+                },
+                {
+                    "date": 1685352080178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,17 @@\n       )\r\n     );\r\n   }\r\n \r\n+  signUp(params: SignIn): Observable<any> {\r\n+    return from(this.auth.createUserWithEmailAndPassword(params.email, params.password))\r\n+      .pipe(\r\n+        catchError((error: FirebaseError) =>\r\n+          throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n+        )\r\n+    )\r\n+  }\r\n+\r\n   recoverPassword(email: string): Observable<void> {\r\n     return from(this.auth.sendPasswordResetEmail(email)).pipe(\r\n       catchError((error: FirebaseError) => \r\n         throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n"
+                },
+                {
+                    "date": 1685352507956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n     );\r\n   }\r\n \r\n   signUp(params: SignIn): Observable<any> {\r\n+    console.log(\"ACC CREATED\");\r\n     return from(this.auth.createUserWithEmailAndPassword(params.email, params.password))\r\n       .pipe(\r\n         catchError((error: FirebaseError) =>\r\n           throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n"
+                },
+                {
+                    "date": 1685352543046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,8 @@\n     );\r\n   }\r\n \r\n   signUp(params: SignIn): Observable<any> {\r\n-    console.log(\"ACC CREATED\");\r\n     return from(this.auth.createUserWithEmailAndPassword(params.email, params.password))\r\n       .pipe(\r\n         catchError((error: FirebaseError) =>\r\n           throwError(() => new Error(this.translateFirebaseErrorMessage(error)))\r\n"
                 }
             ],
             "date": 1683733216724,

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { CollectionReference, DocumentData, Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { User } from 'src/models/user.class';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,13 +16,18 @@ export class SignInComponent implements OnInit {
   form!: FormGroup;
   isLoggingIn = false;
   isRecoveringPassword = false;
+  user = new User();
+  private userCollection: CollectionReference<DocumentData>;
 
   constructor(
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private snackBar: MatSnackBar
-  ) { }
+    private snackBar: MatSnackBar,
+    private firestore: Firestore,
+  ) {
+    this.userCollection = collection(this.firestore, 'users');
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -47,6 +54,24 @@ export class SignInComponent implements OnInit {
         })
       }
     });
+  }
+
+  register() {
+    this.authenticationService.signUp({
+      email: this.form.value.email,
+      password: this.form.value.password
+    }).subscribe({
+      next: () => {
+        this.snackBar.open("Account created. You can log in now.", "OK", {
+          duration: 5000
+        })
+      },
+      error: error => {
+        this.snackBar.open(error.message, "OK", {
+          duration: 5000
+        })
+      }
+    })
   }
 
   guestLogin() {

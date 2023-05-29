@@ -45,6 +45,7 @@ export default class DialogEditUserComponent {
       this.user.street = user.street;
       this.user.city = user.city;
       this.user.zipCode = user.zipCode;
+      console.log(this.formatDate(user.birthDate));
     })
   }
   
@@ -65,4 +66,13 @@ export default class DialogEditUserComponent {
         this.closeDialog();
       });
   }
+
+  formatDate(milliseconds: number) {
+  const date = new Date(milliseconds);
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Monat (von 0 bis 11)
+  const day = date.getDate().toString().padStart(2, '0');  // Tag
+  const year = date.getFullYear().toString();  // Jahr
+
+  return `${month}/${day}/${year}`;
+}
 }
