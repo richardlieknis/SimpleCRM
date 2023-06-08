@@ -17,13 +17,13 @@ const routes: Routes = [
     component: MainPageComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent},
-      { path: 'user', component: UsersComponent},
-      { path: 'user/:id', component: UserDetailComponent},
-      { path: 'signin', component: SignInComponent},
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'user', component: UsersComponent },
+      { path: 'user/:id', component: UserDetailComponent },
+      { path: 'signin', component: SignInComponent },
     ]
   },
-  
+
 ];
 
 @NgModule({
@@ -31,5 +31,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  
- }
+
+}

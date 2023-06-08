@@ -47,14 +47,20 @@
     >
       <mat-spinner color="accent" diameter="20"></mat-spinner>
     </button>
-    <button
-      mat-stroked-button
-      color="primary"
-      [disabled]="!form.valid"
-      (click)="register()"
+    <div
+      style="width: 100%"
+      matTooltip="Enter your details above and register here"
+      [matTooltipDisabled]="form.valid"
     >
-      REGISTER
-    </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        [disabled]="!form.valid"
+        (click)="register()"
+      >
+        REGISTER
+      </button>
+    </div>
     <div class="aligned-to-right">
       <button
         mat-button
@@ -85,8 +91,18 @@
       >
         GUEST LOGIN
       </button>
-      <button mat-stroked-button color="secondary" (click)="signInWithGoogle()">
-        SignIn with Google
+      <button
+        style="height: 50px"
+        mat-stroked-button
+        color="secondary"
+        (click)="signInWithGoogle()"
+      >
+        <img
+          class="google-btn"
+          src="../../../assets/img/google_logo.svg"
+          width="20px"
+        />
+        <span>SignIn with Google</span>
       </button>
     </div>
   </form>

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/charts/revenue/revenue.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1686249405340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1686249405340,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-revenue',\n  templateUrl: './revenue.component.html',\n  styleUrls: ['./revenue.component.scss']\n})\nexport class RevenueComponent {\n  public barChartOptions = {\n    scaleShowVericalLines: false,\n    responsive: true\n  };\n\n  public barChartLabels = ['2006', '2007', '2008', '2009'];\n  public barChartType = 'bar';\n  public barChartLegend = true;\n\n  public barChartData = [\n    { data: [12, 13, 14, 15], label: 'Series A' },\n    { data: [17, 20, 4, 15], label: 'Series B' },\n  ]\n}\n"
+        }
+    ]
+}

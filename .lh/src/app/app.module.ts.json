@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1683129542127,
@@ -84,6 +84,10 @@
                 {
                     "date": 1683297978977,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n     FormsModule,\n     MatProgressBarModule,\n     MatCardModule,\n     MatTableModule,\n+    MatTableModule,\n     provideFirebaseApp(() => initializeApp(environment.firebase)),\n     provideAuth(() => getAuth()),\n     provideDatabase(() => getDatabase()),\n     provideFirestore(() => getFirestore())\n"
+                },
+                {
+                    "date": 1686245950530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,10 @@\n import { AngularFireAuthModule } from '@angular/fire/compat/auth';\n import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; \n import { MatSnackBarModule } from '@angular/material/snack-bar';\n import { MainPageComponent } from './main-page/main-page.component';\n+import { Chart } from 'chart.js/dist';\n+import { NgChartsModule } from 'ng2-charts';\n \n \n  \n \n@@ -74,8 +76,9 @@\n     AngularFireModule,\n     MatProgressSpinnerModule,\n     ReactiveFormsModule,\n     MatSnackBarModule,\n+    NgChartsModule,\n     provideFirebaseApp(() => initializeApp(environment.firebase)),\n     provideAuth(() => getAuth()),\n     provideDatabase(() => getDatabase()),\n     provideFirestore(() => getFirestore())\n"
                 }
             ],
             "date": 1683129542126,

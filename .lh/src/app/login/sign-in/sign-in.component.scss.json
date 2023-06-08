@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 35,
             "patches": [
                 {
                     "date": 1683733150549,
@@ -84,6 +84,70 @@
                 {
                     "date": 1685306662695,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n   flex-direction: column;\r\n-  background: linear-gradient(0deg, #111, #111, #111);\r\n+  background: linear-gradient(0deg, #111, #111, #000);\r\n   color: aliceblue;\r\n   height: 100vh;\r\n   h1 {\r\n     text-align: center;\r\n"
+                },
+                {
+                    "date": 1685355003023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,12 @@\n   padding-left: 62px;\r\n   padding-right: 62px;\r\n }\r\n \r\n+.google-btn {\r\n+  display: flex;\r\n+}\r\n+\r\n .guest-login {\r\n   width: 100%;\r\n   button {\r\n     opacity: 0.8;\r\n"
+                },
+                {
+                    "date": 1685355011166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding-right: 62px;\r\n }\r\n \r\n .google-btn {\r\n-  display: flex;\r\n+  // display: flex;\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355025748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   padding-right: 62px;\r\n }\r\n \r\n .google-btn {\r\n-  // display: flex;\r\n+  display: flex;\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355038332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n }\r\n \r\n .google-btn {\r\n   display: flex;\r\n+  gap: 20px;\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355058700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n }\r\n \r\n .google-btn {\r\n   display: flex;\r\n+  align-items: center;\r\n   gap: 20px;\r\n }\r\n \r\n .guest-login {\r\n"
+                },
+                {
+                    "date": 1685355064102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n \r\n .google-btn {\r\n   display: flex;\r\n   align-items: center;\r\n+  height: 100px;\r\n   gap: 20px;\r\n }\r\n \r\n .guest-login {\r\n"
+                },
+                {
+                    "date": 1685355071875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n \r\n .google-btn {\r\n   display: flex;\r\n   align-items: center;\r\n+  justify-content: center;\r\n   height: 100px;\r\n   gap: 20px;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1685355085583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,11 +54,9 @@\n   padding-right: 62px;\r\n }\r\n \r\n .google-btn {\r\n-  display: flex;\r\n-  align-items: center;\r\n-  justify-content: center;\r\n+  display: flex !important;\r\n   height: 100px;\r\n   gap: 20px;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1685355090699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n }\r\n \r\n .google-btn {\r\n   display: flex !important;\r\n+  gap: 20px;\r\n   height: 100px;\r\n   gap: 20px;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1685355107389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,11 +53,11 @@\n   padding-left: 62px;\r\n   padding-right: 62px;\r\n }\r\n \r\n-.google-btn {\r\n+button .google-btn {\r\n   display: flex !important;\r\n-  gap: 20px;\r\n+  gap: 20px !important;\r\n   height: 100px;\r\n   gap: 20px;\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1685355115474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n   padding-left: 62px;\r\n   padding-right: 62px;\r\n }\r\n \r\n-button .google-btn {\r\n+button {\r\n   display: flex !important;\r\n   gap: 20px !important;\r\n   height: 100px;\r\n   gap: 20px;\r\n"
+                },
+                {
+                    "date": 1685355123035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n   padding-left: 62px;\r\n   padding-right: 62px;\r\n }\r\n \r\n-button {\r\n+button .google-btn {\r\n   display: flex !important;\r\n   gap: 20px !important;\r\n   height: 100px;\r\n   gap: 20px;\r\n"
+                },
+                {
+                    "date": 1685355150313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,12 +54,8 @@\n   padding-right: 62px;\r\n }\r\n \r\n button .google-btn {\r\n-  display: flex !important;\r\n-  gap: 20px !important;\r\n-  height: 100px;\r\n-  gap: 20px;\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355172561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,9 @@\n   padding-right: 62px;\r\n }\r\n \r\n button .google-btn {\r\n+  margin-right: 10px;\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355187228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n }\r\n \r\n button .google-btn {\r\n   margin-right: 10px;\r\n+  transform: translateY(5px);\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1685355193875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n }\r\n \r\n button .google-btn {\r\n   margin-right: 10px;\r\n-  transform: translateY(5px);\r\n+  transform: translateY(4px);\r\n }\r\n \r\n .guest-login {\r\n   width: 100%;\r\n"
                 }
             ],
             "date": 1683733150549,

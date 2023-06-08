@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon>currency_exchange</mat-icon>
+    <h2>Achieved monthly revenue</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [type]="'line'"
+    ></canvas>
+  </mat-card-content>
+</mat-card>
