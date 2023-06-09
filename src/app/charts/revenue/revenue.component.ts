@@ -6,15 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./revenue.component.scss']
 })
 export class RevenueComponent {
-  public barChartOptions = {
-    scaleShowVericalLines: false,
+  public chartOptions = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
   };
 
-  public barChartLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  public chartLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  public barChartData = [
+  public chartData = [
     {
       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],
       label: '2020'

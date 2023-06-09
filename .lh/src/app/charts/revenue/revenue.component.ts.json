@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1686249405340,
@@ -36,6 +36,22 @@
                 {
                     "date": 1686328208761,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n })\n export class RevenueComponent {\n   public barChartOptions = {\n     scaleShowVericalLines: false,\n-    responsive: true\n+    responsive: true,\n+    maintainAspectRatio: false\n   };\n \n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
+                },
+                {
+                    "date": 1686332482570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,17 @@\n   templateUrl: './revenue.component.html',\n   styleUrls: ['./revenue.component.scss']\n })\n export class RevenueComponent {\n-  public barChartOptions = {\n+  public chartOptions = {\n     scaleShowVericalLines: false,\n     responsive: true,\n     maintainAspectRatio: false\n   };\n \n-  public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n+  public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n-  public barChartData = [\n+  public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n       label: '2020'\n     },\n"
+                },
+                {
+                    "date": 1686332513436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   styleUrls: ['./revenue.component.scss']\n })\n export class RevenueComponent {\n   public chartOptions = {\n-    scaleShowVericalLines: false,\n+    scaleShowVericalLines: true,\n     responsive: true,\n     maintainAspectRatio: false\n   };\n \n"
+                },
+                {
+                    "date": 1686332606340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,19 @@\n   styleUrls: ['./revenue.component.scss']\n })\n export class RevenueComponent {\n   public chartOptions = {\n-    scaleShowVericalLines: true,\n     responsive: true,\n-    maintainAspectRatio: false\n+    maintainAspectRatio: false,\n+    scales: {\n+      y: {\n+        ticks: {\n+          callback: function (value, index, ticks) {\n+            return value + '€';\n+          }\n+        }\n+      }\n+    }\n   };\n \n   public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
+                },
+                {
+                    "date": 1686332689803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,8 @@\n export class RevenueComponent {\n   public chartOptions = {\n     responsive: true,\n     maintainAspectRatio: false,\n-    scales: {\n-      y: {\n-        ticks: {\n-          callback: function (value, index, ticks) {\n-            return value + '€';\n-          }\n-        }\n-      }\n-    }\n   };\n \n   public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
                 }
             ],
             "date": 1686249405340,
