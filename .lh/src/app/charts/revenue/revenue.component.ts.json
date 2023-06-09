@@ -3,11 +3,39 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1686249405340,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686251458602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n   public barChartType = 'bar';\n   public barChartLegend = true;\n \n   public barChartData = [\n-    { data: [12, 13, 14, 15], label: 'Series A' },\n-    { data: [17, 20, 4, 15], label: 'Series B' },\n+    { data: [12, 13, 14, 15], label: '2020' },\n+    { data: [17, 20, 4, 15], label: '2021' },\n+    { data: [17, 20, 4, 15], label: '2022' },\n   ]\n }\n"
+                },
+                {
+                    "date": 1686251513277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     scaleShowVericalLines: false,\n     responsive: true\n   };\n \n-  public barChartLabels = ['2006', '2007', '2008', '2009'];\n+  public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n   public barChartType = 'bar';\n   public barChartLegend = true;\n \n   public barChartData = [\n"
+                },
+                {
+                    "date": 1686251595992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,12 @@\n   public barChartType = 'bar';\n   public barChartLegend = true;\n \n   public barChartData = [\n-    { data: [12, 13, 14, 15], label: '2020' },\n+    {\n+      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543]\n+      , label: '2020'\n+    },\n     { data: [17, 20, 4, 15], label: '2021' },\n     { data: [17, 20, 4, 15], label: '2022' },\n   ]\n }\n"
+                },
+                {
+                    "date": 1686251633613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,17 @@\n   public barChartLegend = true;\n \n   public barChartData = [\n     {\n-      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543]\n-      , label: '2020'\n+      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n+      label: '2020'\n     },\n-    { data: [17, 20, 4, 15], label: '2021' },\n-    { data: [17, 20, 4, 15], label: '2022' },\n+    {\n+      data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n+      label: '2021'\n+    },\n+    {\n+      data: [67890, 93456, 51842, 70012, 83124, 92017, 57643, 82456, 96021, 70345, 81903, 65340],\n+      label: '2022'\n+    },\n   ]\n }\n"
+                },
+                {
+                    "date": 1686251716767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   };\n \n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n   public barChartType = 'bar';\n-  public barChartLegend = true;\n+  public barChartLegend = false;\n \n   public barChartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n"
+                },
+                {
+                    "date": 1686251737711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,8 @@\n     responsive: true\n   };\n \n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n-  public barChartType = 'bar';\n-  public barChartLegend = false;\n \n   public barChartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n"
+                },
+                {
+                    "date": 1686328208761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n })\n export class RevenueComponent {\n   public barChartOptions = {\n     scaleShowVericalLines: false,\n-    responsive: true\n+    responsive: true,\n+    maintainAspectRatio: false\n   };\n \n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
                 }
             ],
             "date": 1686249405340,

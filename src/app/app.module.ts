@@ -38,6 +38,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { Chart } from 'chart.js/dist';
 import { NgChartsModule } from 'ng2-charts';
 import { RevenueComponent } from './charts/revenue/revenue.component';
+import { StartedDealsComponent } from './charts/started-deals/started-deals.component';
 
 
 
@@ -52,7 +53,8 @@ import { RevenueComponent } from './charts/revenue/revenue.component';
     DialogEditUserComponent,
     SignInComponent,
     MainPageComponent,
-    RevenueComponent
+    RevenueComponent,
+    StartedDealsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/app/charts/revenue/revenue.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1686250031801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686250041302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n mat-card-header {\r\n   display: flex;\r\n   align-items: center;\r\n+  height: 100px;\r\n }\r\n"
+                },
+                {
+                    "date": 1686250051717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n mat-card-header {\r\n+  background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n   height: 100px;\r\n }\r\n"
+                },
+                {
+                    "date": 1686250087537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,11 @@\n   background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n   height: 100px;\r\n+  mat-icon {\r\n+    background-color: aqua;\r\n+  }\r\n+  h2 {\r\n+    background-color: bisque;\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1686250107160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n mat-card-header {\r\n   background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n-  height: 100px;\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250121209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n mat-card-header {\r\n   background-color: #f00;\r\n   display: flex;\r\n-  align-items: center;\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250127428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n mat-card-header {\r\n   background-color: #f00;\r\n   display: flex;\r\n+  align-items: center;\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250209189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n-mat-card-header {\r\n+.headline {\r\n   background-color: #f00;\r\n   display: flex;\r\n-  align-items: center;\r\n+\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250215923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n .headline {\r\n   background-color: #f00;\r\n   display: flex;\r\n+  align-items: center;\r\n \r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n"
+                },
+                {
+                    "date": 1686250221785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n-.headline {\r\n+mat-card-header {\r\n   background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n-\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250234915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n mat-card-header {\r\n   background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n+  gap: 12px;\r\n   mat-icon {\r\n     background-color: aqua;\r\n   }\r\n   h2 {\r\n"
+                },
+                {
+                    "date": 1686250245485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,5 @@\n mat-card-header {\r\n-  background-color: #f00;\r\n   display: flex;\r\n   align-items: center;\r\n   gap: 12px;\r\n-  mat-icon {\r\n-    background-color: aqua;\r\n-  }\r\n-  h2 {\r\n-    background-color: bisque;\r\n-  }\r\n }\r\n"
+                },
+                {
+                    "date": 1686250259592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n mat-card-header {\r\n   display: flex;\r\n-  align-items: center;\r\n   gap: 12px;\r\n }\r\n"
+                },
+                {
+                    "date": 1686250273332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n mat-card-header {\r\n   display: flex;\r\n   gap: 12px;\r\n+  mat-icon {\r\n+    transform: translateY(4px);\r\n+  }\r\n }\r\n"
+                }
+            ],
+            "date": 1686250031801,
+            "name": "Commit-0",
+            "content": "mat-card-header {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n"
+        }
+    ]
+}

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-revenue',
-  templateUrl: './revenue.component.html',
-  styleUrls: ['./revenue.component.scss']
+  selector: 'app-started-deals',
+  templateUrl: './started-deals.component.html',
+  styleUrls: ['./started-deals.component.scss']
 })
-export class RevenueComponent {
+export class StartedDealsComponent {
   public barChartOptions = {
     scaleShowVericalLines: false,
     responsive: true,
