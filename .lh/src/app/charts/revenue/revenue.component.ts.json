@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1686249405340,
@@ -52,6 +52,62 @@
                 {
                     "date": 1686332689803,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,8 @@\n export class RevenueComponent {\n   public chartOptions = {\n     responsive: true,\n     maintainAspectRatio: false,\n-    scales: {\n-      y: {\n-        ticks: {\n-          callback: function (value, index, ticks) {\n-            return value + '€';\n-          }\n-        }\n-      }\n-    }\n   };\n \n   public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
+                },
+                {
+                    "date": 1686343010085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,26 @@\n import { Component } from '@angular/core';\n+import { ChartConfiguration, ChartOptions } from 'chart.js'\n \n+\n @Component({\n   selector: 'app-revenue',\n   templateUrl: './revenue.component.html',\n   styleUrls: ['./revenue.component.scss']\n })\n export class RevenueComponent {\n-  public chartOptions = {\n+  public chartOptions: ChartOptions<'line'> = {\n     responsive: true,\n     maintainAspectRatio: false,\n+    scales: {\n+      y: {\n+        ticks: {\n+          callback: function (value, index, ticks) {\n+            return value + '€';\n+          }\n+        }\n+      }\n+    }\n   };\n \n   public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
+                },
+                {
+                    "date": 1686343029231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n-            return value + '€';\n+            return value + '€' + ticks;\n           }\n         }\n       }\n     }\n"
+                },
+                {
+                    "date": 1686343043927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n-            return value + '€' + ticks;\n+            return value + '€' + console.log(ticks);\n           }\n         }\n       }\n     }\n"
+                },
+                {
+                    "date": 1686343067655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n-            return value + '€' + console.log(ticks);\n+            return value + '€';\n           }\n         }\n       }\n     }\n"
+                },
+                {
+                    "date": 1686343362774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n })\n export class RevenueComponent {\n   public chartOptions: ChartOptions<'line'> = {\n     responsive: true,\n-    maintainAspectRatio: false,\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n"
+                },
+                {
+                    "date": 1686343393452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n })\n export class RevenueComponent {\n   public chartOptions: ChartOptions<'line'> = {\n     responsive: true,\n+    maintainAspectRatio: false,\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n"
+                },
+                {
+                    "date": 1686343405016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n })\n export class RevenueComponent {\n   public chartOptions: ChartOptions<'line'> = {\n     responsive: true,\n-    maintainAspectRatio: false,\n     scales: {\n       y: {\n         ticks: {\n           callback: function (value, index, ticks) {\n"
+                },
+                {
+                    "date": 1686343460432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,10 @@\n \n   public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n-      label: '2020'\n+      label: '2020',\n+      fill: true,\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
+                },
+                {
+                    "date": 1686343477396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n       label: '2020',\n       fill: true,\n+      tension: 0.5,\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
+                },
+                {
+                    "date": 1686343507455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,43 @@\n+import { Component } from '@angular/core';\n+import { ChartConfiguration, ChartOptions } from 'chart.js'\n+\n+\n+@Component({\n+  selector: 'app-revenue',\n+  templateUrl: './revenue.component.html',\n+  styleUrls: ['./revenue.component.scss']\n+})\n+export class RevenueComponent {\n+  public chartOptions: ChartOptions<'line'> = {\n+    responsive: true,\n+    scales: {\n+      y: {\n+        ticks: {\n+          callback: function (value, index, ticks) {\n+            return value + '€';\n+          }\n+        }\n+      }\n+    }\n+  };\n+\n+  public chartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n+\n+  public chartData = [\n+    {\n+      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n+      label: '2020',\n+      fill: true,\n+      tension: 0.5,\n+      borderColor: 'black'\n+    },\n+    {\n+      data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n+      label: '2021'\n+    },\n+    {\n+      data: [67890, 93456, 51842, 70012, 83124, 92017, 57643, 82456, 96021, 70345, 81903, 65340],\n+      label: '2022'\n+    },\n+  ]\n+}\n"
+                },
+                {
+                    "date": 1686343518776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,9 @@\n \n   public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n-      label: '2020',\n-      fill: true,\n-      tension: 0.5,\n-      borderColor: 'black'\n+      label: '2020'\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
+                },
+                {
+                    "date": 1686343545378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,10 @@\n \n   public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n-      label: '2020'\n+      label: '2020',\n+      borderColor: '#12f34d'\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
+                },
+                {
+                    "date": 1686343570292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n   public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n       label: '2020',\n-      borderColor: '#12f34d'\n+      borderColor: '#12f34d',\n+      color: '#12f34d',\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
+                },
+                {
+                    "date": 1686343577134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,8 @@\n   public chartData = [\n     {\n       data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n       label: '2020',\n-      borderColor: '#12f34d',\n-      color: '#12f34d',\n     },\n     {\n       data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],\n       label: '2021'\n"
                 }
             ],
             "date": 1686249405340,

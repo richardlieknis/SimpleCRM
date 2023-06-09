@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ChartConfiguration, ChartOptions } from 'chart.js'
+import { NgChartsConfiguration } from 'ng2-charts';
 
 @Component({
   selector: 'app-sales-activity',
@@ -6,5 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./sales-activity.component.scss']
 })
 export class SalesActivityComponent {
+  public chartOptions: ChartOptions<'doughnut'> = {
+    responsive: true,
+  };
 
+  public chartLabels = ["Call", "Preparation", "Email", "Lead research", "Other"];
+
+  public chartData = [
+    {
+      data: [75432, 94312, 61243, 89456, 43209],
+      label: '2020'
+    },
+    // {
+    //   data: [89341, 65423, 80235, 98654, 53210],
+    //   label: '2021'
+    // },
+    // {
+    //   data: [67890, 93456, 51842, 70012, 83124],
+    //   label: '2022'
+    // },
+  ]
 }

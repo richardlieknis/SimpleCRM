@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/app/dashboard/dashboard.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1686334394342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686334404022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .sec-section {\r\n   margin-top: 16px;\r\n   display: flex;\r\n   gap: 16px;\r\n+  width: 100%;\r\n }\r\n"
+                },
+                {
+                    "date": 1686334417630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+.sec-section {\r\n+  margin-top: 16px;\r\n+  display: flex;\r\n+  gap: 16px;\r\n+  width: 100%;\r\n+  background-color: #f00;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686334462439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+.sec-section {\r\n+  margin-top: 16px;\r\n+  display: flex;\r\n+  gap: 16px;\r\n+  background-color: #f00;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686334679304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+.sec-section {\r\n+  margin-top: 16px;\r\n+  display: flex;\r\n+  gap: 16px;\r\n+}\r\n"
+                }
+            ],
+            "date": 1686334394342,
+            "name": "Commit-0",
+            "content": ".sec-section {\r\n  margin-top: 16px;\r\n  display: flex;\r\n  gap: 16px;\r\n}\r\n"
+        }
+    ]
+}

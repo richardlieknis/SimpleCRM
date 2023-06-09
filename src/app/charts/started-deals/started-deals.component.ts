@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ChartConfiguration, ChartOptions } from 'chart.js'
+
 
 @Component({
   selector: 'app-started-deals',
@@ -6,10 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./started-deals.component.scss']
 })
 export class StartedDealsComponent {
-  public barChartOptions = {
-    scaleShowVericalLines: false,
+  public barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
-    maintainAspectRatio: false,
   };
 
   public barChartLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

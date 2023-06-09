@@ -35,12 +35,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MainPageComponent } from './main-page/main-page.component';
-import { Chart } from 'chart.js/dist';
 import { NgChartsModule } from 'ng2-charts';
 import { RevenueComponent } from './charts/revenue/revenue.component';
 import { StartedDealsComponent } from './charts/started-deals/started-deals.component';
 import { SalesActivityComponent } from './charts/sales-activity/sales-activity.component';
-
 
 
 

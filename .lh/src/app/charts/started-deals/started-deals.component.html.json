@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1686327916282,
@@ -16,6 +16,14 @@
                 {
                     "date": 1686328063285,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <mat-card>\n   <mat-card-header>\n     <mat-icon>sell</mat-icon>\n-    <h2>Achieved monthly revenue</h2>\n+    <h2>Started Deals</h2>\n   </mat-card-header>\n   <mat-card-content>\n     <canvas\n       baseChart\n"
+                },
+                {
+                    "date": 1686343835444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     <mat-icon>sell</mat-icon>\n     <h2>Started Deals</h2>\n   </mat-card-header>\n   <mat-card-content>\n-    <canvas\n+    <canvas height=\"400\"\n       baseChart\n       [datasets]=\"barChartData\"\n       [labels]=\"barChartLabels\"\n       [options]=\"barChartOptions\"\n"
+                },
+                {
+                    "date": 1686343840625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     <h2>Started Deals</h2>\n   </mat-card-header>\n   <mat-card-content>\n     <canvas\n-      height=\"400\"\n+      height=\"300\"\n       baseChart\n       [datasets]=\"barChartData\"\n       [labels]=\"barChartLabels\"\n       [options]=\"barChartOptions\"\n"
                 }
             ],
             "date": 1686327916282,
