@@ -1,0 +1,14 @@
+.sec-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.chart-container {
+  width: calc(50% - 8px);
+}
+
+.chart {
+  max-height: 400px !important;
+}

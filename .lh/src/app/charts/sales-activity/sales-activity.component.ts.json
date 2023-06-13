@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1686334295845,
@@ -48,6 +48,26 @@
                 {
                     "date": 1686343748604,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,17 +9,8 @@\n })\n export class SalesActivityComponent {\n   public chartOptions: ChartOptions<'doughnut'> = {\n     responsive: true,\n-    scales: {\n-      x: {\n-        ticks: {\n-          callback: function (value, index, ticks) {\n-            return value + '€';\n-          }\n-        }\n-      }\n-    }\n   };\n \n   public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\", \"Other\"];\n \n"
+                },
+                {
+                    "date": 1686580705603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   templateUrl: './sales-activity.component.html',\n   styleUrls: ['./sales-activity.component.scss']\n })\n export class SalesActivityComponent {\n-  public chartOptions: ChartOptions<'doughnut'> = {\n+  public chartOptions: ChartOptions<'pie'> = {\n     responsive: true,\n   };\n \n   public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\", \"Other\"];\n"
+                },
+                {
+                    "date": 1686580722108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,13 @@\n   public chartOptions: ChartOptions<'pie'> = {\n     responsive: true,\n   };\n \n-  public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\", \"Other\"];\n+  public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\"];\n \n   public chartData = [\n     {\n-      data: [75432, 94312, 61243, 89456, 43209],\n+      data: [75432, 94312, 61243, 89456],\n       label: '2020'\n     },\n     // {\n     //   data: [89341, 65423, 80235, 98654, 53210],\n"
+                },
+                {
+                    "date": 1686580779322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   templateUrl: './sales-activity.component.html',\n   styleUrls: ['./sales-activity.component.scss']\n })\n export class SalesActivityComponent {\n-  public chartOptions: ChartOptions<'pie'> = {\n+  public chartOptions: ChartOptions<'bar'> = {\n     responsive: true,\n   };\n \n   public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\"];\n"
+                },
+                {
+                    "date": 1686581133869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   templateUrl: './sales-activity.component.html',\n   styleUrls: ['./sales-activity.component.scss']\n })\n export class SalesActivityComponent {\n-  public chartOptions: ChartOptions<'bar'> = {\n+  public chartOptions: ChartOptions<'doghnut'> = {\n     responsive: true,\n   };\n \n   public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\"];\n"
+                },
+                {
+                    "date": 1686581145235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   templateUrl: './sales-activity.component.html',\n   styleUrls: ['./sales-activity.component.scss']\n })\n export class SalesActivityComponent {\n-  public chartOptions: ChartOptions<'doghnut'> = {\n+  public chartOptions: ChartOptions<'doughnut'> = {\n     responsive: true,\n   };\n \n   public chartLabels = [\"Call\", \"Preparation\", \"Email\", \"Lead research\"];\n"
                 }
             ],
             "date": 1686334295845,

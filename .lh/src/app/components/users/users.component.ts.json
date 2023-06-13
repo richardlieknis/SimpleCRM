@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/components/users/users.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1686590349284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1686590349284,
+            "name": "Commit-0",
+            "content": "import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';\nimport { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';\nimport { MatDialog } from '@angular/material/dialog';\nimport { User } from 'src/models/user.class';\nimport { CollectionReference, DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';\n\n@Component({\n  selector: 'app-users',\n  templateUrl: './users.component.html',\n  styleUrls: ['./users.component.scss']\n})\nexport class UsersComponent implements OnInit {\n  username: string = \"\";\n  user = new User();\n  allUsers: any = [];\n  allIds: any = [];\n\n  private userCollection: CollectionReference<DocumentData>;\n\n  constructor(public dialog: MatDialog, private firestore: Firestore) {\n    this.userCollection = collection(this.firestore, 'users');\n  }\n\n  ngOnInit(): void {\n    collectionData(this.userCollection, { idField: 'id' })\n      .subscribe((data: any) => {\n        this.allUsers = [];\n        data.forEach((user: any) => {\n          this.allUsers.push(user)\n          this.allIds.push(user['id']);          \n        });\n    })\n  }\n\n  openDialog(): void {\n      this.dialog.open(DialogAddUserComponent, {});\n  }\n}\n"
+        }
+    ]
+}

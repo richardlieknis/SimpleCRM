@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1686334327481,
@@ -44,6 +44,10 @@
                 {
                     "date": 1686335929526,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <mat-card-header>\n     <mat-icon>point_of_sale</mat-icon>\n     <div class=\"subline\">\n       <h2>Sales Activity</h2>\n-      <h4>by Type</h4>\n+      <h5>by Type</h5>\n     </div>\n   </mat-card-header>\n   <mat-card-content>\n     <canvas\n"
+                },
+                {
+                    "date": 1686580591273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,8 @@\n       [datasets]=\"chartData\"\n       [labels]=\"chartLabels\"\n       [options]=\"chartOptions\"\n       [type]=\"'doughnut'\"\n+      style=\"max-height: 200px;\"\n     ></canvas>\n   </mat-card-content>\n </mat-card>\n"
                 }
             ],
             "date": 1686334327481,

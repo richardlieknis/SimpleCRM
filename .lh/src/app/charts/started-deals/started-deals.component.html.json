@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1686327916282,
@@ -24,6 +24,10 @@
                 {
                     "date": 1686343840625,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     <h2>Started Deals</h2>\n   </mat-card-header>\n   <mat-card-content>\n     <canvas\n-      height=\"400\"\n+      height=\"300\"\n       baseChart\n       [datasets]=\"barChartData\"\n       [labels]=\"barChartLabels\"\n       [options]=\"barChartOptions\"\n"
+                },
+                {
+                    "date": 1686580631822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,8 @@\n       [datasets]=\"barChartData\"\n       [labels]=\"barChartLabels\"\n       [options]=\"barChartOptions\"\n       [type]=\"'bar'\"\n+      style=\"max-height: 450px\"\n     ></canvas>\n   </mat-card-content>\n </mat-card>\n"
                 }
             ],
             "date": 1686327916282,

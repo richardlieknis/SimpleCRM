@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1683215514323,
@@ -60,6 +60,14 @@
                 {
                     "date": 1685307346812,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n   birthDate!: string;\r\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n+  phoneNumber!: number;\r\n+  photoURL!: string;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName: '';\r\n     this.lastName = obj ? obj.lastName: '';\r\n@@ -14,8 +16,10 @@\n     this.birthDate = obj ? obj.birthDate: '';\r\n     this.street = obj ? obj.street: '';\r\n     this.city = obj ? obj.city: '';\r\n     this.zipCode = obj ? obj.zipCode: '';\r\n+    this.phoneNumber = obj ? obj.phoneNumber: '';\r\n+    this.photoURL = obj ? obj.photoURL: '';\r\n   }\r\n \r\n \r\n   public toJSON() {\r\n@@ -26,7 +30,9 @@\n       birthDate: this.birthDate,\r\n       street: this.street,\r\n       city: this.city,\r\n       zipCode: this.zipCode,\r\n+      phoneNumber: this.phoneNumber,\r\n+      photoURL: this.photoURL,\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1686588437120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   street!: string;\r\n   city!: string;\r\n   zipCode!: number;\r\n   phoneNumber!: number;\r\n+  deals!: number;\r\n   photoURL!: string;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName: '';\r\n@@ -17,8 +18,9 @@\n     this.street = obj ? obj.street: '';\r\n     this.city = obj ? obj.city: '';\r\n     this.zipCode = obj ? obj.zipCode: '';\r\n     this.phoneNumber = obj ? obj.phoneNumber: '';\r\n+    this.deals = obj ? obj.deals: '';\r\n     this.photoURL = obj ? obj.photoURL: '';\r\n   }\r\n \r\n \r\n@@ -31,8 +33,9 @@\n       street: this.street,\r\n       city: this.city,\r\n       zipCode: this.zipCode,\r\n       phoneNumber: this.phoneNumber,\r\n+      deals: this.deals,\r\n       photoURL: this.photoURL,\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1686588629253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n   city!: string;\r\n   zipCode!: number;\r\n   phoneNumber!: number;\r\n   deals!: number;\r\n+  dealSales!: number;\r\n   photoURL!: string;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName : '';\r\n@@ -19,8 +20,9 @@\n     this.city = obj ? obj.city : '';\r\n     this.zipCode = obj ? obj.zipCode : '';\r\n     this.phoneNumber = obj ? obj.phoneNumber : '';\r\n     this.deals = obj ? obj.deals : '';\r\n+    this.dealSales = obj ? obj.dealSales : '';\r\n     this.photoURL = obj ? obj.photoURL : '';\r\n   }\r\n \r\n \r\n@@ -34,8 +36,9 @@\n       city: this.city,\r\n       zipCode: this.zipCode,\r\n       phoneNumber: this.phoneNumber,\r\n       deals: this.deals,\r\n+      dealSales: this.dealSales,\r\n       photoURL: this.photoURL,\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1683215514323,

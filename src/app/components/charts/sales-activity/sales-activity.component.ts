@@ -12,11 +12,11 @@ export class SalesActivityComponent {
     responsive: true,
   };
 
-  public chartLabels = ["Call", "Preparation", "Email", "Lead research", "Other"];
+  public chartLabels = ["Call", "Preparation", "Email", "Lead research"];
 
   public chartData = [
     {
-      data: [75432, 94312, 61243, 89456, 43209],
+      data: [75432, 94312, 61243, 89456],
       label: '2020'
     },
     // {

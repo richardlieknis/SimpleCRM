@@ -2,9 +2,6 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { CollectionReference, DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';
 
 @Component({
@@ -30,12 +27,12 @@ export class UsersComponent implements OnInit {
         this.allUsers = [];
         data.forEach((user: any) => {
           this.allUsers.push(user)
-          this.allIds.push(user['id']);          
+          this.allIds.push(user['id']);
         });
-    })
+      })
   }
 
   openDialog(): void {
-      this.dialog.open(DialogAddUserComponent, {});
+    this.dialog.open(DialogAddUserComponent, {});
   }
 }
