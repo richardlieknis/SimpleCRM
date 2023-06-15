@@ -6,6 +6,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { AuthGuard } from './auth.guard';
+import { DealsComponent } from './components/deals/deals.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'user', component: UsersComponent },
       { path: 'user/:id', component: UserDetailComponent },
-      { path: 'signin', component: SignInComponent },
+      { path: 'deals', component: DealsComponent },
     ]
   },
 

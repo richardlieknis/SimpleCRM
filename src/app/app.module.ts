@@ -39,6 +39,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { RevenueComponent } from './components/charts/revenue/revenue.component';
 import { StartedDealsComponent } from './components/charts/started-deals/started-deals.component';
 import { SalesActivityComponent } from './components/charts/sales-activity/sales-activity.component';
+import { DealsComponent } from './components/deals/deals.component';
+import { DealsCardComponent } from './components/deals-card/deals-card.component';
 
 
 
@@ -54,7 +56,9 @@ import { SalesActivityComponent } from './components/charts/sales-activity/sales
     MainPageComponent,
     RevenueComponent,
     StartedDealsComponent,
-    SalesActivityComponent
+    SalesActivityComponent,
+    DealsComponent,
+    DealsCardComponent
   ],
   imports: [
     BrowserModule,
