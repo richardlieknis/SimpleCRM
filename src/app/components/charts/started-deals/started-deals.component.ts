@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { ChartConfiguration, ChartOptions } from 'chart.js'
+import { from } from 'rxjs';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -7,26 +10,51 @@ import { ChartConfiguration, ChartOptions } from 'chart.js'
   templateUrl: './started-deals.component.html',
   styleUrls: ['./started-deals.component.scss']
 })
-export class StartedDealsComponent {
+export class StartedDealsComponent implements OnInit {
+  userNames: Array<string> = [];
+  userSales: number[] = [];
+
   public barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
   };
+  public barChartLabels = this.userNames;
+  public barChartData = [{ data: this.userSales }]
 
-  public barChartLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  public barChartData = [
-    {
-      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],
-      label: '2020',
-      xAxisKey: 'test',
-    },
-    {
-      data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],
-      label: '2021'
-    },
-    {
-      data: [67890, 93456, 51842, 70012, 83124, 92017, 57643, 82456, 96021, 70345, 81903, 65340],
-      label: '2022'
-    },
-  ]
+
+  public obj = {
+    0: "Peter",
+    1: "Mayer",
+    2: "Schlayer"
+  }
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.getAllNamesWithSales();
+  }
+
+  getAllNamesWithSales() {
+    const userData = this.userService.getDoc();
+    userData.subscribe((data) => {
+      data.forEach(user => {
+        if (user['deals'] != null) {
+          this.userNames.push(user['firstName']);
+          this.userSales.push(user['deals']);
+        }
+      });
+      this.setChartData();
+
+    })
+  }
+
+  setChartData() {
+    this.barChartLabels = this.userNames;
+    this.barChartData = [{ data: this.userSales }]
+  }
 }

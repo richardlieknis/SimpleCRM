@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/models/deal.class.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1686764917424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686765066178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,44 +1,26 @@\n export class Deal {\r\n+  id!: string;\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n-  birthDate!: string;\r\n-  street!: string;\r\n-  city!: string;\r\n-  zipCode!: number;\r\n-  phoneNumber!: number;\r\n-  deals!: number;\r\n-  dealSales!: number;\r\n-  photoURL!: string;\r\n+  dealSale!: number;\r\n \r\n   constructor(obj?: any) {\r\n+    this.id = obj ? obj.id : '';\r\n     this.firstName = obj ? obj.firstName : '';\r\n+    this.email = obj ? obj.email : '';\r\n     this.lastName = obj ? obj.lastName : '';\r\n-    this.email = obj ? obj.email : '';\r\n-    this.birthDate = obj ? obj.birthDate : '';\r\n-    this.street = obj ? obj.street : '';\r\n-    this.city = obj ? obj.city : '';\r\n-    this.zipCode = obj ? obj.zipCode : '';\r\n-    this.phoneNumber = obj ? obj.phoneNumber : '';\r\n-    this.deals = obj ? obj.deals : '';\r\n-    this.dealSales = obj ? obj.dealSales : '';\r\n-    this.photoURL = obj ? obj.photoURL : '';\r\n+    this.dealSale = obj ? obj.dealSale : '';\r\n   }\r\n \r\n \r\n   public toJSON() {\r\n     return {\r\n+      id: this.id,\r\n       firstName: this.firstName,\r\n       lastName: this.lastName,\r\n       email: this.email,\r\n-      birthDate: this.birthDate,\r\n-      street: this.street,\r\n-      city: this.city,\r\n-      zipCode: this.zipCode,\r\n-      phoneNumber: this.phoneNumber,\r\n-      deals: this.deals,\r\n-      dealSales: this.dealSales,\r\n-      photoURL: this.photoURL,\r\n+      dealSale: this.dealSale,\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1686764917424,
+            "name": "Commit-0",
+            "content": "export class Deal {\r\n  firstName!: string;\r\n  lastName!: string;\r\n  email!: string;\r\n  birthDate!: string;\r\n  street!: string;\r\n  city!: string;\r\n  zipCode!: number;\r\n  phoneNumber!: number;\r\n  deals!: number;\r\n  dealSales!: number;\r\n  photoURL!: string;\r\n\r\n  constructor(obj?: any) {\r\n    this.firstName = obj ? obj.firstName : '';\r\n    this.lastName = obj ? obj.lastName : '';\r\n    this.email = obj ? obj.email : '';\r\n    this.birthDate = obj ? obj.birthDate : '';\r\n    this.street = obj ? obj.street : '';\r\n    this.city = obj ? obj.city : '';\r\n    this.zipCode = obj ? obj.zipCode : '';\r\n    this.phoneNumber = obj ? obj.phoneNumber : '';\r\n    this.deals = obj ? obj.deals : '';\r\n    this.dealSales = obj ? obj.dealSales : '';\r\n    this.photoURL = obj ? obj.photoURL : '';\r\n  }\r\n\r\n\r\n  public toJSON() {\r\n    return {\r\n      firstName: this.firstName,\r\n      lastName: this.lastName,\r\n      email: this.email,\r\n      birthDate: this.birthDate,\r\n      street: this.street,\r\n      city: this.city,\r\n      zipCode: this.zipCode,\r\n      phoneNumber: this.phoneNumber,\r\n      deals: this.deals,\r\n      dealSales: this.dealSales,\r\n      photoURL: this.photoURL,\r\n    }\r\n  }\r\n}"
+        }
+    ]
+}
