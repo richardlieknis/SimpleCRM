@@ -6,4 +6,20 @@
 
 .delete-btn {
   color: #c2185b;
+  font-weight: 600;
+}
+
+.deal-infos {
+  display: flex;
+  gap: 20px;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.left {
+  font-weight: 600;
 }

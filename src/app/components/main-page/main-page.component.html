@@ -9,7 +9,7 @@
           <mat-icon>dashboard</mat-icon>Dashboard
         </li>
         <li routerLink="/home/user"><mat-icon>account_circle</mat-icon>User</li>
-        <li routerLink="/home/deals"><mat-icon>storefront</mat-icon>Deals</li>
+        <li routerLink="/home/deals"><mat-icon>paid</mat-icon>Deals</li>
         <li (click)="logout()" routerLink="" class="login">
           <mat-icon>logout</mat-icon>Logout
         </li>
@@ -17,7 +17,7 @@
     </div>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
+  <div class="toolbar">
     <mat-toolbar>
       <button (click)="drawer.toggle()" mat-icon-button class="menu-icon">
         <mat-icon>menu</mat-icon>

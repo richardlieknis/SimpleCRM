@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1686849188714,
@@ -40,6 +40,34 @@
                 {
                     "date": 1686849655599,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,8 @@\n   position: absolute;\r\n   right: 5px;\r\n   top: 5px;\r\n }\r\n-.menu {\r\n-  position: absolute;\r\n-  right: 10px;\r\n-  top: 10px;\r\n+\r\n+.delete-btn {\r\n+  color: #c2185b;\r\n }\r\n-.menu {\r\n-  position: absolute;\r\n-  right: 0;\r\n-  top: 0;\r\n-}\r\n"
+                },
+                {
+                    "date": 1686851604118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,4 +6,10 @@\n \r\n .delete-btn {\r\n   color: #c2185b;\r\n }\r\n+\r\n+.left,\r\n+.right {\r\n+  display: flex;\r\n+  flex-direction: column;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686851618597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,12 @@\n .delete-btn {\r\n   color: #c2185b;\r\n }\r\n \r\n+.deal-infos {\r\n+  display: flex;\r\n+}\r\n+\r\n .left,\r\n .right {\r\n   display: flex;\r\n   flex-direction: column;\r\n"
+                },
+                {
+                    "date": 1686851626764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+.menu {\r\n+  position: absolute;\r\n+  right: 5px;\r\n+  top: 5px;\r\n+}\r\n+\r\n+.delete-btn {\r\n+  color: #c2185b;\r\n+}\r\n+\r\n+.deal-infos {\r\n+  display: flex;\r\n+  gap: 20px;\r\n+}\r\n+\r\n+.left,\r\n+.right {\r\n+  display: flex;\r\n+  flex-direction: column;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686852031244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+.menu {\r\n+  position: absolute;\r\n+  right: 5px;\r\n+  top: 5px;\r\n+}\r\n+\r\n+.delete-btn {\r\n+  color: #c2185b;\r\n+}\r\n+\r\n+.deal-infos {\r\n+  display: flex;\r\n+  gap: 20px;\r\n+}\r\n+\r\n+.left,\r\n+.right {\r\n+  display: flex;\r\n+  flex-direction: column;\r\n+}\r\n+\r\n+.left {\r\n+  font-weight: bold;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686852040785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+.menu {\r\n+  position: absolute;\r\n+  right: 5px;\r\n+  top: 5px;\r\n+}\r\n+\r\n+.delete-btn {\r\n+  color: #c2185b;\r\n+}\r\n+\r\n+.deal-infos {\r\n+  display: flex;\r\n+  gap: 20px;\r\n+}\r\n+\r\n+.left,\r\n+.right {\r\n+  display: flex;\r\n+  flex-direction: column;\r\n+}\r\n+\r\n+.left {\r\n+  font-weight: 500;\r\n+}\r\n"
+                },
+                {
+                    "date": 1686852109809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,69 +19,6 @@\n   flex-direction: column;\r\n }\r\n \r\n .left {\r\n-  font-weight: 500;\r\n+  font-weight: 600;\r\n }\r\n-.menu {\r\n-  position: absolute;\r\n-  right: 5px;\r\n-  top: 5px;\r\n-}\r\n-\r\n-.delete-btn {\r\n-  color: #c2185b;\r\n-}\r\n-\r\n-.deal-infos {\r\n-  display: flex;\r\n-  gap: 20px;\r\n-}\r\n-\r\n-.left,\r\n-.right {\r\n-  display: flex;\r\n-  flex-direction: column;\r\n-}\r\n-\r\n-.left {\r\n-  font-weight: bold;\r\n-}\r\n-.menu {\r\n-  position: absolute;\r\n-  right: 5px;\r\n-  top: 5px;\r\n-}\r\n-\r\n-.delete-btn {\r\n-  color: #c2185b;\r\n-}\r\n-\r\n-.deal-infos {\r\n-  display: flex;\r\n-  gap: 20px;\r\n-}\r\n-\r\n-.left,\r\n-.right {\r\n-  display: flex;\r\n-  flex-direction: column;\r\n-}\r\n-.menu {\r\n-  position: absolute;\r\n-  right: 5px;\r\n-  top: 5px;\r\n-}\r\n-\r\n-.delete-btn {\r\n-  color: #c2185b;\r\n-}\r\n-\r\n-.deal-infos {\r\n-  display: flex;\r\n-}\r\n-\r\n-.left,\r\n-.right {\r\n-  display: flex;\r\n-  flex-direction: column;\r\n-}\r\n"
+                },
+                {
+                    "date": 1686852143855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n }\r\n \r\n .delete-btn {\r\n   color: #c2185b;\r\n+  font-weight: 600;\r\n }\r\n \r\n .deal-infos {\r\n   display: flex;\r\n"
                 }
             ],
             "date": 1686849188714,

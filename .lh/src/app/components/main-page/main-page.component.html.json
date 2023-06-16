@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1686848316615,
@@ -16,6 +16,10 @@
                 {
                     "date": 1686848355406,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n         <li routerLink=\"/home/dashboard\">\n           <mat-icon>dashboard</mat-icon>Dashboard\n         </li>\n         <li routerLink=\"/home/user\"><mat-icon>account_circle</mat-icon>User</li>\n-        <li routerLink=\"/home/deals\" class=\"login\">\n-          <mat-icon>storefront</mat-icon>Deals\n-        </li>\n+        <li routerLink=\"/home/deals\"><mat-icon>storefront</mat-icon>Deals</li>\n         <li (click)=\"logout()\" routerLink=\"\" class=\"login\">\n           <mat-icon>logout</mat-icon>Logout\n         </li>\n       </ul>\n"
+                },
+                {
+                    "date": 1686930939986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <li routerLink=\"/home/dashboard\">\n           <mat-icon>dashboard</mat-icon>Dashboard\n         </li>\n         <li routerLink=\"/home/user\"><mat-icon>account_circle</mat-icon>User</li>\n-        <li routerLink=\"/home/deals\"><mat-icon>storefront</mat-icon>Deals</li>\n+        <li routerLink=\"/home/deals\"><mat-icon>paid</mat-icon>Deals</li>\n         <li (click)=\"logout()\" routerLink=\"\" class=\"login\">\n           <mat-icon>logout</mat-icon>Logout\n         </li>\n       </ul>\n"
                 }
             ],
             "date": 1686848316615,

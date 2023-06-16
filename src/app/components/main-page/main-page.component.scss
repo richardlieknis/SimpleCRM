@@ -39,8 +39,10 @@ mat-icon {
   height: 100vh;
 }
 
-.example-sidenav-content {
+.toolbar {
   width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 
 .example-sidenav {
@@ -48,8 +50,10 @@ mat-icon {
 }
 
 .router-container {
+  margin-top: 64px;
   padding: 16px 56px;
   overflow-y: auto;
+  max-width: 1200px;
 }
 
 .menu-links {
