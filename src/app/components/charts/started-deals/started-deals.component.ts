@@ -25,14 +25,6 @@ export class StartedDealsComponent implements OnInit {
   public barChartLabels = this.userNames;
   public barChartData = [{ data: this.userSales }]
 
-
-
-  public obj = {
-    0: "Peter",
-    1: "Mayer",
-    2: "Schlayer"
-  }
-
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -44,7 +36,8 @@ export class StartedDealsComponent implements OnInit {
     userData.subscribe((data) => {
       data.forEach(user => {
         if (user['deals'] != null) {
-          this.userNames.push(user['firstName']);
+          let fullName = user['firstName'] + " " + user['lastName'];
+          this.userNames.push(fullName);
           this.userSales.push(user['deals']);
         }
       });

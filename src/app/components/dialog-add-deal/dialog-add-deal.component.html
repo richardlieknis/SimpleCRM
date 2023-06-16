@@ -3,19 +3,14 @@
   <form [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>Select a user</mat-label>
-      <mat-select matNativeControl formControlName="user">
-        <mat-option value="test">Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
-        <mat-option>Test</mat-option>
+      <mat-select
+        [(ngModel)]="deal.fullName"
+        matNativeControl
+        formControlName="user"
+      >
+        <mat-option *ngFor="let user of allUsers" [value]="user">{{
+          user
+        }}</mat-option>
       </mat-select>
       <mat-error *ngIf="form.get('user')!.hasError('required')">
         User is required
@@ -23,20 +18,38 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Topic name</mat-label>
-      <input type="text" matInput formControlName="topic" />
+      <input
+        [(ngModel)]="deal.dealName"
+        type="text"
+        matInput
+        formControlName="topic"
+      />
       <mat-error *ngIf="form.get('topic')!.hasError('required')">
         Topic is required
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Charged amount</mat-label>
-      <input type="number" matInput formControlName="amount" />
+      <input
+        [(ngModel)]="deal.dealSale"
+        type="number"
+        matInput
+        formControlName="amount"
+      />
       <mat-error *ngIf="form.get('amount')!.hasError('required')">
-        Charged a mount is required
+        Charged amount is required
+      </mat-error>
+      <mat-error *ngIf="form.get('amount')!.hasError('min')">
+        Amount cant be less than 1
       </mat-error>
     </mat-form-field>
     <div mat-dialog-actions>
-      <button mat-raised-button color="accent" (click)="save()" cdkFocusInitial>
+      <button
+        [disabled]="!form.valid"
+        mat-raised-button
+        color="accent"
+        (click)="save()"
+      >
         Add new deal
       </button>
       <button mat-raised-button color="warn" (click)="closeDialog()">

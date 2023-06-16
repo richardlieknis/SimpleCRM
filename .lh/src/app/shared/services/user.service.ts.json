@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1686590641163,
@@ -72,6 +72,10 @@
                 {
                     "date": 1686681860153,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Injectable, OnInit } from '@angular/core';\n import { collectionData } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n+import { Observable } from 'rxjs';\n \n @Injectable({\n   providedIn: 'root'\n })\n@@ -17,11 +18,8 @@\n \n   ngOnInit(): void {\n   }\n \n-  getDoc() {\n-    collectionData(this.userColl)\n-      .subscribe((data) => {\n-        return data;\n-      })\n+  getDoc(): Observable<DocumentData[]> {\n+    return collectionData(this.userColl);\n   }\n }\n"
+                },
+                {
+                    "date": 1686947879112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,60 +22,4 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n }\n-import { Injectable, OnInit } from '@angular/core';\n-import { collectionData } from '@angular/fire/firestore';\n-import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n-import { collection } from '@firebase/firestore';\n-\n-@Injectable({\n-  providedIn: 'root'\n-})\n-export class UserService implements OnInit {\n-  private userColl: CollectionReference<DocumentData>\n-\n-  constructor(\n-    public firestore: Firestore,\n-  ) {\n-    this.userColl = collection(this.firestore, 'users');\n-  }\n-\n-  ngOnInit(): void {\n-  }\n-\n-  getDoc() {\n-    collectionData(this.userColl)\n-      .subscribe((data) => {\n-        console.log(data);\n-        return data;\n-      })\n-  }\n-}\n-import { Injectable, OnInit } from '@angular/core';\n-import { collectionData } from '@angular/fire/firestore';\n-import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n-import { collection } from '@firebase/firestore';\n-\n-@Injectable({\n-  providedIn: 'root'\n-})\n-export class UserService implements OnInit {\n-  private userColl: CollectionReference<DocumentData>\n-\n-  constructor(\n-    public firestore: Firestore,\n-  ) {\n-    this.userColl = collection(this.firestore, 'users');\n-  }\n-\n-  ngOnInit(): void {\n-    this.getDoc();\n-  }\n-\n-  getDoc() {\n-    collectionData(this.userColl, { idField: 'id' })\n-      .subscribe((data) => {\n-        console.log(\"DATA: \", data[2]['deals']);\n-      })\n-  }\n-}\n"
                 }
             ],
             "date": 1686590641163,

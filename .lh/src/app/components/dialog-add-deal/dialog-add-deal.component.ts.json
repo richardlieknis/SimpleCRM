@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1686934649611,
@@ -36,6 +36,70 @@
                 {
                     "date": 1686941073048,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+import { Component, OnInit } from '@angular/core';\n+import { MatDialogRef } from '@angular/material/dialog';\n+import { DealService } from 'src/app/shared/services/deal.service';\n+import { Deal } from 'src/models/deal.class';\n+import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n+\n+\n+\n+@Component({\n+  selector: 'app-dialog-add-deal',\n+  templateUrl: './dialog-add-deal.component.html',\n+  styleUrls: ['./dialog-add-deal.component.scss'],\n+})\n+export class DialogAddDealComponent implements OnInit {\n+  deal = new Deal();\n+  form!: FormGroup;\n+\n+  constructor(\n+    private dealService: DealService,\n+    private formBuilder: FormBuilder,\n+    public dialogRef: MatDialogRef<DialogAddDealComponent>,\n+  ) { }\n+\n+  ngOnInit(): void {\n+    this.form = this.formBuilder.group({\n+      user: ['', [Validators.required]],\n+      topic: ['', [Validators.required]],\n+      amount: ['', [Validators.required]],\n+    });\n+  }\n+  closeDialog(): void {\n+    this.dialogRef.close();\n+  }\n+\n+  save() {\n+\n+  }\n+}\n"
+                },
+                {
+                    "date": 1686942596799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n   ngOnInit(): void {\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n-      amount: ['', [Validators.required]],\n+      amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n   closeDialog(): void {\n     this.dialogRef.close();\n"
+                },
+                {
+                    "date": 1686944108552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { MatDialogRef } from '@angular/material/dialog';\n import { DealService } from 'src/app/shared/services/deal.service';\n import { Deal } from 'src/models/deal.class';\n import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n+import { UserService } from 'src/app/shared/services/user.service';\n \n \n \n @Component({\n@@ -16,8 +17,9 @@\n   form!: FormGroup;\n \n   constructor(\n     private dealService: DealService,\n+    private userService: UserService,\n     private formBuilder: FormBuilder,\n     public dialogRef: MatDialogRef<DialogAddDealComponent>,\n   ) { }\n \n"
+                },
+                {
+                    "date": 1686944411526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,13 @@\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n+\n+  getAllUserNames() {\n+\n+  }\n+\n   closeDialog(): void {\n     this.dialogRef.close();\n   }\n \n"
+                },
+                {
+                    "date": 1686944788631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,17 +23,20 @@\n     public dialogRef: MatDialogRef<DialogAddDealComponent>,\n   ) { }\n \n   ngOnInit(): void {\n+    this.getAllUserNames();\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n \n   getAllUserNames() {\n-\n+    this.userService.getDoc().subscribe((data) => {\n+      console.log(data);\n+    })\n   }\n \n   closeDialog(): void {\n     this.dialogRef.close();\n"
+                },
+                {
+                    "date": 1686944843242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n     });\n   }\n \n   getAllUserNames() {\n-    this.userService.getDoc().subscribe((data) => {\n-      console.log(data);\n+    this.userService.getDoc().subscribe((data: any) => {\n+      console.log(data['firstName']);\n     })\n   }\n \n   closeDialog(): void {\n"
+                },
+                {
+                    "date": 1686944905947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,12 @@\n     });\n   }\n \n   getAllUserNames() {\n-    this.userService.getDoc().subscribe((data: any) => {\n-      console.log(data['firstName']);\n+    this.userService.getDoc().subscribe((data) => {\n+      data.forEach(user => {\n+        console.log(user['firstName']);\n+      });\n     })\n   }\n \n   closeDialog(): void {\n"
+                },
+                {
+                    "date": 1686945026793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n })\n export class DialogAddDealComponent implements OnInit {\n   deal = new Deal();\n   form!: FormGroup;\n+  allUsers: string[] = [];\n \n   constructor(\n     private dealService: DealService,\n     private userService: UserService,\n@@ -23,20 +24,21 @@\n     public dialogRef: MatDialogRef<DialogAddDealComponent>,\n   ) { }\n \n   ngOnInit(): void {\n-    this.getAllUserNames();\n+    this.getAllFullUserNames();\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n \n-  getAllUserNames() {\n+  getAllFullUserNames() {\n     this.userService.getDoc().subscribe((data) => {\n       data.forEach(user => {\n-        console.log(user['firstName']);\n+        let fullName = user['firstName'] + \" \" + user['lastName'];\n+        this.allUsers.push(fullName);\n       });\n     })\n   }\n \n"
+                },
+                {
+                    "date": 1686945050691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n })\n export class DialogAddDealComponent implements OnInit {\n   deal = new Deal();\n   form!: FormGroup;\n-  allUsers: string[] = [];\n+  public allUsers: string[] = [];\n \n   constructor(\n     private dealService: DealService,\n     private userService: UserService,\n"
+                },
+                {
+                    "date": 1686945075790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n   ) { }\n \n   ngOnInit(): void {\n     this.getAllFullUserNames();\n+    console.log(this.allUsers);\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n"
+                },
+                {
+                    "date": 1686945237836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n   ) { }\n \n   ngOnInit(): void {\n     this.getAllFullUserNames();\n-    console.log(this.allUsers);\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n"
+                },
+                {
+                    "date": 1686945735537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n export class DialogAddDealComponent implements OnInit {\n   deal = new Deal();\n   form!: FormGroup;\n   public allUsers: string[] = [];\n+  private allUserEmail: string[] = [];\n \n   constructor(\n     private dealService: DealService,\n     private userService: UserService,\n@@ -37,8 +38,9 @@\n     this.userService.getDoc().subscribe((data) => {\n       data.forEach(user => {\n         let fullName = user['firstName'] + \" \" + user['lastName'];\n         this.allUsers.push(fullName);\n+        this.allUserEmail.push(user['email']);\n       });\n     })\n   }\n \n"
+                },
+                {
+                    "date": 1686945792308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,7 +48,7 @@\n     this.dialogRef.close();\n   }\n \n   save() {\n-\n+    this.dealService.createDoc();\n   }\n }\n"
+                },
+                {
+                    "date": 1686945925889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,6 +49,7 @@\n   }\n \n   save() {\n     this.dealService.createDoc();\n+    this.closeDialog();\n   }\n }\n"
+                },
+                {
+                    "date": 1686946332103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n     this.dialogRef.close();\n   }\n \n   save() {\n+    console.log(this.deal.fullName);\n     this.dealService.createDoc();\n     this.closeDialog();\n   }\n }\n"
+                },
+                {
+                    "date": 1686947183637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n     public dialogRef: MatDialogRef<DialogAddDealComponent>,\n   ) { }\n \n   ngOnInit(): void {\n+    this.dealService.checkExistingId();\n     this.getAllFullUserNames();\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n"
+                },
+                {
+                    "date": 1686947326941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,42 +54,4 @@\n     this.dealService.createDoc();\n     this.closeDialog();\n   }\n }\n-import { Component, OnInit } from '@angular/core';\n-import { MatDialogRef } from '@angular/material/dialog';\n-import { DealService } from 'src/app/shared/services/deal.service';\n-import { Deal } from 'src/models/deal.class';\n-import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n-\n-\n-\n-@Component({\n-  selector: 'app-dialog-add-deal',\n-  templateUrl: './dialog-add-deal.component.html',\n-  styleUrls: ['./dialog-add-deal.component.scss'],\n-})\n-export class DialogAddDealComponent implements OnInit {\n-  deal = new Deal();\n-  form!: FormGroup;\n-\n-  constructor(\n-    private dealService: DealService,\n-    private formBuilder: FormBuilder,\n-    public dialogRef: MatDialogRef<DialogAddDealComponent>,\n-  ) { }\n-\n-  ngOnInit(): void {\n-    this.form = this.formBuilder.group({\n-      user: ['', [Validators.required]],\n-      topic: ['was', [Validators.required]],\n-      amount: ['', [Validators.required]],\n-    });\n-  }\n-  closeDialog(): void {\n-    this.dialogRef.close();\n-  }\n-\n-  save() {\n-\n-  }\n-}\n"
                 }
             ],
             "date": 1686934649611,

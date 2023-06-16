@@ -1,26 +1,38 @@
 export class Deal {
-  id!: string;
-  firstName!: string;
-  lastName!: string;
+  fullName!: string;
   email!: string;
   dealSale!: number;
+  dealName!: string;
+  currentMonth!: string;
+  currentYear!: number;
 
   constructor(obj?: any) {
-    this.id = obj ? obj.id : '';
-    this.firstName = obj ? obj.firstName : '';
+    this.fullName = obj ? obj.fullName : '';
     this.email = obj ? obj.email : '';
-    this.lastName = obj ? obj.lastName : '';
     this.dealSale = obj ? obj.dealSale : '';
+    this.dealName = obj ? obj.dealName : '';
+    this.currentMonth = obj ? obj.currentMonth : this.getCurrentMonth();
+    this.currentYear = obj ? obj.currentYear : new Date().getFullYear();
   }
 
 
   public toJSON() {
     return {
-      id: this.id,
-      firstName: this.firstName,
-      lastName: this.lastName,
+      fullName: this.fullName,
       email: this.email,
       dealSale: this.dealSale,
+      dealName: this.dealName,
+      currentMonth: this.currentMonth,
+      currentYear: this.currentYear,
     }
+  }
+
+  getCurrentMonth() {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    let currentMonth = new Date().getMonth();
+    return (months[currentMonth]);
   }
 }
