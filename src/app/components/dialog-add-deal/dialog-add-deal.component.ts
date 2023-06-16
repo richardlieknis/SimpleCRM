@@ -17,6 +17,9 @@ export class DialogAddDealComponent implements OnInit {
   form!: FormGroup;
   public allUsers: string[] = [];
   private allUserEmail: string[] = [];
+  private allUserIds: string[] = [];
+  private currentUserIndex!: number;
+
 
   constructor(
     private dealService: DealService,
@@ -27,7 +30,7 @@ export class DialogAddDealComponent implements OnInit {
 
   ngOnInit(): void {
     this.dealService.checkExistingId();
-    this.getAllFullUserNames();
+    this.getUserInformation();
     this.form = this.formBuilder.group({
       user: ['', [Validators.required]],
       topic: ['', [Validators.required]],
@@ -35,12 +38,17 @@ export class DialogAddDealComponent implements OnInit {
     });
   }
 
-  getAllFullUserNames() {
+  onUserSelected(userName: string) {
+    this.currentUserIndex = this.allUsers.indexOf(userName);
+  }
+
+  getUserInformation() {
     this.userService.getDoc().subscribe((data) => {
       data.forEach(user => {
         let fullName = user['firstName'] + " " + user['lastName'];
         this.allUsers.push(fullName);
         this.allUserEmail.push(user['email']);
+        this.allUserIds.push(user['id']);
       });
     })
   }

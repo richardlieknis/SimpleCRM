@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/app/components/dialog-add-user/dialog-add-user.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1686950226446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686950246586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n     let dateInMilliseconds = this.birthDate.getTime();\n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n+    this.userService.setNewDoc(this.user);\n \n     addDoc((this.userCollection), this.user.toJSON())\n       .then((result: any) => {\n         this.isLoading = false;\n"
+                },
+                {
+                    "date": 1686950518996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,11 @@\n \n     this.user.birthDate = formattedDate;\n     this.userService.setNewDoc(this.user);\n \n-    addDoc((this.userCollection), this.user.toJSON())\n-      .then((result: any) => {\n-        this.isLoading = false;\n-        this.closeDialog();\n-      });\n+    // addDoc((this.userCollection), this.user.toJSON())\n+    //   .then((result: any) => {\n+    //     this.isLoading = false;\n+    //     this.closeDialog();\n+    //   });\n   }\n }\n"
+                },
+                {
+                    "date": 1686950853392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,13 +34,10 @@\n     let dateInMilliseconds = this.birthDate.getTime();\n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n-    this.userService.setNewDoc(this.user);\n-\n-    // addDoc((this.userCollection), this.user.toJSON())\n-    //   .then((result: any) => {\n-    //     this.isLoading = false;\n-    //     this.closeDialog();\n-    //   });\n+    let isReady = this.userService.setNewDoc(this.user);\n+    console.log(isReady);\n+    // this.isLoading = false;\n+    // this.closeDialog();\n   }\n }\n"
+                },
+                {
+                    "date": 1686951022566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,42 @@\n+import { Component } from '@angular/core';\n+import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n+import { MatDialogRef } from '@angular/material/dialog';\n+import { addDoc, collection } from '@firebase/firestore';\n+import { UserService } from 'src/app/shared/services/user.service';\n+import { User } from 'src/models/user.class';\n+\n+@Component({\n+  selector: 'app-dialog-add-user',\n+  templateUrl: './dialog-add-user.component.html',\n+  styleUrls: ['./dialog-add-user.component.scss']\n+})\n+export class DialogAddUserComponent {\n+  user = new User();\n+  birthDate!: Date;\n+  isLoading: boolean = false;\n+  private userCollection: CollectionReference<DocumentData>;\n+\n+  constructor(\n+    private firestore: Firestore,\n+    private userService: UserService,\n+    public dialogRef: MatDialogRef<DialogAddUserComponent>,\n+  ) {\n+    this.userCollection = collection(this.firestore, 'users');\n+  }\n+\n+  closeDialog(): void {\n+    this.dialogRef.close();\n+  }\n+\n+\n+  save() {\n+    this.isLoading = true;\n+    let dateInMilliseconds = this.birthDate.getTime();\n+    const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n+\n+    this.user.birthDate = formattedDate;\n+    this.userService.setNewDoc(this.user);\n+    // this.isLoading = false;\n+    this.closeDialog();\n+  }\n+}\n"
+                },
+                {
+                    "date": 1686951362565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     let dateInMilliseconds = this.birthDate.getTime();\n     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n \n     this.user.birthDate = formattedDate;\n-    this.userService.setNewDoc(this.user);\n+    this.userService.setNewUserDoc(this.user);\n     // this.isLoading = false;\n     this.closeDialog();\n   }\n }\n"
+                }
+            ],
+            "date": 1686950226446,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\nimport { MatDialogRef } from '@angular/material/dialog';\nimport { addDoc, collection } from '@firebase/firestore';\nimport { UserService } from 'src/app/shared/services/user.service';\nimport { User } from 'src/models/user.class';\n\n@Component({\n  selector: 'app-dialog-add-user',\n  templateUrl: './dialog-add-user.component.html',\n  styleUrls: ['./dialog-add-user.component.scss']\n})\nexport class DialogAddUserComponent {\n  user = new User();\n  birthDate!: Date;\n  isLoading: boolean = false;\n  private userCollection: CollectionReference<DocumentData>;\n\n  constructor(\n    private firestore: Firestore,\n    private userService: UserService,\n    public dialogRef: MatDialogRef<DialogAddUserComponent>,\n  ) {\n    this.userCollection = collection(this.firestore, 'users');\n  }\n\n  closeDialog(): void {\n    this.dialogRef.close();\n  }\n\n\n  save() {\n    this.isLoading = true;\n    let dateInMilliseconds = this.birthDate.getTime();\n    const formattedDate = new Date(dateInMilliseconds).toLocaleDateString(\"de-DE\");\n\n    this.user.birthDate = formattedDate;\n\n    addDoc((this.userCollection), this.user.toJSON())\n      .then((result: any) => {\n        this.isLoading = false;\n        this.closeDialog();\n      });\n  }\n}\n"
+        }
+    ]
+}

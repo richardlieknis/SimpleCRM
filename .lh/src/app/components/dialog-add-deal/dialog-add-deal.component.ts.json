@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 23,
+            "activePatchIndex": 32,
             "patches": [
                 {
                     "date": 1686934649611,
@@ -100,6 +100,42 @@
                 {
                     "date": 1686947326941,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,42 +54,4 @@\n     this.dealService.createDoc();\n     this.closeDialog();\n   }\n }\n-import { Component, OnInit } from '@angular/core';\n-import { MatDialogRef } from '@angular/material/dialog';\n-import { DealService } from 'src/app/shared/services/deal.service';\n-import { Deal } from 'src/models/deal.class';\n-import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n-\n-\n-\n-@Component({\n-  selector: 'app-dialog-add-deal',\n-  templateUrl: './dialog-add-deal.component.html',\n-  styleUrls: ['./dialog-add-deal.component.scss'],\n-})\n-export class DialogAddDealComponent implements OnInit {\n-  deal = new Deal();\n-  form!: FormGroup;\n-\n-  constructor(\n-    private dealService: DealService,\n-    private formBuilder: FormBuilder,\n-    public dialogRef: MatDialogRef<DialogAddDealComponent>,\n-  ) { }\n-\n-  ngOnInit(): void {\n-    this.form = this.formBuilder.group({\n-      user: ['', [Validators.required]],\n-      topic: ['was', [Validators.required]],\n-      amount: ['', [Validators.required]],\n-    });\n-  }\n-  closeDialog(): void {\n-    this.dialogRef.close();\n-  }\n-\n-  save() {\n-\n-  }\n-}\n"
+                },
+                {
+                    "date": 1686948247912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n   deal = new Deal();\n   form!: FormGroup;\n   public allUsers: string[] = [];\n   private allUserEmail: string[] = [];\n+  private allUserIds: string[] = [];\n \n   constructor(\n     private dealService: DealService,\n     private userService: UserService,\n@@ -40,8 +41,9 @@\n       data.forEach(user => {\n         let fullName = user['firstName'] + \" \" + user['lastName'];\n         this.allUsers.push(fullName);\n         this.allUserEmail.push(user['email']);\n+        this.allUserIds.push(user['id']);\n       });\n     })\n   }\n \n"
+                },
+                {
+                    "date": 1686948324185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,17 +27,17 @@\n   ) { }\n \n   ngOnInit(): void {\n     this.dealService.checkExistingId();\n-    this.getAllFullUserNames();\n+    this.getUserInformation();\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n       topic: ['', [Validators.required]],\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n \n-  getAllFullUserNames() {\n+  getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n       data.forEach(user => {\n         let fullName = user['firstName'] + \" \" + user['lastName'];\n         this.allUsers.push(fullName);\n"
+                },
+                {
+                    "date": 1686948715479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n   public allUsers: string[] = [];\n   private allUserEmail: string[] = [];\n   private allUserIds: string[] = [];\n \n+\n   constructor(\n     private dealService: DealService,\n     private userService: UserService,\n     private formBuilder: FormBuilder,\n"
+                },
+                {
+                    "date": 1686948984020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,13 @@\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n \n+  onUserSelected(userName: string, index: number) {\n+    console.log(userName);\n+    console.log(index);\n+  }\n+\n   getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n       data.forEach(user => {\n         let fullName = user['firstName'] + \" \" + user['lastName'];\n"
+                },
+                {
+                    "date": 1686949226102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,10 +37,10 @@\n     });\n   }\n \n   onUserSelected(userName: string, index: number) {\n-    console.log(userName);\n-    console.log(index);\n+\n+    console.log(this.allUsers.indexOf(userName));\n   }\n \n   getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n"
+                },
+                {
+                    "date": 1686949298598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n   form!: FormGroup;\n   public allUsers: string[] = [];\n   private allUserEmail: string[] = [];\n   private allUserIds: string[] = [];\n+  private currentUserIndex: number;\n \n \n   constructor(\n     private dealService: DealService,\n@@ -36,11 +37,10 @@\n       amount: ['', [Validators.required, Validators.min(1)]],\n     });\n   }\n \n-  onUserSelected(userName: string, index: number) {\n-\n-    console.log(this.allUsers.indexOf(userName));\n+  onUserSelected(userName: string) {\n+    this.currentUserIndex = this.allUsers.indexOf(userName);\n   }\n \n   getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n"
+                },
+                {
+                    "date": 1686949334901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   form!: FormGroup;\n   public allUsers: string[] = [];\n   private allUserEmail: string[] = [];\n   private allUserIds: string[] = [];\n-  private currentUserIndex: number;\n+  private currentUserIndex!: number;\n \n \n   constructor(\n     private dealService: DealService,\n"
+                },
+                {
+                    "date": 1686949347986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,9 @@\n   }\n \n   onUserSelected(userName: string) {\n     this.currentUserIndex = this.allUsers.indexOf(userName);\n+    console.log(this.currentUserIndex);\n   }\n \n   getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n"
+                },
+                {
+                    "date": 1686949369780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,8 @@\n   }\n \n   onUserSelected(userName: string) {\n     this.currentUserIndex = this.allUsers.indexOf(userName);\n-    console.log(this.currentUserIndex);\n   }\n \n   getUserInformation() {\n     this.userService.getDoc().subscribe((data) => {\n"
                 }
             ],
             "date": 1686934649611,

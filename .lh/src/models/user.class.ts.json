@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1683215514323,
@@ -68,6 +68,10 @@
                 {
                     "date": 1686588629253,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n   city!: string;\r\n   zipCode!: number;\r\n   phoneNumber!: number;\r\n   deals!: number;\r\n+  dealSales!: number;\r\n   photoURL!: string;\r\n \r\n   constructor(obj?: any) {\r\n     this.firstName = obj ? obj.firstName : '';\r\n@@ -19,8 +20,9 @@\n     this.city = obj ? obj.city : '';\r\n     this.zipCode = obj ? obj.zipCode : '';\r\n     this.phoneNumber = obj ? obj.phoneNumber : '';\r\n     this.deals = obj ? obj.deals : '';\r\n+    this.dealSales = obj ? obj.dealSales : '';\r\n     this.photoURL = obj ? obj.photoURL : '';\r\n   }\r\n \r\n \r\n@@ -34,8 +36,9 @@\n       city: this.city,\r\n       zipCode: this.zipCode,\r\n       phoneNumber: this.phoneNumber,\r\n       deals: this.deals,\r\n+      dealSales: this.dealSales,\r\n       photoURL: this.photoURL,\r\n     }\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1686951222000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n export class User {\r\n+  id!: string;\r\n   firstName!: string;\r\n   lastName!: string;\r\n   email!: string;\r\n   birthDate!: string;\r\n@@ -11,8 +12,9 @@\n   dealSales!: number;\r\n   photoURL!: string;\r\n \r\n   constructor(obj?: any) {\r\n+    this.id = obj ? obj.id : '';\r\n     this.firstName = obj ? obj.firstName : '';\r\n     this.lastName = obj ? obj.lastName : '';\r\n     this.email = obj ? obj.email : '';\r\n     this.birthDate = obj ? obj.birthDate : '';\r\n@@ -27,8 +29,9 @@\n \r\n \r\n   public toJSON() {\r\n     return {\r\n+      id: this.id,\r\n       firstName: this.firstName,\r\n       lastName: this.lastName,\r\n       email: this.email,\r\n       birthDate: this.birthDate,\r\n"
                 }
             ],
             "date": 1683215514323,

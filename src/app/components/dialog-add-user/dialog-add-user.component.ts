@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { addDoc, collection } from '@firebase/firestore';
+import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/models/user.class';
 
 @Component({
@@ -15,14 +16,18 @@ export class DialogAddUserComponent {
   isLoading: boolean = false;
   private userCollection: CollectionReference<DocumentData>;
 
-  constructor(private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) {
+  constructor(
+    private firestore: Firestore,
+    private userService: UserService,
+    public dialogRef: MatDialogRef<DialogAddUserComponent>,
+  ) {
     this.userCollection = collection(this.firestore, 'users');
   }
 
-  closeDialog(): void{
+  closeDialog(): void {
     this.dialogRef.close();
-   }
-  
+  }
+
 
   save() {
     this.isLoading = true;
@@ -30,11 +35,8 @@ export class DialogAddUserComponent {
     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString("de-DE");
 
     this.user.birthDate = formattedDate;
-
-    addDoc((this.userCollection), this.user.toJSON())
-      .then((result: any) => {
-        this.isLoading = false;
-        this.closeDialog();
-      });
+    this.userService.setNewUserDoc(this.user);
+    // this.isLoading = false;
+    this.closeDialog();
   }
 }

@@ -5,12 +5,15 @@
       <mat-label>Select a user</mat-label>
       <mat-select
         [(ngModel)]="deal.fullName"
+        (selectionChange)="onUserSelected($event.value)"
         matNativeControl
         formControlName="user"
       >
-        <mat-option *ngFor="let user of allUsers" [value]="user">{{
-          user
-        }}</mat-option>
+        <mat-option
+          *ngFor="let user of allUsers; let i = index"
+          [value]="user"
+          >{{ user }}</mat-option
+        >
       </mat-select>
       <mat-error *ngIf="form.get('user')!.hasError('required')">
         User is required
