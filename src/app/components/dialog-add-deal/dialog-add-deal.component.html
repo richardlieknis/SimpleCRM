@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Add new Deal</h1>
+<div class="dia-content" mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Select a user</mat-label>
+      <mat-select matNativeControl formControlName="user">
+        <mat-option value="test">Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+        <mat-option>Test</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('user')!.hasError('required')">
+        User is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Topic name</mat-label>
+      <input type="text" matInput formControlName="topic" />
+      <mat-error *ngIf="form.get('topic')!.hasError('required')">
+        Topic is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Charged amount</mat-label>
+      <input type="number" matInput formControlName="amount" />
+      <mat-error *ngIf="form.get('amount')!.hasError('required')">
+        Charged a mount is required
+      </mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="accent" (click)="save()" cdkFocusInitial>
+        Add new deal
+      </button>
+      <button mat-raised-button color="warn" (click)="closeDialog()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

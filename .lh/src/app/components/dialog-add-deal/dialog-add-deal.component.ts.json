@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/app/components/dialog-add-deal/dialog-add-deal.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1686934649611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686937171794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import { Component } from '@angular/core';\n+import { MatDialogRef } from '@angular/material/dialog';\n+import { DealService } from 'src/app/shared/services/deal.service';\n import { Deal } from 'src/models/deal.class';\n \n @Component({\n   selector: 'app-dialog-add-deal',\n@@ -7,5 +9,16 @@\n   styleUrls: ['./dialog-add-deal.component.scss']\n })\n export class DialogAddDealComponent {\n   deal = new Deal();\n+\n+  constructor(\n+    private dealService: DealService,\n+    public dialogRef: MatDialogRef<DialogAddDealComponent>,\n+  ) {\n+\n+  }\n+\n+  closeDialog(): void {\n+    this.dialogRef.close();\n+  }\n }\n"
+                },
+                {
+                    "date": 1686937191087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,9 @@\n \n   closeDialog(): void {\n     this.dialogRef.close();\n   }\n+\n+  save() {\n+\n+  }\n }\n"
+                },
+                {
+                    "date": 1686938873524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n import { Component } from '@angular/core';\n import { MatDialogRef } from '@angular/material/dialog';\n import { DealService } from 'src/app/shared/services/deal.service';\n import { Deal } from 'src/models/deal.class';\n+import { FormControl, Validators } from '@angular/forms';\n \n+\n @Component({\n   selector: 'app-dialog-add-deal',\n   templateUrl: './dialog-add-deal.component.html',\n   styleUrls: ['./dialog-add-deal.component.scss']\n"
+                },
+                {
+                    "date": 1686938910267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n @Component({\n   selector: 'app-dialog-add-deal',\n   templateUrl: './dialog-add-deal.component.html',\n-  styleUrls: ['./dialog-add-deal.component.scss']\n+  styleUrls: ['./dialog-add-deal.component.scss'],\n })\n export class DialogAddDealComponent {\n   deal = new Deal();\n \n"
+                },
+                {
+                    "date": 1686939704010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,34 @@\n-import { Component } from '@angular/core';\n+import { Component, OnInit } from '@angular/core';\n import { MatDialogRef } from '@angular/material/dialog';\n import { DealService } from 'src/app/shared/services/deal.service';\n import { Deal } from 'src/models/deal.class';\n-import { FormControl, Validators } from '@angular/forms';\n+import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n \n \n+\n @Component({\n   selector: 'app-dialog-add-deal',\n   templateUrl: './dialog-add-deal.component.html',\n   styleUrls: ['./dialog-add-deal.component.scss'],\n })\n-export class DialogAddDealComponent {\n+export class DialogAddDealComponent implements OnInit {\n   deal = new Deal();\n+  form!: FormGroup;\n \n   constructor(\n     private dealService: DealService,\n+    private formBuilder: FormBuilder,\n     public dialogRef: MatDialogRef<DialogAddDealComponent>,\n-  ) {\n+  ) { }\n \n+  ngOnInit(): void {\n+    this.form = this.formBuilder.group({\n+      user: ['', [Validators.required]],\n+      topic: ['', [Validators.required]],\n+      amount: ['', [Validators.required]],\n+    });\n   }\n-\n   closeDialog(): void {\n     this.dialogRef.close();\n   }\n \n"
+                },
+                {
+                    "date": 1686941065485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   ngOnInit(): void {\n     this.form = this.formBuilder.group({\n       user: ['', [Validators.required]],\n-      topic: ['', [Validators.required]],\n+      topic: ['was', [Validators.required]],\n       amount: ['', [Validators.required]],\n     });\n   }\n   closeDialog(): void {\n"
+                },
+                {
+                    "date": 1686941073048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+import { Component, OnInit } from '@angular/core';\n+import { MatDialogRef } from '@angular/material/dialog';\n+import { DealService } from 'src/app/shared/services/deal.service';\n+import { Deal } from 'src/models/deal.class';\n+import { FormBuilder, FormGroup, Validators } from '@angular/forms';\n+\n+\n+\n+@Component({\n+  selector: 'app-dialog-add-deal',\n+  templateUrl: './dialog-add-deal.component.html',\n+  styleUrls: ['./dialog-add-deal.component.scss'],\n+})\n+export class DialogAddDealComponent implements OnInit {\n+  deal = new Deal();\n+  form!: FormGroup;\n+\n+  constructor(\n+    private dealService: DealService,\n+    private formBuilder: FormBuilder,\n+    public dialogRef: MatDialogRef<DialogAddDealComponent>,\n+  ) { }\n+\n+  ngOnInit(): void {\n+    this.form = this.formBuilder.group({\n+      user: ['', [Validators.required]],\n+      topic: ['', [Validators.required]],\n+      amount: ['', [Validators.required]],\n+    });\n+  }\n+  closeDialog(): void {\n+    this.dialogRef.close();\n+  }\n+\n+  save() {\n+\n+  }\n+}\n"
+                }
+            ],
+            "date": 1686934649611,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\nimport { Deal } from 'src/models/deal.class';\n\n@Component({\n  selector: 'app-dialog-add-deal',\n  templateUrl: './dialog-add-deal.component.html',\n  styleUrls: ['./dialog-add-deal.component.scss']\n})\nexport class DialogAddDealComponent {\n  deal = new Deal();\n}\n"
+        }
+    ]
+}

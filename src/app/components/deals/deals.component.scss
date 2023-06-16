@@ -1,0 +1,15 @@
+.completed-deals {
+  margin-top: 20px;
+}
+
+.deal-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-deal-btn {
+  position: absolute;
+  bottom: 56px;
+  right: 56px;
+}

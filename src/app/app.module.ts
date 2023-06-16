@@ -41,6 +41,9 @@ import { StartedDealsComponent } from './components/charts/started-deals/started
 import { SalesActivityComponent } from './components/charts/sales-activity/sales-activity.component';
 import { DealsComponent } from './components/deals/deals.component';
 import { DealsCardComponent } from './components/deals-card/deals-card.component';
+import { DialogAddDealComponent } from './components/dialog-add-deal/dialog-add-deal.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -58,7 +61,8 @@ import { DealsCardComponent } from './components/deals-card/deals-card.component
     StartedDealsComponent,
     SalesActivityComponent,
     DealsComponent,
-    DealsCardComponent
+    DealsCardComponent,
+    DialogAddDealComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +90,7 @@ import { DealsCardComponent } from './components/deals-card/deals-card.component
     ReactiveFormsModule,
     MatSnackBarModule,
     NgChartsModule,
+    MatSelectModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1686849188714,
@@ -68,6 +68,10 @@
                 {
                     "date": 1686852143855,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n }\r\n \r\n .delete-btn {\r\n   color: #c2185b;\r\n+  font-weight: 600;\r\n }\r\n \r\n .deal-infos {\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1686942164709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   top: 5px;\r\n }\r\n \r\n .delete-btn {\r\n-  color: #c2185b;\r\n+  color: #f44336;\r\n   font-weight: 600;\r\n }\r\n \r\n .deal-infos {\r\n"
                 }
             ],
             "date": 1686849188714,

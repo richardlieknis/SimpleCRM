@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/app/shared/services/deal.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1686933671473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1686934279844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Injectable } from '@angular/core';\n import { CollectionReference, DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';\n import { Observable } from 'rxjs';\n+import { UserService } from './user.service';\n \n @Injectable({\n   providedIn: 'root'\n })\n@@ -9,9 +10,12 @@\n   private dealColl: CollectionReference<DocumentData>\n \n   constructor(\n     private firestore: Firestore,\n-  ) { this.dealColl = collection(this.firestore, 'deals'); }\n+    private userService: UserService,\n+  ) {\n+    this.dealColl = collection(this.firestore, 'deals');\n+  }\n \n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.dealColl);\n   }\n"
+                }
+            ],
+            "date": 1686933671473,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\nimport { CollectionReference, DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class DealService {\n  private dealColl: CollectionReference<DocumentData>\n\n  constructor(\n    private firestore: Firestore,\n  ) { this.dealColl = collection(this.firestore, 'deals'); }\n\n  getDoc(): Observable<DocumentData[]> {\n    return collectionData(this.dealColl);\n  }\n}\n"
+        }
+    ]
+}
