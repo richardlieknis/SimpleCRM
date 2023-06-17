@@ -1,8 +1,7 @@
 <div class="started-deals">
   <h1>Deals started</h1>
   <div class="deal-cards">
-    <app-deals-card></app-deals-card>
-    <app-deals-card></app-deals-card>
+    <app-deals-card *ngFor="let deal of allDealIds"></app-deals-card>
   </div>
 </div>
 <div class="completed-deals">

@@ -9,7 +9,8 @@ import { Deal } from 'src/models/deal.class';
 })
 export class DealService {
   private deal = new Deal();
-  private dealColl: CollectionReference<DocumentData>
+  private dealColl: CollectionReference<DocumentData>;
+  allIds: any[] = [];
 
   constructor(
     private firestore: Firestore,
@@ -29,12 +30,14 @@ export class DealService {
     setDoc(doc(this.dealColl), this.deal.toJSON());
   }
 
-  checkExistingId() {
+  returnAllDocIds() {
+    this.allIds = [];
     collectionData(this.dealColl, { idField: 'id' })
       .subscribe((data) => {
         data.forEach(deal => {
-
+          this.allIds.push(deal['id']);
         })
       })
+    return this.allIds;
   }
 }

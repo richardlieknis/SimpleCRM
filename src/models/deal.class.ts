@@ -3,6 +3,7 @@ export class Deal {
   email!: string;
   dealSale!: number;
   dealName!: string;
+  isDone!: boolean;
   currentMonth!: string;
   currentYear!: number;
 
@@ -11,6 +12,7 @@ export class Deal {
     this.email = obj ? obj.email : '';
     this.dealSale = obj ? obj.dealSale : '';
     this.dealName = obj ? obj.dealName : '';
+    this.isDone = obj ? obj.isDone : false;
     this.currentMonth = obj ? obj.currentMonth : this.getCurrentMonth();
     this.currentYear = obj ? obj.currentYear : new Date().getFullYear();
   }
@@ -22,6 +24,7 @@ export class Deal {
       email: this.email,
       dealSale: this.dealSale,
       dealName: this.dealName,
+      isDone: this.isDone,
       currentMonth: this.currentMonth,
       currentYear: this.currentYear,
     }

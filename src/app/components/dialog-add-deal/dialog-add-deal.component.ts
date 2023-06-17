@@ -29,7 +29,6 @@ export class DialogAddDealComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.dealService.checkExistingId();
     this.getUserInformation();
     this.form = this.formBuilder.group({
       user: ['', [Validators.required]],
