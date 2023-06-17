@@ -22,8 +22,8 @@ export class User {
     this.city = obj ? obj.city : '';
     this.zipCode = obj ? obj.zipCode : '';
     this.phoneNumber = obj ? obj.phoneNumber : '';
-    this.deals = obj ? obj.deals : '';
-    this.dealSales = obj ? obj.dealSales : '';
+    this.deals = obj ? obj.deals : 0;
+    this.dealSales = obj ? obj.dealSales : 0;
     this.photoURL = obj ? obj.photoURL : '';
   }
 

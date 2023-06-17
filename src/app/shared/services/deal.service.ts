@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, Firestore, addDoc, collection, collectionData, doc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { Deal } from 'src/models/deal.class';
@@ -22,15 +22,18 @@ export class DealService {
     return collectionData(this.dealColl);
   }
 
-  createDoc() {
-    addDoc((this.dealColl), this.deal.toJSON());
+  createDoc(userId: string, userEmail: string, deal: any) {
+    this.deal = deal;
+    this.deal.email = userEmail;
+    this.userService.countUpDeals(userId);
+    setDoc(doc(this.dealColl), this.deal.toJSON());
   }
 
   checkExistingId() {
     collectionData(this.dealColl, { idField: 'id' })
       .subscribe((data) => {
         data.forEach(deal => {
-          console.log(deal['id']);
+
         })
       })
   }

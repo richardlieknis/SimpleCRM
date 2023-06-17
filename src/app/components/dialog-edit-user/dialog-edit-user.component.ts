@@ -26,18 +26,19 @@ export default class DialogEditUserComponent {
     this.userCollection = collection(this.firestore, 'users');
   }
 
-  closeDialog(): void{
+  closeDialog(): void {
     this.dialogRef.close();
   }
 
   ngOnInit(): void {
     this.setUserData(this.data);
   }
-  
+
   setUserData(userId: string) {
     const docRef = doc(this.userCollection, userId);
     const userData = docData(docRef);
     userData.subscribe((user: any) => {
+      this.user.id = user.id;
       this.user.firstName = user.firstName;
       this.user.lastName = user.lastName;
       this.user.email = user.email;
@@ -45,15 +46,17 @@ export default class DialogEditUserComponent {
       this.user.street = user.street;
       this.user.city = user.city;
       this.user.zipCode = user.zipCode;
-      console.log(this.formatDate(user.birthDate));
+      this.user.deals = user.deals;
+      this.user.dealSales = user.dealSales;
+      this.user.photoURL = user.photoURL;
     })
   }
-  
+
 
   save() {
     this.isLoading = true;
     let dateInMilliseconds = 0;
-    try {dateInMilliseconds = this.birthDate.getTime();} catch {}
+    try { dateInMilliseconds = this.birthDate.getTime(); } catch { }
 
     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString("de-DE");
 
@@ -68,11 +71,11 @@ export default class DialogEditUserComponent {
   }
 
   formatDate(milliseconds: number) {
-  const date = new Date(milliseconds);
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Monat (von 0 bis 11)
-  const day = date.getDate().toString().padStart(2, '0');  // Tag
-  const year = date.getFullYear().toString();  // Jahr
+    const date = new Date(milliseconds);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Monat (von 0 bis 11)
+    const day = date.getDate().toString().padStart(2, '0');  // Tag
+    const year = date.getFullYear().toString();  // Jahr
 
-  return `${month}/${day}/${year}`;
-}
+    return `${month}/${day}/${year}`;
+  }
 }

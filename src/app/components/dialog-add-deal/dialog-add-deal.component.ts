@@ -41,7 +41,6 @@ export class DialogAddDealComponent implements OnInit {
   onUserSelected(userName: string) {
     this.currentUserIndex = this.allUsers.indexOf(userName);
   }
-
   getUserInformation() {
     this.userService.getDoc().subscribe((data) => {
       data.forEach(user => {
@@ -58,8 +57,11 @@ export class DialogAddDealComponent implements OnInit {
   }
 
   save() {
-    console.log(this.deal.fullName);
-    this.dealService.createDoc();
+    this.dealService.createDoc(
+      this.allUserIds[this.currentUserIndex],
+      this.allUserEmail[this.currentUserIndex],
+      this.deal
+    );
     this.closeDialog();
   }
 }

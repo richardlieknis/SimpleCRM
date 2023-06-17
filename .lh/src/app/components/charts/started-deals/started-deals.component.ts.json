@@ -3,156 +3,24 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 2,
             "patches": [
                 {
-                    "date": 1686680382678,
+                    "date": 1687012219417,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
                 },
                 {
-                    "date": 1686680769320,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,13 @@\n })\n export class StartedDealsComponent {\n   public barChartOptions: ChartOptions<'bar'> = {\n     responsive: true,\n+    plugins: {\n+      legend: {\n+        display: false\n+      }\n+    }\n   };\n \n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n \n"
+                    "date": 1687012247489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,8 @@\n     this.getAllNamesWithSales();\n   }\n \n   getAllNamesWithSales() {\n-    this.userNames = [];\n-    this.userSales = [];\n-\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != null) {\n"
                 },
                 {
-                    "date": 1686680867209,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,12 @@\n       }\n     }\n   };\n \n-  public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n+  public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n \n-  public barChartData = [\n-    {\n-      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n-    }\n-  ]\n+  public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n+\n+  getAllNamesWithSales() {\n+\n+  }\n }\n"
-                },
-                {
-                    "date": 1686681159489,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import { Component } from '@angular/core';\n+import { user } from '@angular/fire/auth';\n import { ChartConfiguration, ChartOptions } from 'chart.js'\n+import { UserService } from 'src/app/shared/services/user.service';\n \n \n @Component({\n   selector: 'app-started-deals',\n@@ -15,13 +17,14 @@\n         display: false\n       }\n     }\n   };\n-\n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n-\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n+  constructor(private userService: UserService) { }\n+\n   getAllNamesWithSales() {\n-\n+    const userData = this.userService.getDoc();\n+    console.log(userData);\n   }\n }\n"
-                },
-                {
-                    "date": 1686681192391,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Component } from '@angular/core';\n+import { Component, OnInit } from '@angular/core';\n import { user } from '@angular/fire/auth';\n import { ChartConfiguration, ChartOptions } from 'chart.js'\n import { UserService } from 'src/app/shared/services/user.service';\n \n@@ -8,9 +8,9 @@\n   selector: 'app-started-deals',\n   templateUrl: './started-deals.component.html',\n   styleUrls: ['./started-deals.component.scss']\n })\n-export class StartedDealsComponent {\n+export class StartedDealsComponent implements OnInit {\n   public barChartOptions: ChartOptions<'bar'> = {\n     responsive: true,\n     plugins: {\n       legend: {\n@@ -22,8 +22,12 @@\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n   constructor(private userService: UserService) { }\n \n+  ngOnInit(): void {\n+    this.getAllNamesWithSales();\n+  }\n+\n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     console.log(userData);\n   }\n"
-                },
-                {
-                    "date": 1686681268248,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n   }\n \n-  getAllNamesWithSales() {\n-    const userData = this.userService.getDoc();\n+  async getAllNamesWithSales() {\n+    const userData = await this.userService.getDoc();\n     console.log(userData);\n   }\n }\n"
-                },
-                {
-                    "date": 1686681338924,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n   }\n \n-  async getAllNamesWithSales() {\n-    const userData = await this.userService.getDoc();\n+  getAllNamesWithSales() {\n+    const userData = this.userService.getDoc();\n     console.log(userData);\n   }\n }\n"
-                },
-                {
-                    "date": 1686681372892,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n     this.getAllNamesWithSales();\n   }\n \n   getAllNamesWithSales() {\n+    console.log(this.userService.getDoc());\n     const userData = this.userService.getDoc();\n     console.log(userData);\n   }\n }\n"
-                },
-                {
-                    "date": 1686681853019,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,8 @@\n     this.getAllNamesWithSales();\n   }\n \n   getAllNamesWithSales() {\n-    console.log(this.userService.getDoc());\n     const userData = this.userService.getDoc();\n     console.log(userData);\n   }\n }\n"
-                },
-                {
-                    "date": 1686681891412,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,7 +28,7 @@\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n-    console.log(userData);\n+    console.log(userData.subscribe((data) => data));\n   }\n }\n"
-                },
-                {
-                    "date": 1686681924776,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,7 +28,9 @@\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n-    console.log(userData.subscribe((data) => data));\n+    userData.subscribe((data) => {\n+      console.log(data);\n+    })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682043346,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,11 @@\n   };\n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n+  userNames: string[] = [];\n+  userSales: number[] = [];\n+\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n@@ -29,8 +32,10 @@\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n-      console.log(data);\n+      data.forEach(user => {\n+        console.log(user);\n+      })\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682067053,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n-        console.log(user);\n+        console.log(user['firstName']);\n       })\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682116010,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,11 @@\n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n-        console.log(user['firstName']);\n+        if (user['deals'] != undefined) {\n+          console.log(\"IZ DA\");\n+        }\n       })\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682181227,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,16 +27,17 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n+    console.log(this.userNames);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(\"IZ DA\");\n+          this.userNames.push(user['firtName']);\n         }\n       })\n     })\n   }\n"
-                },
-                {
-                    "date": 1686682191280,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          this.userNames.push(user['firtName']);\n+          this.userNames.push(user['firstName']);\n         }\n       })\n     })\n   }\n"
-                },
-                {
-                    "date": 1686682226777,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(this.userNames);\n+    console.log(this.userNames[0]);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686682231821,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(this.userNames[0]);\n+    console.log(this.userNames);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686682462498,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Component, OnInit } from '@angular/core';\n import { user } from '@angular/fire/auth';\n import { ChartConfiguration, ChartOptions } from 'chart.js'\n+import { from } from 'rxjs';\n import { UserService } from 'src/app/shared/services/user.service';\n \n \n @Component({\n@@ -27,9 +28,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(this.userNames);\n+    console.log(from(this.userNames));\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686682492705,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(from(this.userNames));\n+    console.log(Array.from(this.userNames));\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686682582892,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(Array.from(this.userNames));\n+    console.log(this.userNames);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686682616089,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n+          console.log(user['firstName']);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686682667983,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   };\n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n-  userNames: string[] = [];\n+  userNames = [];\n   userSales: number[] = [];\n \n   constructor(private userService: UserService) { }\n \n"
-                },
-                {
-                    "date": 1686682700069,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   };\n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n-  userNames = [];\n+  userNames: Array<string>[] = [];\n   userSales: number[] = [];\n \n   constructor(private userService: UserService) { }\n \n"
-                },
-                {
-                    "date": 1686682719984,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   };\n   public barChartLabels = [\"January\", \"February\", \"March\", \"April\"];\n   public barChartData = [{ data: [75432, 94312, 61243, 89456], }]\n \n-  userNames: Array<string>[] = [];\n+  userNames: Array<string> = [];\n   userSales: number[] = [];\n \n   constructor(private userService: UserService) { }\n \n"
-                },
-                {
-                    "date": 1686682872565,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,12 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(user['firstName']);\n           this.userNames.push(user['firstName']);\n         }\n-      })\n+      });\n+\n+      this.userNames = data.map(user => user['firstName']);\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682886916,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(this.userNames);\n+\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n@@ -41,7 +41,8 @@\n         }\n       });\n \n       this.userNames = data.map(user => user['firstName']);\n+      console.log(this.userNames);\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682934056,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,13 +36,13 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          this.userNames.push(user['firstName']);\n+          this.userNames = data.map(user => user['firstName']);\n         }\n       });\n \n-      this.userNames = data.map(user => user['firstName']);\n+\n       console.log(this.userNames);\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686682974131,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,21 +28,19 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-\n+    console.log(this.userNames);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          this.userNames = data.map(user => user['firstName']);\n+          console.log(user['firstName']);\n+          this.userNames.push(user['firstName']);\n         }\n-      });\n-\n-\n-      console.log(this.userNames);\n+      })\n     })\n   }\n }\n"
-                },
-                {
-                    "date": 1686683061745,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(user['firstName']);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686683077572,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n+          console.log(this.userNames);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686683092678,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   constructor(private userService: UserService) { }\n \n   ngOnInit(): void {\n     this.getAllNamesWithSales();\n-    console.log(this.userNames);\n+    // console.log(this.userNames);\n   }\n \n   getAllNamesWithSales() {\n     const userData = this.userService.getDoc();\n"
-                },
-                {
-                    "date": 1686683241215,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(this.userNames);\n+          console.log(this.userNames[0]);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686683252156,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(this.userNames[0]);\n+          console.log(this.userNames[1]);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686683260658,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(this.userNames[3]);\n+          console.log(this.userNames[2]);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
-                },
-                {
-                    "date": 1686683268197,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const userData = this.userService.getDoc();\n     userData.subscribe((data) => {\n       data.forEach(user => {\n         if (user['deals'] != undefined) {\n-          console.log(this.userNames[2]);\n+          console.log(this.userNames[1]);\n           this.userNames.push(user['firstName']);\n         }\n       })\n     })\n"
+                    "date": 1687012272299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n           this.userNames.push(fullName);\n           this.userSales.push(user['deals']);\n         }\n       });\n-      this.setChartData();\n+      // this.setChartData();\n \n     })\n   }\n \n"
                 }
             ],
-            "date": 1686680382678,
+            "date": 1687012219417,
             "name": "Commit-0",
-            "content": "import { Component } from '@angular/core';\nimport { ChartConfiguration, ChartOptions } from 'chart.js'\n\n\n@Component({\n  selector: 'app-started-deals',\n  templateUrl: './started-deals.component.html',\n  styleUrls: ['./started-deals.component.scss']\n})\nexport class StartedDealsComponent {\n  public barChartOptions: ChartOptions<'bar'> = {\n    responsive: true,\n  };\n\n  public barChartLabels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"];\n\n  public barChartData = [\n    {\n      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],\n    }\n  ]\n}\n"
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { user } from '@angular/fire/auth';\nimport { ChartConfiguration, ChartOptions } from 'chart.js'\nimport { from } from 'rxjs';\nimport { UserService } from 'src/app/shared/services/user.service';\n\n\n@Component({\n  selector: 'app-started-deals',\n  templateUrl: './started-deals.component.html',\n  styleUrls: ['./started-deals.component.scss']\n})\nexport class StartedDealsComponent implements OnInit {\n  userNames: Array<string> = [];\n  userSales: number[] = [];\n\n  public barChartOptions: ChartOptions<'bar'> = {\n    responsive: true,\n    plugins: {\n      legend: {\n        display: false\n      }\n    }\n  };\n  public barChartLabels = this.userNames;\n  public barChartData = [{ data: this.userSales }]\n\n  constructor(private userService: UserService) { }\n\n  ngOnInit(): void {\n    this.getAllNamesWithSales();\n  }\n\n  getAllNamesWithSales() {\n    this.userNames = [];\n    this.userSales = [];\n    \n    const userData = this.userService.getDoc();\n    userData.subscribe((data) => {\n      data.forEach(user => {\n        if (user['deals'] != null) {\n          let fullName = user['firstName'] + \" \" + user['lastName'];\n          this.userNames.push(fullName);\n          this.userSales.push(user['deals']);\n        }\n      });\n      this.setChartData();\n\n    })\n  }\n\n  setChartData() {\n    this.barChartLabels = this.userNames;\n    this.barChartData = [{ data: this.userSales }]\n  }\n}\n"
         }
     ]
 }

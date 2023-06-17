@@ -42,7 +42,6 @@ export class StartedDealsComponent implements OnInit {
         }
       });
       this.setChartData();
-
     })
   }
 

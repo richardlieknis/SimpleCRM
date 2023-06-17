@@ -3,116 +3,80 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 25,
+            "activePatchIndex": 16,
             "patches": [
                 {
-                    "date": 1686590641163,
+                    "date": 1687004403947,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
                 },
                 {
-                    "date": 1686590770728,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export class UserService implements OnInit {\n   private userColl: CollectionReference<DocumentData>\n \n   constructor(\n-    private firestore: Firestore,\n+    public firestore: Firestore,\n   ) {\n     this.userColl = collection(this.firestore, 'users');\n   }\n \n"
+                    "date": 1687004463480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n   countUpDeals(userId: string) {\n     docData(doc(this.userColl, userId))\n       .subscribe((user: any) => {\n-        console.log(user);\n+        // console.log(user);\n         user.deals += 1;\n       });\n   }\n \n"
                 },
                 {
-                    "date": 1686590992465,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Injectable, OnInit } from '@angular/core';\n import { collectionData } from '@angular/fire/firestore';\n-import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore/firebase';\n+import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n \n @Injectable({\n   providedIn: 'root'\n"
+                    "date": 1687004474455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n   countUpDeals(userId: string) {\n     docData(doc(this.userColl, userId))\n       .subscribe((user: any) => {\n-        // console.log(user);\n+        console.log(user);\n         user.deals += 1;\n       });\n   }\n \n"
                 },
                 {
-                    "date": 1686591026435,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n     this.userColl = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n+    console.log(\"TEST\");\n     this.getDoc();\n   }\n \n   getDoc() {\n"
+                    "date": 1687004666672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,9 @@\n \n   countUpDeals(userId: string) {\n     docData(doc(this.userColl, userId))\n       .subscribe((user: any) => {\n-        console.log(user);\n-        user.deals += 1;\n+        console.log(user.deal);\n       });\n   }\n \n   generateRandomString(length: number) {\n"
                 },
                 {
-                    "date": 1686591111545,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n     this.userColl = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n-    console.log(\"TEST\");\n     this.getDoc();\n   }\n \n   getDoc() {\n"
+                    "date": 1687004690158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n \n   countUpDeals(userId: string) {\n     docData(doc(this.userColl, userId))\n       .subscribe((user: any) => {\n-        console.log(user.deal);\n+        console.log(user.deals);\n       });\n   }\n \n   generateRandomString(length: number) {\n"
                 },
                 {
-                    "date": 1686679953344,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n \n   getDoc() {\n     collectionData(this.userColl, { idField: 'id' })\n       .subscribe((data) => {\n-        console.log(\"DATA: \", data);\n+        console.log(\"DATA: \", data[0]['deals']);\n       })\n   }\n }\n"
+                    "date": 1687005169809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Injectable, OnInit } from '@angular/core';\n-import { collectionData, doc, docData, setDoc } from '@angular/fire/firestore';\n+import { collectionData, doc, setDoc } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n import { Observable } from 'rxjs';\n import { User } from 'src/models/user.class';\n@@ -34,12 +34,10 @@\n       });\n   }\n \n   countUpDeals(userId: string) {\n-    docData(doc(this.userColl, userId))\n-      .subscribe((user: any) => {\n-        console.log(user.deals);\n-      });\n+    this.user.deals += 1;\n+    setDoc(doc(this.userColl, userId), this.user.toJSON())\n   }\n \n   generateRandomString(length: number) {\n     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n"
                 },
                 {
-                    "date": 1686679963327,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n \n   getDoc() {\n     collectionData(this.userColl, { idField: 'id' })\n       .subscribe((data) => {\n-        console.log(\"DATA: \", data[0]['deals']);\n+        console.log(\"DATA: \", data[1]['deals']);\n       })\n   }\n }\n"
+                    "date": 1687005409053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Injectable, OnInit } from '@angular/core';\n-import { collectionData, doc, setDoc } from '@angular/fire/firestore';\n+import { collectionData, doc, docData, setDoc } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n import { Observable } from 'rxjs';\n import { User } from 'src/models/user.class';\n@@ -38,8 +38,26 @@\n     this.user.deals += 1;\n     setDoc(doc(this.userColl, userId), this.user.toJSON())\n   }\n \n+  setUserData(userId: string) {\n+    const docRef = doc(this.userColl, userId);\n+    const userData = docData(docRef);\n+    userData.subscribe((user: any) => {\n+      this.user.id = user.id;\n+      this.user.firstName = user.firstName;\n+      this.user.lastName = user.lastName;\n+      this.user.email = user.email;\n+      this.user.birthDate = user.birthDate;\n+      this.user.street = user.street;\n+      this.user.city = user.city;\n+      this.user.zipCode = user.zipCode;\n+      this.user.deals = user.deals;\n+      this.user.dealSales = user.dealSales;\n+      this.user.photoURL = user.photoURL;\n+    })\n+  }\n+\n   generateRandomString(length: number) {\n     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n     let randomString = '';\n \n"
                 },
                 {
-                    "date": 1686679968640,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n \n   getDoc() {\n     collectionData(this.userColl, { idField: 'id' })\n       .subscribe((data) => {\n-        console.log(\"DATA: \", data[1]['deals']);\n+        console.log(\"DATA: \", data[2]['deals']);\n       })\n   }\n }\n"
+                    "date": 1687005504248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n       });\n   }\n \n   countUpDeals(userId: string) {\n+    this.setUserData(userId);\n     this.user.deals += 1;\n     setDoc(doc(this.userColl, userId), this.user.toJSON())\n   }\n \n"
                 },
                 {
-                    "date": 1686680007328,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+import { Injectable, OnInit } from '@angular/core';\n+import { collectionData } from '@angular/fire/firestore';\n+import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n+import { collection } from '@firebase/firestore';\n+\n+@Injectable({\n+  providedIn: 'root'\n+})\n+export class UserService implements OnInit {\n+  private userColl: CollectionReference<DocumentData>\n+\n+  constructor(\n+    public firestore: Firestore,\n+  ) {\n+    this.userColl = collection(this.firestore, 'users');\n+  }\n+\n+  ngOnInit(): void {\n+    this.getDoc();\n+  }\n+\n+  getDoc() {\n+    collectionData(this.userColl, { idField: 'id' })\n+      .subscribe((data) => {\n+        return data;\n+      })\n+  }\n+}\n"
+                    "date": 1687005622296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,11 @@\n     this.user.deals += 1;\n     setDoc(doc(this.userColl, userId), this.user.toJSON())\n   }\n \n+\n+  /** SetUserData nur zu Testzwecken\n+   */\n   setUserData(userId: string) {\n     const docRef = doc(this.userColl, userId);\n     const userData = docData(docRef);\n     userData.subscribe((user: any) => {\n"
                 },
                 {
-                    "date": 1686680077965,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n \n   getDoc() {\n     collectionData(this.userColl, { idField: 'id' })\n       .subscribe((data) => {\n-        return data;\n+        console.log(data);\n       })\n   }\n }\n"
+                    "date": 1687005834790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,11 +34,12 @@\n       });\n   }\n \n   countUpDeals(userId: string) {\n-    this.setUserData(userId);\n     this.user.deals += 1;\n-    setDoc(doc(this.userColl, userId), this.user.toJSON())\n+    setDoc(doc(this.userColl, userId), {\n+      deals: 10,\n+    })\n   }\n \n \n   /** SetUserData nur zu Testzwecken\n"
                 },
                 {
-                    "date": 1686680097787,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     this.getDoc();\n   }\n \n   getDoc() {\n-    collectionData(this.userColl, { idField: 'id' })\n+    collectionData(this.userColl)\n       .subscribe((data) => {\n         console.log(data);\n       })\n   }\n"
+                    "date": 1687006783863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { Injectable, OnInit } from '@angular/core';\n-import { collectionData, doc, docData, setDoc } from '@angular/fire/firestore';\n+import { increment, update } from '@angular/fire/database';\n+import { collectionData, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n import { Observable } from 'rxjs';\n import { User } from 'src/models/user.class';\n@@ -34,12 +35,16 @@\n       });\n   }\n \n   countUpDeals(userId: string) {\n-    this.user.deals += 1;\n-    setDoc(doc(this.userColl, userId), {\n-      deals: 10,\n+    const docRef = doc(this.firestore, 'users', userId);\n+\n+    updateDoc(docRef, {\n+      deals: increment(1)\n     })\n+    // setDoc(doc(this.userColl, userId), {\n+    //   deals: 10,\n+    // })\n   }\n \n \n   /** SetUserData nur zu Testzwecken\n"
                 },
                 {
-                    "date": 1686680271808,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n \n   getDoc() {\n     collectionData(this.userColl)\n       .subscribe((data) => {\n-        console.log(data);\n+        return data;\n       })\n   }\n }\n"
+                    "date": 1687006912029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n   countUpDeals(userId: string) {\n     const docRef = doc(this.firestore, 'users', userId);\n \n     updateDoc(docRef, {\n-      deals: increment(1)\n+      deals: 5\n     })\n     // setDoc(doc(this.userColl, userId), {\n     //   deals: 10,\n     // })\n"
                 },
                 {
-                    "date": 1686681224044,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n \n   getDoc() {\n     collectionData(this.userColl)\n       .subscribe((data) => {\n+        console.log(\"HALLO?\");\n         return data;\n       })\n   }\n }\n"
+                    "date": 1687007600388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { Injectable, OnInit } from '@angular/core';\n import { increment, update } from '@angular/fire/database';\n-import { collectionData, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';\n+import { FieldValue, collectionData, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n import { Observable } from 'rxjs';\n import { User } from 'src/models/user.class';\n@@ -25,8 +25,16 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n \n+  getDocData(userId: string) {\n+    const docRef = doc(this.userColl, userId);\n+    const userData = docData(docRef);\n+    userData.forEach(user => {\n+      console.log(user['deals']);\n+    })\n+  }\n+\n   setNewUserDoc(user: any) {\n     this.user = user;\n     this.user.id = this.generateRandomString(20);\n     setDoc(doc(this.userColl, this.user.id), this.user.toJSON())\n@@ -34,14 +42,15 @@\n         return true;\n       });\n   }\n \n+\n   countUpDeals(userId: string) {\n-    const docRef = doc(this.firestore, 'users', userId);\n-\n-    updateDoc(docRef, {\n-      deals: 5\n-    })\n+    this.getDocData(userId);\n+    // const docRef = doc(this.firestore, 'users', userId);\n+    // updateDoc(docRef, {\n+    //   deals: \n+    // })\n     // setDoc(doc(this.userColl, userId), {\n     //   deals: 10,\n     // })\n   }\n"
                 },
                 {
-                    "date": 1686681237986,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n     this.userColl = collection(this.firestore, 'users');\n   }\n \n   ngOnInit(): void {\n-    this.getDoc();\n   }\n \n   getDoc() {\n     collectionData(this.userColl)\n"
+                    "date": 1687007749739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,13 +25,13 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n \n-  getDocData(userId: string) {\n+  getUserDeals(userId: string) {\n     const docRef = doc(this.userColl, userId);\n     const userData = docData(docRef);\n     userData.forEach(user => {\n-      console.log(user['deals']);\n+      return (user['deals']);\n     })\n   }\n \n   setNewUserDoc(user: any) {\n@@ -44,9 +44,10 @@\n   }\n \n \n   countUpDeals(userId: string) {\n-    this.getDocData(userId);\n+    let userDeals = this.getUserDeals(userId);\n+    console.log(userDeals);\n     // const docRef = doc(this.firestore, 'users', userId);\n     // updateDoc(docRef, {\n     //   deals: \n     // })\n"
                 },
                 {
-                    "date": 1686681246046,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   getDoc() {\n     collectionData(this.userColl)\n       .subscribe((data) => {\n-        console.log(\"HALLO?\");\n+        console.log(data);\n         return data;\n       })\n   }\n }\n"
+                    "date": 1687007757353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n \n \n   countUpDeals(userId: string) {\n     let userDeals = this.getUserDeals(userId);\n-    console.log(userDeals);\n+    console.log(\"DEALS: \",userDeals);\n     // const docRef = doc(this.firestore, 'users', userId);\n     // updateDoc(docRef, {\n     //   deals: \n     // })\n"
                 },
                 {
-                    "date": 1686681281815,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import { Injectable, OnInit } from '@angular/core';\n+import { collectionData } from '@angular/fire/firestore';\n+import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n+import { collection } from '@firebase/firestore';\n+\n+@Injectable({\n+  providedIn: 'root'\n+})\n+export class UserService implements OnInit {\n+  private userColl: CollectionReference<DocumentData>\n+\n+  constructor(\n+    public firestore: Firestore,\n+  ) {\n+    this.userColl = collection(this.firestore, 'users');\n+  }\n+\n+  ngOnInit(): void {\n+  }\n+\n+  getDoc() {\n+    collectionData(this.userColl)\n+      .subscribe((data) => {\n+        return data;\n+      })\n+  }\n+}\n"
+                    "date": 1687007889088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n   }\n \n \n   countUpDeals(userId: string) {\n+    console.log(\"WIE KANN ES SEIN\",this.getUserDeals(userId));\n     let userDeals = this.getUserDeals(userId);\n     console.log(\"DEALS: \", userDeals);\n     // const docRef = doc(this.firestore, 'users', userId);\n     // updateDoc(docRef, {\n"
                 },
                 {
-                    "date": 1686681860153,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Injectable, OnInit } from '@angular/core';\n import { collectionData } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n+import { Observable } from 'rxjs';\n \n @Injectable({\n   providedIn: 'root'\n })\n@@ -17,11 +18,8 @@\n \n   ngOnInit(): void {\n   }\n \n-  getDoc() {\n-    collectionData(this.userColl)\n-      .subscribe((data) => {\n-        return data;\n-      })\n+  getDoc(): Observable<DocumentData[]> {\n+    return collectionData(this.userColl);\n   }\n }\n"
-                },
-                {
-                    "date": 1686947879112,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,60 +22,4 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n }\n-import { Injectable, OnInit } from '@angular/core';\n-import { collectionData } from '@angular/fire/firestore';\n-import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n-import { collection } from '@firebase/firestore';\n-\n-@Injectable({\n-  providedIn: 'root'\n-})\n-export class UserService implements OnInit {\n-  private userColl: CollectionReference<DocumentData>\n-\n-  constructor(\n-    public firestore: Firestore,\n-  ) {\n-    this.userColl = collection(this.firestore, 'users');\n-  }\n-\n-  ngOnInit(): void {\n-  }\n-\n-  getDoc() {\n-    collectionData(this.userColl)\n-      .subscribe((data) => {\n-        console.log(data);\n-        return data;\n-      })\n-  }\n-}\n-import { Injectable, OnInit } from '@angular/core';\n-import { collectionData } from '@angular/fire/firestore';\n-import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n-import { collection } from '@firebase/firestore';\n-\n-@Injectable({\n-  providedIn: 'root'\n-})\n-export class UserService implements OnInit {\n-  private userColl: CollectionReference<DocumentData>\n-\n-  constructor(\n-    public firestore: Firestore,\n-  ) {\n-    this.userColl = collection(this.firestore, 'users');\n-  }\n-\n-  ngOnInit(): void {\n-    this.getDoc();\n-  }\n-\n-  getDoc() {\n-    collectionData(this.userColl, { idField: 'id' })\n-      .subscribe((data) => {\n-        console.log(\"DATA: \", data[2]['deals']);\n-      })\n-  }\n-}\n"
-                },
-                {
-                    "date": 1686950102241,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,16 @@\n import { Injectable, OnInit } from '@angular/core';\n-import { collectionData } from '@angular/fire/firestore';\n+import { collectionData, doc, setDoc } from '@angular/fire/firestore';\n import { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\n import { collection } from '@firebase/firestore';\n import { Observable } from 'rxjs';\n+import { User } from 'src/models/user.class';\n \n @Injectable({\n   providedIn: 'root'\n })\n export class UserService implements OnInit {\n+  user = new User();\n   private userColl: CollectionReference<DocumentData>\n \n   constructor(\n     public firestore: Firestore,\n@@ -21,5 +23,22 @@\n \n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n+\n+  setNewDoc() {\n+    setDoc(doc(this.firestore, 'users', this.generateRandomString(10)), this.user.toJSON());\n+  }\n+\n+  generateRandomString(length: number) {\n+    const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n+    let randomString = '';\n+\n+    for (let i = 0; i < length; i++) {\n+      const randomIndex = Math.floor(Math.random() * characters.length);\n+      randomString += characters.charAt(randomIndex);\n+    }\n+\n+    return randomString;\n+  }\n+\n }\n"
-                },
-                {
-                    "date": 1686950176677,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,11 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n \n-  setNewDoc() {\n-    setDoc(doc(this.firestore, 'users', this.generateRandomString(10)), this.user.toJSON());\n+  setNewDoc(user: any) {\n+    console.log(user);\n+    //setDoc(doc(this.firestore, 'users', this.generateRandomString(10)), this.user.toJSON());\n   }\n \n   generateRandomString(length: number) {\n     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n"
-                },
-                {
-                    "date": 1686950505936,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,10 @@\n     return collectionData(this.userColl);\n   }\n \n   setNewDoc(user: any) {\n-    console.log(user);\n-    //setDoc(doc(this.firestore, 'users', this.generateRandomString(10)), this.user.toJSON());\n+    this.user = user;\n+    setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON());\n   }\n \n   generateRandomString(length: number) {\n     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n"
-                },
-                {
-                    "date": 1686950802482,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,12 @@\n   }\n \n   setNewDoc(user: any) {\n     this.user = user;\n-    setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON());\n+    setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON())\n+      .then((result: any) => {\n+        return result;\n+      });\n   }\n \n   generateRandomString(length: number) {\n     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n"
-                },
-                {
-                    "date": 1686950886433,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   setNewDoc(user: any) {\n     this.user = user;\n     setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON())\n       .then((result: any) => {\n-        return result;\n+        return true;\n       });\n   }\n \n   generateRandomString(length: number) {\n"
-                },
-                {
-                    "date": 1686950893119,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \n   setNewDoc(user: any) {\n     this.user = user;\n     setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON())\n-      .then((result: any) => {\n+      .then(() => {\n         return true;\n       });\n   }\n \n"
-                },
-                {
-                    "date": 1686951270561,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n   }\n \n   setNewDoc(user: any) {\n     this.user = user;\n-    setDoc(doc(this.userColl, this.generateRandomString(10)), this.user.toJSON())\n+    this.user.id = this.generateRandomString(20);\n+    setDoc(doc(this.userColl, this.user.id), this.user.toJSON())\n       .then(() => {\n         return true;\n       });\n   }\n"
-                },
-                {
-                    "date": 1686951362574,
-                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n   getDoc(): Observable<DocumentData[]> {\n     return collectionData(this.userColl);\n   }\n \n-  setNewDoc(user: any) {\n+  setNewUserDoc(user: any) {\n     this.user = user;\n     this.user.id = this.generateRandomString(20);\n     setDoc(doc(this.userColl, this.user.id), this.user.toJSON())\n       .then(() => {\n"
+                    "date": 1687007934969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,10 @@\n   getUserDeals(userId: string) {\n     const docRef = doc(this.userColl, userId);\n     const userData = docData(docRef);\n     userData.forEach(user => {\n-      return (user['deals']);\n+      console.log(user['deals']);\n+      return user['deals'];\n     })\n   }\n \n   setNewUserDoc(user: any) {\n"
                 }
             ],
-            "date": 1686590641163,
+            "date": 1687004403947,
             "name": "Commit-0",
-            "content": "import { Injectable, OnInit } from '@angular/core';\nimport { collectionData } from '@angular/fire/firestore';\nimport { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore/firebase';\nimport { collection } from '@firebase/firestore';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService implements OnInit {\n  private userColl: CollectionReference<DocumentData>\n\n  constructor(\n    private firestore: Firestore,\n  ) {\n    this.userColl = collection(this.firestore, 'users');\n  }\n\n  ngOnInit(): void {\n    this.getDoc();\n  }\n\n  getDoc() {\n    collectionData(this.userColl, { idField: 'id' })\n      .subscribe((data) => {\n        console.log(\"DATA: \", data);\n      })\n  }\n}\n"
+            "content": "import { Injectable, OnInit } from '@angular/core';\nimport { collectionData, doc, docData, setDoc } from '@angular/fire/firestore';\nimport { CollectionReference, DocumentData, Firestore } from '@angular/fire/firestore';\nimport { collection } from '@firebase/firestore';\nimport { Observable } from 'rxjs';\nimport { User } from 'src/models/user.class';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService implements OnInit {\n  user = new User();\n  private userColl: CollectionReference<DocumentData>\n\n  constructor(\n    public firestore: Firestore,\n  ) {\n    this.userColl = collection(this.firestore, 'users');\n  }\n\n  ngOnInit(): void {\n  }\n\n  getDoc(): Observable<DocumentData[]> {\n    return collectionData(this.userColl);\n  }\n\n  setNewUserDoc(user: any) {\n    this.user = user;\n    this.user.id = this.generateRandomString(20);\n    setDoc(doc(this.userColl, this.user.id), this.user.toJSON())\n      .then(() => {\n        return true;\n      });\n  }\n\n  countUpDeals(userId: string) {\n    docData(doc(this.userColl, userId))\n      .subscribe((user: any) => {\n        console.log(user);\n        user.deals += 1;\n      });\n  }\n\n  generateRandomString(length: number) {\n    const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n    let randomString = '';\n\n    for (let i = 0; i < length; i++) {\n      const randomIndex = Math.floor(Math.random() * characters.length);\n      randomString += characters.charAt(randomIndex);\n    }\n\n    return randomString;\n  }\n\n}\n"
         }
     ]
 }
