@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <h2>Software Packet 2</h2>
+    <h2>{{ dealName }}</h2>
     <div class="menu">
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
@@ -29,9 +29,9 @@
         <span>Amount:</span>
       </div>
       <div class="right">
-        <span>Harry Potter</span>
-        <span>h.potter@grifindor.uk</span>
-        <span>1337€</span>
+        <span>{{ fullName }}</span>
+        <span>{{ email }}</span>
+        <span>{{ dealSale }}€</span>
       </div>
     </div>
   </mat-card-content>

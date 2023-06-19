@@ -28,7 +28,7 @@ export class DealsComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogAddDealComponent)
-    console.log(this.allDealIds[0]);
+    // console.log(this.allDealIds[0]);
   }
 
 }

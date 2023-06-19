@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
 import { DealService } from 'src/app/shared/services/deal.service';
 import { Deal } from 'src/models/deal.class';
 
@@ -8,20 +9,34 @@ import { Deal } from 'src/models/deal.class';
   styleUrls: ['./deals-card.component.scss']
 })
 export class DealsCardComponent implements OnInit {
+  private dealColl: CollectionReference<DocumentData>;
+  @Input() dealId!: string;
+  @Input() index!: number;
   deal!: Deal;
+  dealName!: string;
+  fullName!: string;
+  email!: string;
+  dealSale!: number;
 
   constructor(
     public dealService: DealService,
-  ) { }
-
-  ngOnInit(): void {
-    this.getAllDeals();
+    private firestore: Firestore,
+  ) {
+    this.dealColl = collection(this.firestore, 'deals');
   }
 
-  getAllDeals() {
-    let test = this.dealService.getDoc()
-      .subscribe(deals => {
-        // console.log(deals[0]);
-      });
+  ngOnInit(): void {
+    this.getDealData(this.dealId);
+  }
+
+  getDealData(dealId: string) {
+    const docRef = doc(this.dealColl, dealId);
+    const dealData = docData(docRef);
+    dealData.subscribe((deal: any) => {
+      this.dealName = deal['dealName'];
+      this.fullName = deal['fullName'];
+      this.email = deal['email'];
+      this.dealSale = deal['dealSale'];
+    });
   }
 }

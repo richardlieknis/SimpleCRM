@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, addDoc, collection, collectionData, doc, setDoc } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, FieldValue, Firestore, addDoc, collection, collectionData, doc, docData, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { Deal } from 'src/models/deal.class';
@@ -11,6 +11,8 @@ export class DealService {
   private deal = new Deal();
   private dealColl: CollectionReference<DocumentData>;
   allIds: any[] = [];
+  allDeals: any[] = [];
+  dealDataPromise: any;
 
   constructor(
     private firestore: Firestore,
@@ -39,5 +41,28 @@ export class DealService {
         })
       })
     return this.allIds;
+  }
+
+  setDealData(userId: string) {
+    const docRef = doc(this.dealColl, userId);
+    const dealData = docData(docRef);
+    this.dealDataPromise = new Promise((resolve) => {
+      dealData.subscribe((deal: any) => {
+        this.deal.dealName = deal['dealName'];
+        this.deal.fullName = deal['fullName'];
+        this.deal.email = deal['email'];
+        this.deal.dealSale = deal['dealSale'];
+        resolve(this.deal)
+      });
+    })
+
+  }
+
+  async returnDealData(userId: string) {
+    this.setDealData(userId);
+    console.log(this.dealDataPromise);
+    this.dealDataPromise.then((dealData: any) => {
+      return dealData;
+    })
   }
 }
