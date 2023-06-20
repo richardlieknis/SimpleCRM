@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
 import { DealService } from 'src/app/shared/services/deal.service';
 import { Deal } from 'src/models/deal.class';
@@ -12,11 +12,13 @@ export class DealsCardComponent implements OnInit {
   private dealColl: CollectionReference<DocumentData>;
   @Input() dealId!: string;
   @Input() index!: number;
+  @Input() dealIsDone!: boolean;
   deal!: Deal;
   dealName!: string;
   fullName!: string;
   email!: string;
   dealSale!: number;
+  isDone!: boolean;
 
   constructor(
     public dealService: DealService,
@@ -37,6 +39,7 @@ export class DealsCardComponent implements OnInit {
       this.fullName = deal['fullName'];
       this.email = deal['email'];
       this.dealSale = deal['dealSale'];
+      this.isDone = deal.isDone;
     });
   }
 }

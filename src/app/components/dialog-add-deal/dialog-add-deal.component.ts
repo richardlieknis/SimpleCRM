@@ -56,7 +56,7 @@ export class DialogAddDealComponent implements OnInit {
   }
 
   save() {
-    this.dealService.createDoc(
+    this.dealService.createNewDeal(
       this.allUserIds[this.currentUserIndex],
       this.allUserEmail[this.currentUserIndex],
       this.deal

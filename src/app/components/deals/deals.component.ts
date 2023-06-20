@@ -5,6 +5,7 @@ import DialogEditUserComponent from '../dialog-edit-user/dialog-edit-user.compon
 import { DialogAddDealComponent } from '../dialog-add-deal/dialog-add-deal.component';
 import { DealService } from 'src/app/shared/services/deal.service';
 import { Deal } from 'src/models/deal.class';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-deals',
@@ -13,22 +14,35 @@ import { Deal } from 'src/models/deal.class';
 })
 export class DealsComponent implements OnInit {
   deal!: Deal;
-  allDealIds: any[] = [];
+  runningDealIds: any[] = [];
+  doneDealIds: any[] = [];
 
   constructor(
     public dialog: MatDialog,
     private userService: UserService,
-    private dealService: DealService,
-  ) { }
+    private dealService: DealService
+  ) {
+  }
 
   ngOnInit(): void {
-    this.allDealIds = [];
-    this.allDealIds = this.dealService.returnAllDocIds();
+    this.init();
   }
 
+  init() {
+    this.returnRunningDeals();
+    this.returnDoneDeals();
+  }
+
+  returnRunningDeals() {
+    this.runningDealIds = [];
+    this.runningDealIds = this.dealService.returnAllDocIds(true);
+  }
+
+  async returnDoneDeals() {
+    this.doneDealIds = [];
+    this.doneDealIds = this.dealService.returnAllDocIds(false);
+  }
   openDialog() {
     this.dialog.open(DialogAddDealComponent)
-    // console.log(this.allDealIds[0]);
   }
-
 }

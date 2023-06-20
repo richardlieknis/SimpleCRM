@@ -14,7 +14,7 @@
           <mat-icon>done</mat-icon>
           <span>Done</span>
         </button>
-        <button mat-menu-item>
+        <button *ngIf="!dealIsDone" mat-menu-item>
           <mat-icon color="warn">delete</mat-icon>
           <span class="delete-btn">Delete</span>
         </button>
