@@ -29,8 +29,8 @@ export class DealsComponent implements OnInit {
   }
 
   init() {
-    this.returnRunningDeals();
     this.returnDoneDeals();
+    this.returnRunningDeals();
   }
 
   returnRunningDeals() {
