@@ -30,18 +30,8 @@ export class DealService {
     setDoc(doc(this.dealColl), this.deal.toJSON());
   }
 
-  returnAllDocIds(isDone: boolean) {
-    this.allIds = [];
-    collectionData(this.dealColl, { idField: 'id' })
-      .subscribe((data) => {
-        data.forEach(deal => {
-          if (deal['isDone'] == isDone) {
-            console.log(deal['isDone']);
-            this.allIds.push(deal['id']);
-          }
-        })
-      })
-    return this.allIds;
+  returnAllDocs() {
+    return collectionData(this.dealColl, { idField: 'id' })
   }
 
   setDealData(userId: string) {

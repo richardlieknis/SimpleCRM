@@ -6,6 +6,8 @@ import { DialogAddDealComponent } from '../dialog-add-deal/dialog-add-deal.compo
 import { DealService } from 'src/app/shared/services/deal.service';
 import { Deal } from 'src/models/deal.class';
 import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { take } from 'rxjs';
+import { AnyObject } from 'chart.js/types/basic';
 
 @Component({
   selector: 'app-deals',
@@ -14,8 +16,10 @@ import { CollectionReference, DocumentData, Firestore, collection, doc, docData 
 })
 export class DealsComponent implements OnInit {
   deal!: Deal;
-  runningDealIds: any[] = [];
-  doneDealIds: any[] = [];
+  runningDealIds: any = [];
+  doneDealIds: any = [];
+  runningDeals: any = [];
+  doneDeals: any = [];
 
   constructor(
     public dialog: MatDialog,
@@ -28,21 +32,37 @@ export class DealsComponent implements OnInit {
     this.init();
   }
 
-  init() {
-    this.returnDoneDeals();
-    this.returnRunningDeals();
+  async init() {
+    await this.returnRunningDeals();
+    await this.returnDoneDeals();
   }
 
-  returnRunningDeals() {
+  async returnRunningDeals() {
     this.runningDealIds = [];
-    this.runningDealIds = this.dealService.returnAllDocIds(true);
+    this.dealService.returnAllDocs().pipe(take(1)).subscribe((data: any) => {
+      data.forEach((deal: AnyObject) => {
+        if (deal['isDone'] === false){
+          this.runningDeals.push(deal);
+          this.runningDealIds.push(deal['id']);
+        }
+      });
+    });
   }
 
   async returnDoneDeals() {
     this.doneDealIds = [];
-    this.doneDealIds = this.dealService.returnAllDocIds(false);
+    this.dealService.returnAllDocs().pipe(take(1)).subscribe((data: any) => {
+      data.forEach((deal: AnyObject) => {
+        if (deal['isDone'] === true){
+          this.doneDeals.push(deal);
+          this.doneDealIds.push(deal['id']);
+        }
+      });
+    });
   }
+
   openDialog() {
+    console.log(this.doneDealIds);
     this.dialog.open(DialogAddDealComponent)
   }
 }

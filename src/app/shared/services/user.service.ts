@@ -37,7 +37,7 @@ export class UserService implements OnInit {
       });
     });
   }
-
+ 
   countUpDeals(userId: string) {
     const docRef = doc(this.firestore, 'users', userId);
     this.getUserDeals(userId);
