@@ -16,11 +16,11 @@ import { AnyObject } from 'chart.js/types/basic';
 })
 export class DealsComponent implements OnInit {
   deal!: Deal;
-  runningDealIds: any = [];
-  doneDealIds: any = [];
-  runningDeals: any = [];
-  doneDeals: any = [];
-
+  runningDealIds: string[] = [];
+  doneDealIds: string[] = [];
+  runningDeals: AnyObject[] = [];
+  doneDeals: AnyObject[] = [];
+  
   constructor(
     public dialog: MatDialog,
     private userService: UserService,
@@ -43,7 +43,7 @@ export class DealsComponent implements OnInit {
       data.forEach((deal: AnyObject) => {
         if (deal['isDone'] === false){
           this.runningDeals.push(deal);
-          this.runningDealIds.push(deal['id']);
+          this.runningDealIds.push(deal['id'] as string);
         }
       });
     });
@@ -55,7 +55,7 @@ export class DealsComponent implements OnInit {
       data.forEach((deal: AnyObject) => {
         if (deal['isDone'] === true){
           this.doneDeals.push(deal);
-          this.doneDealIds.push(deal['id']);
+          this.doneDealIds.push(deal['id'] as string);
         }
       });
     });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from '@angular/fire/auth';
 import { ChartConfiguration, ChartOptions } from 'chart.js'
-import { from } from 'rxjs';
+import { from, take } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 
 
@@ -33,7 +33,9 @@ export class StartedDealsComponent implements OnInit {
 
   getAllNamesWithSales() {
     const userData = this.userService.getDoc();
-    userData.subscribe((data) => {
+    userData
+    .pipe(take(1))
+    .subscribe((data) => {
       data.forEach(user => {
         if (user['deals'] != null) {
           let fullName = user['firstName'] + " " + user['lastName'];

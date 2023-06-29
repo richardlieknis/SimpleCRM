@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData, updateDoc } from '@angular/fire/firestore';
 import { AnyObject } from 'chart.js/types/basic';
 import { DealService } from 'src/app/shared/services/deal.service';
 import { Deal } from 'src/models/deal.class';
@@ -14,7 +14,7 @@ export class DealsCardComponent implements OnInit {
   @Input() dealId!: string;
   @Input() index!: number;
   @Input() dealIsDone!: boolean;
-  @Input() runDeal!: AnyObject;
+  @Input() runDeal!: AnyObject[];
 
   deal!: Deal;
   dealName!: string;
@@ -35,7 +35,11 @@ export class DealsCardComponent implements OnInit {
   }
 
   completeDeal(){
-    console.log(this.runDeal[this.index]);
+    const deal: any = this.runDeal[this.index];
+    const docRef = doc(this.dealColl, deal['id']);
+    updateDoc(docRef, {
+      isDone: true,
+    });
   }
 
   getDealData(dealId: string) {
