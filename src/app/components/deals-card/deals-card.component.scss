@@ -1,3 +1,9 @@
+mat-card {
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
 .menu {
   position: absolute;
   right: 5px;
