@@ -7,6 +7,7 @@ import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { AuthGuard } from './auth.guard';
 import { DealsComponent } from './components/deals/deals.component';
+import { InfoComponent } from './components/info/info.component';
 
 const routes: Routes = [
   {
@@ -19,9 +20,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'user', component: UsersComponent },
+      { path: 'users', component: UsersComponent },
       { path: 'user/:id', component: UserDetailComponent },
       { path: 'deals', component: DealsComponent },
+      { path: 'info', component: InfoComponent },
     ]
   },
 

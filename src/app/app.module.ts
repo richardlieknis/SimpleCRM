@@ -44,6 +44,7 @@ import { DealsCardComponent } from './components/deals-card/deals-card.component
 import { DialogAddDealComponent } from './components/dialog-add-deal/dialog-add-deal.component';
 import { MatSelectModule } from '@angular/material/select';
 import { InfoComponent } from './components/info/info.component';
+import { NewsComponent } from './components/news/news.component';
 
 
 
@@ -64,7 +65,8 @@ import { InfoComponent } from './components/info/info.component';
     DealsComponent,
     DealsCardComponent,
     DialogAddDealComponent,
-    InfoComponent
+    InfoComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

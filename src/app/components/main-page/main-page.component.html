@@ -8,10 +8,10 @@
         <li routerLink="/home/dashboard">
           <mat-icon>dashboard</mat-icon>Dashboard
         </li>
-        <li routerLink="/home/user"><mat-icon>account_circle</mat-icon>User</li>
-        <li routerLink="/home/deals"><mat-icon>paid</mat-icon>Deals</li>
-        <li routerLink="/home/deals"><mat-icon>info</mat-icon>Info</li>
-        <li routerLink="/home/deals"><mat-icon>newspaper</mat-icon>News</li>
+        <li routerLink="users"><mat-icon>account_circle</mat-icon>Users</li>
+        <li routerLink="deals"><mat-icon>paid</mat-icon>Deals</li>
+        <li routerLink="info"><mat-icon>info</mat-icon>Info</li>
+        <li routerLink="deals"><mat-icon>newspaper</mat-icon>News</li>
         <li (click)="logout()" routerLink="" class="login">
           <mat-icon>logout</mat-icon>Logout
         </li>
@@ -24,7 +24,7 @@
       <button (click)="drawer.toggle()" mat-icon-button class="menu-icon">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Simple CRM</span>
+      <span>{{test}}</span>
     </mat-toolbar>
   </div>
   <div class="router-container">
