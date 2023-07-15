@@ -24,10 +24,16 @@ export class RevenueComponent implements OnInit {
         ticks: {
           callback: function (value, index, ticks) {
             return value + '€';
-          }
+          },
+          color: '#ddd'
+        }
+      },
+      x: {
+        ticks: {
+          color: '#ddd'
         }
       }
-    }
+    },
   };
 
   constructor(

@@ -21,7 +21,7 @@ export class SalesActivityComponent {
 
   public chartData = [
     {
-      data: [75432, 94312, 61243, 89456],
+      data: [23, 11, 43, 70],
       label: '2020'
     },
     // {

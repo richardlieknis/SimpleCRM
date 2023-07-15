@@ -20,7 +20,22 @@ export class StartedDealsComponent implements OnInit {
       legend: {
         display: false
       }
-    }
+    },
+    scales: {
+      y: {
+        ticks: {
+          callback: function(value: any, index, values) {
+            if (value % 1 === 0) {return value;}
+        },
+          color: '#ddd'
+        }
+      },
+      x: {
+        ticks: {
+          color: '#ddd'
+        }
+      }
+    },
   };
   public barChartLabels = this.userNames;
   public barChartData = [{ data: this.userSales }]
