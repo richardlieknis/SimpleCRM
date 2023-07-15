@@ -32,6 +32,7 @@ export class Revenue {
       january: this.january,
       february: this.february,
       march: this.march,
+      april: this.april,
       may: this.may,
       june: this.june,
       july: this.july,

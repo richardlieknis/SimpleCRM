@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js'
+import { Observable } from 'rxjs';
+import { RevenueService } from 'src/app/shared/services/revenue.service';
 
 
 @Component({
@@ -7,7 +9,12 @@ import { ChartConfiguration, ChartOptions } from 'chart.js'
   templateUrl: './revenue.component.html',
   styleUrls: ['./revenue.component.scss']
 })
-export class RevenueComponent {
+export class RevenueComponent implements OnInit {
+  allRevenueYears: Array<any> = [];
+  allRevenueData: Array<any> = [];
+
+  public chartLabels!: any;
+  public chartData!: any;
   public chartOptions: ChartOptions<'line'> = {
     responsive: true,
     scales: {
@@ -21,20 +28,45 @@ export class RevenueComponent {
     }
   };
 
-  public chartLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  constructor(
+    private revenueService: RevenueService,
+  ) { }
 
-  public chartData = [
-    {
-      data: [75432, 94312, 61243, 89456, 43209, 76321, 90123, 65321, 56432, 80234, 92874, 67543],
-      label: '2020',
-    },
-    {
-      data: [89341, 65423, 80235, 98654, 53210, 71987, 60432, 81234, 96432, 87123, 74561, 52019],
-      label: '2021'
-    },
-    {
-      data: [67890, 93456, 51842, 70012, 83124, 92017, 57643, 82456, 96021, 70345, 81903, 65340],
-      label: '2022'
-    },
-  ]
+  async ngOnInit(): Promise<void> {
+    const sortOrder = this.revenueService.months;
+    const chartData = await this.revenueService.getDocs();
+    chartData.forEach((doc) => {
+      this.allRevenueYears.push(doc.id);
+      this.allRevenueData.push(doc.data());
+    })
+    
+    const sortedObj: any = {};
+    sortOrder.forEach(key => {
+      if (this.allRevenueData[0].hasOwnProperty(key)){
+        sortedObj[key] = this.allRevenueData[0][key];
+      }
+    });
+
+    console.log("SORT: ",sortedObj);
+
+    this.setChartData(sortedObj);
+  }
+
+  setChartData(data: any) {
+    const entries = Object.entries(data);
+    let labels: Array<any> = entries.map(([key, value]) => key);
+    let chData: Array<any> = entries.map(([key, value]) => value);
+    
+
+    console.log(labels, chData);
+    
+    this.chartLabels = labels;
+
+    this.chartData = [
+      {
+        data: chData,
+        label: this.allRevenueYears[0],
+      },
+    ]
+  }
 }

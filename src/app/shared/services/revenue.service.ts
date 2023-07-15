@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
+import { DocumentData, Firestore, collection, collectionData, doc, docData, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
 import { AnyObject } from 'chart.js/types/basic';
+import { Observable } from 'rxjs';
 import { Revenue } from 'src/models/revenue.class';
 
 @Injectable({
@@ -16,6 +17,18 @@ export class RevenueService {
   constructor(
     private fs: Firestore,
   ) {
+
+  }
+
+  async readDocNames() {
+    const docCollection = collection(this.fs, 'revenue');
+    return collectionData(docCollection, { idField: 'id' });
+  }
+
+  async getDocs(){
+    const docCollection = collection(this.fs, 'revenue');
+    const querySnapshot = await getDocs(docCollection);
+    return querySnapshot;
   }
 
   read(year: string) {
@@ -28,7 +41,7 @@ export class RevenueService {
     return setDoc(docRef, revenue.toJSON());
   }
 
-  update(month: number, year: string, amount: number){
+  update(month: number, year: string, amount: number) {
     const currentMonth = this.months[month];
     const revenueAmount = amount;
     const upData: any = {};

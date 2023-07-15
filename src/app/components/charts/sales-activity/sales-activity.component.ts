@@ -10,6 +10,11 @@ import { NgChartsConfiguration } from 'ng2-charts';
 export class SalesActivityComponent {
   public chartOptions: ChartOptions<'doughnut'> = {
     responsive: true,
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
   };
 
   public chartLabels = ["Call", "Preparation", "Email", "Lead research"];
