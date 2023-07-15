@@ -12,6 +12,8 @@ import { RevenueService } from 'src/app/shared/services/revenue.service';
 export class RevenueComponent implements OnInit {
   allRevenueYears: Array<any> = [];
   allRevenueData: Array<any> = [];
+  extractRevenueData: Array<any> = [];
+  revenueLabels: Array<any> = [];
 
   public chartLabels!: any;
   public chartData!: any;
@@ -33,40 +35,45 @@ export class RevenueComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    const sortOrder = this.revenueService.months;
     const chartData = await this.revenueService.getDocs();
     chartData.forEach((doc) => {
       this.allRevenueYears.push(doc.id);
       this.allRevenueData.push(doc.data());
     })
-    
+    this.sortRevenueData();
+  }
+
+  sortRevenueData() {
+    const sortOrder = this.revenueService.months;
     const sortedObj: any = {};
-    sortOrder.forEach(key => {
-      if (this.allRevenueData[0].hasOwnProperty(key)){
-        sortedObj[key] = this.allRevenueData[0][key];
-      }
-    });
+    for (let i = 0; i < this.allRevenueData.length; i++) {
+      sortOrder.forEach(key => {
+        if (this.allRevenueData[i].hasOwnProperty(key)) {
+          sortedObj[key] = this.allRevenueData[i][key];
+        }
+      });
+      this.setObjectData(sortedObj, this.allRevenueYears[i]);
+    }
+    this.setChartData(this.extractRevenueData);
+  }
 
-    console.log("SORT: ",sortedObj);
+  setObjectData(data: any, year: string) {
+    const entries = Object.entries(data);
+    this.revenueLabels = entries.map(([key, value]) => key);
+    let chData: Array<any> = entries.map(([key, value]) => value);
 
-    this.setChartData(sortedObj);
+    this.extractRevenueData.push(this.setDataObj(chData, year));
   }
 
   setChartData(data: any) {
-    const entries = Object.entries(data);
-    let labels: Array<any> = entries.map(([key, value]) => key);
-    let chData: Array<any> = entries.map(([key, value]) => value);
-    
+    this.chartLabels = this.revenueLabels;
+    this.chartData = [...data]
+  }
 
-    console.log(labels, chData);
-    
-    this.chartLabels = labels;
-
-    this.chartData = [
-      {
-        data: chData,
-        label: this.allRevenueYears[0],
-      },
-    ]
+  setDataObj(data: any, label: any) {
+    return {
+      data: data,
+      label: label
+    }
   }
 }
