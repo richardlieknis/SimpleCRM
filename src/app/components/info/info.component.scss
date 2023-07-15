@@ -1,0 +1,14 @@
+.wrapper {
+  text-align: justify;
+  ul {
+    color: #c2185b;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+      color: #fff;
+    }
+  }
+}

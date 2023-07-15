@@ -5,13 +5,13 @@
     </div>
     <div class="menu-links">
       <ul>
-        <li routerLink="/home/dashboard">
+        <li routerLink="/home/dashboard"  routerLinkActive="activeLink">
           <mat-icon>dashboard</mat-icon>Dashboard
         </li>
-        <li routerLink="users"><mat-icon>account_circle</mat-icon>Users</li>
-        <li routerLink="deals"><mat-icon>paid</mat-icon>Deals</li>
-        <li routerLink="info"><mat-icon>info</mat-icon>Info</li>
-        <li routerLink="deals"><mat-icon>newspaper</mat-icon>News</li>
+        <li routerLink="users" routerLinkActive="activeLink"><mat-icon>account_circle</mat-icon>Users</li>
+        <li routerLink="deals" routerLinkActive="activeLink"><mat-icon>paid</mat-icon>Deals</li>
+        <li routerLink="info" routerLinkActive="activeLink"><mat-icon>info</mat-icon>Info</li>
+        <li routerLink="news" routerLinkActive="activeLink"><mat-icon>newspaper</mat-icon>News</li>
         <li (click)="logout()" routerLink="" class="login">
           <mat-icon>logout</mat-icon>Logout
         </li>

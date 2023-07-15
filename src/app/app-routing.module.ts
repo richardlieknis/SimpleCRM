@@ -8,6 +8,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { AuthGuard } from './auth.guard';
 import { DealsComponent } from './components/deals/deals.component';
 import { InfoComponent } from './components/info/info.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'user/:id', component: UserDetailComponent },
       { path: 'deals', component: DealsComponent },
       { path: 'info', component: InfoComponent },
+      { path: 'news', component: NewsComponent },
     ]
   },
 

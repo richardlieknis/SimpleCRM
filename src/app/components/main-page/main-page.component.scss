@@ -49,6 +49,10 @@ mat-icon {
   width: 250px;
 }
 
+.activeLink {
+  background-color: #c2185b;
+}
+
 .router-container {
   margin-top: 64px;
   padding: 16px 56px;
@@ -75,7 +79,7 @@ mat-icon {
 
     &:hover {
       cursor: pointer;
-      background-color: #555;
+      background-color: #333;
     }
   }
 
