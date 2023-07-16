@@ -26,7 +26,6 @@ export class DealsComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private dealService: DealService,
-    private rS: RevenueService
   ) {
   }
 
@@ -52,7 +51,6 @@ export class DealsComponent implements OnInit {
   }
 
   openDialog() {
-    this.rS.create(this.r, '2020');
     this.dialog.open(DialogAddDealComponent)
   }
 }

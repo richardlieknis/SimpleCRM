@@ -1,1 +1,27 @@
-<p>news works!</p>
+<div class="wrapper">
+  <a href="{{ news['url'] }}" target="_blank" *ngFor="let news of newsData; let i = index">
+    <mat-card>
+      <mat-card-header>{{ news["title"] }}</mat-card-header>
+      <mat-card-subtitle>
+        Source:
+        <span>
+          <a href="{{ news['source']['url'] }}" target="_blank"
+            >{{ news["source"]["name"] }}
+          </a>
+        </span>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <img src="{{ news['image'] }}" />
+        <p>
+          {{ news["content"].split("[", 1) }}
+          <span>CLICK FOR MORE</span>
+        </p>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-card-subtitle>
+          Published at: {{ news["publishedAt"].split("T", 1) }}
+        </mat-card-subtitle>
+      </mat-card-footer>
+    </mat-card>
+  </a>
+</div>
