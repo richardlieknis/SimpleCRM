@@ -14,7 +14,7 @@
           <mat-icon>done</mat-icon>
           <span>Done</span>
         </button>
-        <button *ngIf="!dealIsDone" mat-menu-item>
+        <button mat-menu-item (click)="deleteDeal(dealId)" *ngIf="!dealIsDone" >
           <mat-icon color="warn">delete</mat-icon>
           <span class="delete-btn">Delete</span>
         </button>

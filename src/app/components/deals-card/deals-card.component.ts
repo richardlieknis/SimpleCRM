@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, collection, doc, docData, updateDoc } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, Firestore, collection, deleteDoc, doc, docData, updateDoc } from '@angular/fire/firestore';
 import { AnyObject } from 'chart.js/types/basic';
 import { take } from 'rxjs';
 import { DealService } from 'src/app/shared/services/deal.service';
@@ -53,6 +53,10 @@ export class DealsCardComponent implements OnInit {
     });
     this.runDeal.splice(this.index, 1);
     this.addRevenue(amount);
+  }
+
+  async deleteDeal(dealId: any){
+    await deleteDoc(doc(this.firestore, 'deals', dealId));
   }
 
   addRevenue(amount: number){
