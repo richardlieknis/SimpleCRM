@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatNativeDateModule } from '@angular/material/core'
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -102,7 +102,8 @@ import { NewsComponent } from './components/news/news.component';
 
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    // { provide: MAT_DATE_LOCALE, useValue: 'de-DE' }
   ],
   bootstrap: [AppComponent]
 })

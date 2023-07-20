@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { CollectionReference, DocumentData, Firestore, doc, docData, setDoc } from '@angular/fire/firestore';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { addDoc, collection } from '@firebase/firestore';
@@ -11,6 +13,7 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-edit-user.component.scss']
 })
 export default class DialogEditUserComponent {
+  userForm!: FormGroup;
   user = new User();
   userId: string = '';
   birthDate!: Date;
@@ -19,11 +22,13 @@ export default class DialogEditUserComponent {
 
   constructor(
     private firestore: Firestore,
-    private route: ActivatedRoute,
     public dialogRef: MatDialogRef<DialogEditUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder,
+    private dateAdapter: DateAdapter<Date>,
   ) {
     this.userCollection = collection(this.firestore, 'users');
+    this.dateAdapter.setLocale('de-DE');
   }
 
   closeDialog(): void {
@@ -32,6 +37,15 @@ export default class DialogEditUserComponent {
 
   ngOnInit(): void {
     this.setUserData(this.data);
+    this.userForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      birthDate: ['', [Validators.required]],
+      street: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      zipCode: ['', [Validators.required]],
+    })
   }
 
   setUserData(userId: string) {
@@ -55,27 +69,15 @@ export default class DialogEditUserComponent {
 
   save() {
     this.isLoading = true;
-    let dateInMilliseconds = 0;
-    try { dateInMilliseconds = this.birthDate.getTime(); } catch { }
-
+    const dateInMilliseconds = this.birthDate.getTime();
     const formattedDate = new Date(dateInMilliseconds).toLocaleDateString("de-DE");
-
     this.user.birthDate = formattedDate;
-
     const docRef = doc(this.userCollection, this.data);
+
     setDoc(docRef, this.user.toJSON())
-      .then((result) => {
-        this.isLoading = false;
+      .then(() => {
         this.closeDialog();
+        this.isLoading = false;
       });
-  }
-
-  formatDate(milliseconds: number) {
-    const date = new Date(milliseconds);
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Monat (von 0 bis 11)
-    const day = date.getDate().toString().padStart(2, '0');  // Tag
-    const year = date.getFullYear().toString();  // Jahr
-
-    return `${month}/${day}/${year}`;
   }
 }
