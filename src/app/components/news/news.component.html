@@ -1,5 +1,16 @@
-<div class="wrapper">
-  <a href="{{ news['url'] }}" target="_blank" *ngFor="let news of newsData; let i = index">
+<div class="spinner" *ngIf="isLoading">
+  <div class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="wrapper" *ngIf="!isLoading">
+  <a
+    href="{{ news['url'] }}"
+    target="_blank"
+    *ngFor="let news of newsData; let i = index"
+  >
     <mat-card>
       <mat-card-header>{{ news["title"] }}</mat-card-header>
       <mat-card-subtitle>
