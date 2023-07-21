@@ -9,7 +9,7 @@ import { AuthGuard } from './auth.guard';
 import { DealsComponent } from './components/deals/deals.component';
 import { InfoComponent } from './components/info/info.component';
 import { NewsComponent } from './components/news/news.component';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 const routes: Routes = [
   {
     path: '',

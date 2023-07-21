@@ -48,7 +48,6 @@ import { NewsComponent } from './components/news/news.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

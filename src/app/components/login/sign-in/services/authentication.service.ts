@@ -52,7 +52,6 @@ export class AuthenticationService {
         const token = credential?.accessToken;
         const user = result.user;
         localStorage.setItem(this.tokenName, 'token');
-        console.log("TOKEN: " + token, "USER: " + user.toJSON);
     })
   }
 

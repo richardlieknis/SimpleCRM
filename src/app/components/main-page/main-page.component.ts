@@ -31,7 +31,9 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    setTimeout(() => {
       this.updateDrawerMode(window.innerWidth);
+    }, 0)
   }
 
   logout() {
