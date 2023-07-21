@@ -14,6 +14,7 @@ export class RevenueComponent implements OnInit {
   allRevenueData: Array<any> = [];
   extractRevenueData: Array<any> = [];
   revenueLabels: Array<any> = [];
+  type: string = 'line';
 
   public chartLabels!: any;
   public chartData!: any;

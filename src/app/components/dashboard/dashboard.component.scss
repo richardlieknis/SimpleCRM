@@ -10,5 +10,18 @@
 }
 
 .chart {
-  max-height: 400px !important;
+  // max-height: 400px !important;
+}
+
+@media (width < 700px) {
+  .sec-section {
+    flex-direction: column;
+    width: 100%;
+  }
+  .chart-container {
+    width: 100%;
+  }
+  .chart {
+    height: 500px !important;
+  }
 }

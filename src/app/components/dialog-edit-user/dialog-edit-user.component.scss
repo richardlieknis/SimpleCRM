@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
   // gap: 10px;
 }
 
@@ -23,4 +24,21 @@
 
 mat-progress-bar {
   margin-top: 16px;
+}
+
+@media (width < 615px) {
+  h1 {
+    margin-bottom: unset;
+  }
+  .double-input {
+    gap: unset;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (height < 700px) {
+  .dia-content {
+    padding-top: 80px;
+  }
 }
