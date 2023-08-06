@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, collection, doc, docData, setDoc } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatMenuTrigger } from '@angular/material/menu';
 import DialogEditUserComponent from '../dialog-edit-user/dialog-edit-user.component';
+import { update } from '@angular/fire/database';
 
 
 
@@ -15,6 +16,7 @@ import DialogEditUserComponent from '../dialog-edit-user/dialog-edit-user.compon
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit{
+  editPhoneToggle: boolean = false;
   userId: string = '';
   user = new User();
   private userCollection: CollectionReference<DocumentData>;
@@ -48,6 +50,14 @@ export class UserDetailComponent implements OnInit{
       this.user.phoneNumber = user.phoneNumber;
       this.user.deals = user.deals;
     })
+  }
+
+  submitPhoneNumber(value: any){
+    const docRef = doc(this.userCollection, this.userId);
+    updateDoc(docRef, {
+      phoneNumber: value,
+    });
+    this.editPhoneToggle = false;
   }
 
   editUser() {

@@ -48,15 +48,26 @@
       <div class="phone">
         <div class="head">
           <h2>Phone</h2>
-          <mat-icon>edit</mat-icon>
+          <mat-icon (click)="this.editPhoneToggle = !this.editPhoneToggle;">edit </mat-icon>
         </div>
-        <span>{{ user.phoneNumber || 'No number available'}}</span>
+        <div class="phone-input">
+          <span *ngIf="!editPhoneToggle">{{
+            user.phoneNumber || "No number available"
+          }}</span>
+          <input
+            (keyup.enter)="submitPhoneNumber(phone.value)"
+            autofocus
+            *ngIf="editPhoneToggle"
+            type="text"
+            value="{{ user.phoneNumber }}"
+            #phone
+          />
+        </div>
       </div>
       <div class="deals">
         <h2>Deals</h2>
         <span>{{ user.deals }}</span>
       </div>
     </div>
-    
   </mat-card-content>
 </mat-card>

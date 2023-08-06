@@ -43,7 +43,7 @@ mat-card-header {
 
 mat-card-content {
   display: flex;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
   flex-direction: row;
   gap: 30px;
   padding: 30px 20px;
@@ -66,9 +66,20 @@ mat-card-content {
           font-size: 16px;
           &:hover {
             cursor: pointer;
-            color: rgb(255, 172, 172);
+            color: rgb(208, 208, 208);
           }
         }
+      }
+      .phone-input {
+        width: 150px;
+      }
+      input {
+        border: none;
+        background-color: #0002;
+        border-radius: 12px;
+        color: #fff;
+        font-size: 14px;
+        width: fit-content !important;
       }
     }
     .deals {
