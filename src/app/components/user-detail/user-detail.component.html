@@ -14,11 +14,11 @@
           <mat-icon>edit_note</mat-icon>
           <span>Edit</span>
         </button>
-        <button mat-menu-item disabled>
-          <mat-icon>call</mat-icon>
-          <span>Call</span>
-        </button>
-        <button mat-menu-item disabled="">
+          <button (click)="callUser(user.phoneNumber)" mat-menu-item>
+            <mat-icon>call</mat-icon>
+            <span>Call</span>
+          </button>
+        <button (click)="mailUser(user.email)" mat-menu-item>
           <mat-icon>mail</mat-icon>
           <span>Send mail</span>
         </button>
@@ -48,7 +48,9 @@
       <div class="phone">
         <div class="head">
           <h2>Phone</h2>
-          <mat-icon (click)="this.editPhoneToggle = !this.editPhoneToggle;">edit </mat-icon>
+          <mat-icon (click)="this.editPhoneToggle = !this.editPhoneToggle"
+            >edit
+          </mat-icon>
         </div>
         <div class="phone-input">
           <span *ngIf="!editPhoneToggle">{{
@@ -65,7 +67,7 @@
         </div>
       </div>
       <div class="deals">
-        <h2>Deals</h2>
+        <h2>Total deals</h2>
         <span>{{ user.deals }}</span>
       </div>
     </div>

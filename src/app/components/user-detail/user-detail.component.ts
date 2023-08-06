@@ -60,6 +60,16 @@ export class UserDetailComponent implements OnInit{
     this.editPhoneToggle = false;
   }
 
+  callUser(phone: any) {
+    console.log("hallo?");
+    window.location.href = `tel:${phone}`;
+    // window.open(`tel:${phone}`);
+  }
+
+  mailUser(email: any) {
+    window.location.href = `mailto:${email}`;
+  }
+
   editUser() {
     // console.log(this.userId);
     this.dialog.open(DialogEditUserComponent, {
