@@ -33,14 +33,30 @@
     </div>
   </mat-card-header>
   <mat-card-content>
-    <div class="address-box">
-      <h2>Address</h2>
-      <span>{{ user.street }}</span>
-      <span>{{ user.zipCode }} {{ user.city }}</span>
+    <div class="box">
+      <div class="address-box">
+        <h2>Address</h2>
+        <span>{{ user.street }}</span>
+        <span>{{ user.zipCode }} {{ user.city }}</span>
+      </div>
+      <div class="birth">
+        <h2>Birth Date</h2>
+        <span>{{ user.birthDate }}</span>
+      </div>
     </div>
-    <div class="birth">
-      <h2>Birth Date</h2>
-      <span>{{ user.birthDate }}</span>
+    <div class="box">
+      <div class="phone">
+        <div class="head">
+          <h2>Phone</h2>
+          <mat-icon>edit</mat-icon>
+        </div>
+        <span>{{ user.phoneNumber || 'No number available'}}</span>
+      </div>
+      <div class="deals">
+        <h2>Deals</h2>
+        <span>{{ user.deals }}</span>
+      </div>
     </div>
+    
   </mat-card-content>
 </mat-card>

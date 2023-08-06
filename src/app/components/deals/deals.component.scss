@@ -13,3 +13,14 @@
   bottom: 56px;
   right: 56px;
 }
+
+.empty-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .info {
+    background-color: #c2185b;
+    padding: 10px 20px;
+    border-radius: 12px;
+  }
+}

@@ -7,7 +7,9 @@
       [dealId]="deal"
       [runDeal]="runningDeals"
     ></app-deals-card>
-    <!--  -->
+  </div>
+  <div *ngIf="runningDealIds.length == 0" class="empty-content">
+    <div class="info">There are no started deals.</div>
   </div>
 </div>
 <div class="completed-deals">
@@ -18,6 +20,9 @@
       [index]="j"
       [dealId]="doneDeal"
     ></app-deals-card>
+  </div>
+  <div *ngIf="doneDealIds.length == 0" class="empty-content">
+    <div class="info">There are no completed deals.</div>
   </div>
 </div>
 
