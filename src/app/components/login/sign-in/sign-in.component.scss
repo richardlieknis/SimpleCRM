@@ -6,8 +6,15 @@ main {
   background: linear-gradient(0deg, #111, #111, #000);
   color: aliceblue;
   height: 100vh;
-  h1 {
+  h2 {
     text-align: center;
+  }
+
+  .logo {
+    img {
+      width: 100%;
+      max-width: 350px;
+    }
   }
 }
 
@@ -16,6 +23,10 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
+  input {
+    width: 100%;
+  }
 
   button,
   mat-form-field {
@@ -24,9 +35,11 @@ form {
 
   mat-form-field {
     margin-bottom: 10px;
+    width: 100%;
   }
 
   button {
+    width: 100%;
     margin: 5px 0;
 
     &[mat-button] {
